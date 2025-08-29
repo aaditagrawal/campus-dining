@@ -1,10 +1,10 @@
 import Link from 'next/link';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { getRestaurantById, getMenuCategoriesByRestaurantId, getAllRestaurants } from '@/lib/dataLoader';
 import { isRestaurantOpen } from '@/lib/types';
-import { ArrowLeft, Clock, MapPin, Phone, Truck } from 'lucide-react';
+import { ArrowLeft, Clock, MapPin, Phone, Truck, Download } from 'lucide-react';
 
 // Generate static params for all restaurant IDs
 export async function generateStaticParams() {
@@ -15,10 +15,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function RestaurantPage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params;
-  const restaurant = getRestaurantById(id);
-  const menuCategories = getMenuCategoriesByRestaurantId(id);
+export default function RestaurantPage({ params }: { params: { id: string } }) {
+  const restaurant = getRestaurantById(params.id);
+  const menuCategories = getMenuCategoriesByRestaurantId(params.id);
 
   if (!restaurant) {
     return (
