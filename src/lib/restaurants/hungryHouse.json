@@ -2,25 +2,40 @@
   "id": "4",
   "name": "Hungry House",
   "mobileNumbers": [
-    { "number": "+919820243177", "label": "Main" },
-    { "number": "+918779661484", "label": "Orders" },
-    { "number": "+919844873008", "label": "Delivery" },
-    { "number": "+918105972336", "label": "Support" }
+    {
+      "number": "+919820243177",
+      "label": "Main"
+    },
+    {
+      "number": "+918779661484",
+      "label": "Orders"
+    },
+    {
+      "number": "+919844873008",
+      "label": "Delivery"
+    },
+    {
+      "number": "+918105972336",
+      "label": "Support"
+    }
   ],
-  "cuisine": ["VEG", "NON_VEG"],
-   "timing": {
-     "open": "12:00",
-     "close": "00:30",
-     "days": [
-       "monday",
-       "tuesday",
-       "wednesday",
-       "thursday",
-       "friday",
-       "saturday",
-       "sunday"
-     ]
-   },
+  "cuisine": [
+    "VEG",
+    "NON_VEG"
+  ],
+  "timing": {
+    "open": "12:00",
+    "close": "00:30",
+    "days": [
+      "monday",
+      "tuesday",
+      "wednesday",
+      "thursday",
+      "friday",
+      "saturday",
+      "sunday"
+    ]
+  },
   "address": "Shop No 5, Student Plaza, Kamath Circle, MIT Campus, Manipal",
   "deliveryCost": 5,
   "description": "Modern fast food restaurant serving juices, pizzas, burgers, wraps and more",
@@ -35,8 +50,11 @@
           "category": "beverages",
           "description": "Fresh lime juice with mint and spices",
           "variations": [
-            { "type": "VEG", "price": 20, "available": true },
-            { "type": "JAIN", "price": 20, "available": true }
+            {
+              "type": "VEG",
+              "price": 20,
+              "available": true
+            }
           ],
           "keywords": [
             "lime",
@@ -53,7 +71,13 @@
           "name": "Oreo Milk Shake",
           "category": "beverages",
           "description": "Creamy milkshake with Oreo cookies",
-          "variations": [{ "type": "VEG", "price": 60, "available": true }],
+          "variations": [
+            {
+              "type": "VEG",
+              "price": 60,
+              "available": true
+            }
+          ],
           "keywords": [
             "oreo",
             "milkshake",
@@ -69,7 +93,13 @@
           "name": "Chocolate Milk Shake",
           "category": "beverages",
           "description": "Rich chocolate milkshake",
-          "variations": [{ "type": "VEG", "price": 50, "available": true }],
+          "variations": [
+            {
+              "type": "VEG",
+              "price": 50,
+              "available": true
+            }
+          ],
           "keywords": [
             "chocolate",
             "milkshake",
@@ -85,8 +115,11 @@
           "category": "beverages",
           "description": "Fresh banana milkshake",
           "variations": [
-            { "type": "VEG", "price": 50, "available": true },
-            { "type": "JAIN", "price": 50, "available": true }
+            {
+              "type": "VEG",
+              "price": 50,
+              "available": true
+            }
           ],
           "keywords": [
             "banana",
@@ -102,8 +135,21 @@
           "name": "Cold Coffee",
           "category": "beverages",
           "description": "Chilled coffee with ice cream",
-          "variations": [{ "type": "VEG", "price": 50, "available": true }],
-          "keywords": ["coffee", "cold", "iced", "chilled", "beverage", "drink"]
+          "variations": [
+            {
+              "type": "VEG",
+              "price": 50,
+              "available": true
+            }
+          ],
+          "keywords": [
+            "coffee",
+            "cold",
+            "iced",
+            "chilled",
+            "beverage",
+            "drink"
+          ]
         },
         {
           "id": "106",
@@ -111,8 +157,11 @@
           "category": "beverages",
           "description": "Refreshing mint mojito with lime",
           "variations": [
-            { "type": "VEG", "price": 60, "available": true },
-            { "type": "JAIN", "price": 60, "available": true }
+            {
+              "type": "VEG",
+              "price": 60,
+              "available": true
+            }
           ],
           "keywords": [
             "mint",
@@ -129,7 +178,13 @@
           "name": "Blue Mint Mojito",
           "category": "beverages",
           "description": "Blue curacao flavored mint mojito",
-          "variations": [{ "type": "VEG", "price": 60, "available": true }],
+          "variations": [
+            {
+              "type": "VEG",
+              "price": 60,
+              "available": true
+            }
+          ],
           "keywords": [
             "blue",
             "mint",
@@ -146,8 +201,11 @@
           "category": "beverages",
           "description": "Blueberry flavored refreshing mojito",
           "variations": [
-            { "type": "VEG", "price": 60, "available": true },
-            { "type": "JAIN", "price": 60, "available": true }
+            {
+              "type": "VEG",
+              "price": 60,
+              "available": true
+            }
           ],
           "keywords": [
             "blueberry",
@@ -164,8 +222,11 @@
           "category": "beverages",
           "description": "Black currant flavored mojito",
           "variations": [
-            { "type": "VEG", "price": 60, "available": true },
-            { "type": "JAIN", "price": 60, "available": true }
+            {
+              "type": "VEG",
+              "price": 60,
+              "available": true
+            }
           ],
           "keywords": [
             "black",
@@ -182,8 +243,11 @@
           "category": "beverages",
           "description": "Orange flavored refreshing mojito",
           "variations": [
-            { "type": "VEG", "price": 60, "available": true },
-            { "type": "JAIN", "price": 60, "available": true }
+            {
+              "type": "VEG",
+              "price": 60,
+              "available": true
+            }
           ],
           "keywords": [
             "orange",
@@ -200,10 +264,20 @@
           "category": "beverages",
           "description": "Fresh lemon soda with mint",
           "variations": [
-            { "type": "VEG", "price": 30, "available": true },
-            { "type": "JAIN", "price": 30, "available": true }
+            {
+              "type": "VEG",
+              "price": 30,
+              "available": true
+            }
           ],
-          "keywords": ["lemon", "soda", "fresh", "mint", "beverage", "drink"]
+          "keywords": [
+            "lemon",
+            "soda",
+            "fresh",
+            "mint",
+            "beverage",
+            "drink"
+          ]
         },
         {
           "id": "112",
@@ -211,10 +285,20 @@
           "category": "beverages",
           "description": "Mint flavored soda crush",
           "variations": [
-            { "type": "VEG", "price": 50, "available": true },
-            { "type": "JAIN", "price": 50, "available": true }
+            {
+              "type": "VEG",
+              "price": 50,
+              "available": true
+            }
           ],
-          "keywords": ["green", "mint", "soda", "crush", "beverage", "drink"]
+          "keywords": [
+            "green",
+            "mint",
+            "soda",
+            "crush",
+            "beverage",
+            "drink"
+          ]
         },
         {
           "id": "113",
@@ -222,18 +306,41 @@
           "category": "beverages",
           "description": "Green apple flavored soda crush",
           "variations": [
-            { "type": "VEG", "price": 50, "available": true },
-            { "type": "JAIN", "price": 50, "available": true }
+            {
+              "type": "VEG",
+              "price": 50,
+              "available": true
+            }
           ],
-          "keywords": ["green", "apple", "soda", "crush", "beverage", "drink"]
+          "keywords": [
+            "green",
+            "apple",
+            "soda",
+            "crush",
+            "beverage",
+            "drink"
+          ]
         },
         {
           "id": "114",
           "name": "Blue Mint Soda Crush",
           "category": "beverages",
           "description": "Blue mint flavored soda crush",
-          "variations": [{ "type": "VEG", "price": 50, "available": true }],
-          "keywords": ["blue", "mint", "soda", "crush", "beverage", "drink"]
+          "variations": [
+            {
+              "type": "VEG",
+              "price": 50,
+              "available": true
+            }
+          ],
+          "keywords": [
+            "blue",
+            "mint",
+            "soda",
+            "crush",
+            "beverage",
+            "drink"
+          ]
         },
         {
           "id": "115",
@@ -241,8 +348,11 @@
           "category": "beverages",
           "description": "Blueberry flavored soda crush",
           "variations": [
-            { "type": "VEG", "price": 50, "available": true },
-            { "type": "JAIN", "price": 50, "available": true }
+            {
+              "type": "VEG",
+              "price": 50,
+              "available": true
+            }
           ],
           "keywords": [
             "blueberry",
@@ -259,10 +369,20 @@
           "category": "beverages",
           "description": "Black currant flavored soda crush",
           "variations": [
-            { "type": "VEG", "price": 50, "available": true },
-            { "type": "JAIN", "price": 50, "available": true }
+            {
+              "type": "VEG",
+              "price": 50,
+              "available": true
+            }
           ],
-          "keywords": ["black", "currant", "soda", "crush", "beverage", "drink"]
+          "keywords": [
+            "black",
+            "currant",
+            "soda",
+            "crush",
+            "beverage",
+            "drink"
+          ]
         },
         {
           "id": "117",
@@ -270,10 +390,20 @@
           "category": "beverages",
           "description": "Orange flavored soda crush",
           "variations": [
-            { "type": "VEG", "price": 50, "available": true },
-            { "type": "JAIN", "price": 50, "available": true }
+            {
+              "type": "VEG",
+              "price": 50,
+              "available": true
+            }
           ],
-          "keywords": ["orange", "soda", "crush", "citrus", "beverage", "drink"]
+          "keywords": [
+            "orange",
+            "soda",
+            "crush",
+            "citrus",
+            "beverage",
+            "drink"
+          ]
         },
         {
           "id": "118",
@@ -281,10 +411,20 @@
           "category": "beverages",
           "description": "Refreshing lemon ice tea",
           "variations": [
-            { "type": "VEG", "price": 50, "available": true },
-            { "type": "JAIN", "price": 50, "available": true }
+            {
+              "type": "VEG",
+              "price": 50,
+              "available": true
+            }
           ],
-          "keywords": ["lemon", "ice", "tea", "refreshing", "beverage", "drink"]
+          "keywords": [
+            "lemon",
+            "ice",
+            "tea",
+            "refreshing",
+            "beverage",
+            "drink"
+          ]
         },
         {
           "id": "119",
@@ -292,8 +432,11 @@
           "category": "beverages",
           "description": "Kokum flavored soda crush",
           "variations": [
-            { "type": "VEG", "price": 50, "available": true },
-            { "type": "JAIN", "price": 50, "available": true }
+            {
+              "type": "VEG",
+              "price": 50,
+              "available": true
+            }
           ],
           "keywords": [
             "kokum",
@@ -310,10 +453,19 @@
           "category": "beverages",
           "description": "Traditional jaljeera drink",
           "variations": [
-            { "type": "VEG", "price": 50, "available": true },
-            { "type": "JAIN", "price": 50, "available": true }
+            {
+              "type": "VEG",
+              "price": 50,
+              "available": true
+            }
           ],
-          "keywords": ["jaljeera", "traditional", "spicy", "drink", "beverage"]
+          "keywords": [
+            "jaljeera",
+            "traditional",
+            "spicy",
+            "drink",
+            "beverage"
+          ]
         }
       ]
     },
@@ -327,10 +479,19 @@
           "category": "pizzas",
           "description": "Classic pizza with tomato sauce and cheese",
           "variations": [
-            { "type": "VEG", "price": 150, "available": true },
-            { "type": "JAIN", "price": 150, "available": true }
+            {
+              "type": "VEG",
+              "price": 150,
+              "available": true
+            }
           ],
-          "keywords": ["pizza", "margarita", "cheese", "classic", "italian"]
+          "keywords": [
+            "pizza",
+            "margarita",
+            "cheese",
+            "classic",
+            "italian"
+          ]
         },
         {
           "id": "122",
@@ -338,10 +499,19 @@
           "category": "pizzas",
           "description": "Pizza topped with corn and cheese",
           "variations": [
-            { "type": "VEG", "price": 150, "available": true },
-            { "type": "JAIN", "price": 150, "available": true }
+            {
+              "type": "VEG",
+              "price": 150,
+              "available": true
+            }
           ],
-          "keywords": ["pizza", "corn", "cheese", "vegetarian", "italian"]
+          "keywords": [
+            "pizza",
+            "corn",
+            "cheese",
+            "vegetarian",
+            "italian"
+          ]
         },
         {
           "id": "123",
@@ -349,10 +519,19 @@
           "category": "pizzas",
           "description": "Pizza with mushrooms and cheese",
           "variations": [
-            { "type": "VEG", "price": 150, "available": true },
-            { "type": "JAIN", "price": 150, "available": true }
+            {
+              "type": "VEG",
+              "price": 150,
+              "available": true
+            }
           ],
-          "keywords": ["pizza", "mushroom", "cheese", "fungi", "italian"]
+          "keywords": [
+            "pizza",
+            "mushroom",
+            "cheese",
+            "fungi",
+            "italian"
+          ]
         },
         {
           "id": "124",
@@ -360,10 +539,19 @@
           "category": "pizzas",
           "description": "Vegetable pizza with cheese",
           "variations": [
-            { "type": "VEG", "price": 150, "available": true },
-            { "type": "JAIN", "price": 150, "available": true }
+            {
+              "type": "VEG",
+              "price": 150,
+              "available": true
+            }
           ],
-          "keywords": ["pizza", "vegetable", "cheese", "veg", "italian"]
+          "keywords": [
+            "pizza",
+            "vegetable",
+            "cheese",
+            "veg",
+            "italian"
+          ]
         },
         {
           "id": "125",
@@ -371,10 +559,19 @@
           "category": "pizzas",
           "description": "Pizza with paneer and cheese",
           "variations": [
-            { "type": "VEG", "price": 150, "available": true },
-            { "type": "JAIN", "price": 150, "available": true }
+            {
+              "type": "VEG",
+              "price": 150,
+              "available": true
+            }
           ],
-          "keywords": ["pizza", "paneer", "cheese", "cottage", "italian"]
+          "keywords": [
+            "pizza",
+            "paneer",
+            "cheese",
+            "cottage",
+            "italian"
+          ]
         },
         {
           "id": "126",
@@ -382,9 +579,19 @@
           "category": "pizzas",
           "description": "Pizza with chicken and cheese",
           "variations": [
-            { "type": "NON_VEG", "price": 160, "available": true }
+            {
+              "type": "NON_VEG",
+              "price": 160,
+              "available": true
+            }
           ],
-          "keywords": ["pizza", "chicken", "cheese", "non-veg", "italian"]
+          "keywords": [
+            "pizza",
+            "chicken",
+            "cheese",
+            "non-veg",
+            "italian"
+          ]
         },
         {
           "id": "127",
@@ -392,9 +599,19 @@
           "category": "pizzas",
           "description": "Pizza with chicken tikka and cheese",
           "variations": [
-            { "type": "NON_VEG", "price": 160, "available": true }
+            {
+              "type": "NON_VEG",
+              "price": 160,
+              "available": true
+            }
           ],
-          "keywords": ["pizza", "chicken", "tikka", "cheese", "italian"]
+          "keywords": [
+            "pizza",
+            "chicken",
+            "tikka",
+            "cheese",
+            "italian"
+          ]
         }
       ]
     },
@@ -408,9 +625,19 @@
           "category": "starters",
           "description": "Crispy chicken popcorn pieces",
           "variations": [
-            { "type": "NON_VEG", "price": 100, "available": true }
+            {
+              "type": "NON_VEG",
+              "price": 100,
+              "available": true
+            }
           ],
-          "keywords": ["chicken", "popcorn", "crispy", "starter", "appetizer"]
+          "keywords": [
+            "chicken",
+            "popcorn",
+            "crispy",
+            "starter",
+            "appetizer"
+          ]
         },
         {
           "id": "129",
@@ -418,9 +645,20 @@
           "category": "starters",
           "description": "Spicy peri peri chicken popcorn",
           "variations": [
-            { "type": "NON_VEG", "price": 110, "available": true }
+            {
+              "type": "NON_VEG",
+              "price": 110,
+              "available": true
+            }
           ],
-          "keywords": ["chicken", "popcorn", "peri", "peri", "spicy", "starter"]
+          "keywords": [
+            "chicken",
+            "popcorn",
+            "peri",
+            "peri",
+            "spicy",
+            "starter"
+          ]
         },
         {
           "id": "130",
@@ -428,9 +666,19 @@
           "category": "starters",
           "description": "Crispy chicken wings (5 pieces)",
           "variations": [
-            { "type": "NON_VEG", "price": 100, "available": true }
+            {
+              "type": "NON_VEG",
+              "price": 100,
+              "available": true
+            }
           ],
-          "keywords": ["chicken", "wings", "crispy", "starter", "appetizer"]
+          "keywords": [
+            "chicken",
+            "wings",
+            "crispy",
+            "starter",
+            "appetizer"
+          ]
         },
         {
           "id": "131",
@@ -438,9 +686,20 @@
           "category": "starters",
           "description": "Spicy peri peri chicken wings (5 pieces)",
           "variations": [
-            { "type": "NON_VEG", "price": 110, "available": true }
+            {
+              "type": "NON_VEG",
+              "price": 110,
+              "available": true
+            }
           ],
-          "keywords": ["chicken", "wings", "peri", "peri", "spicy", "starter"]
+          "keywords": [
+            "chicken",
+            "wings",
+            "peri",
+            "peri",
+            "spicy",
+            "starter"
+          ]
         },
         {
           "id": "132",
@@ -448,9 +707,19 @@
           "category": "starters",
           "description": "Crispy chicken wings (8 pieces)",
           "variations": [
-            { "type": "NON_VEG", "price": 150, "available": true }
+            {
+              "type": "NON_VEG",
+              "price": 150,
+              "available": true
+            }
           ],
-          "keywords": ["chicken", "wings", "crispy", "starter", "appetizer"]
+          "keywords": [
+            "chicken",
+            "wings",
+            "crispy",
+            "starter",
+            "appetizer"
+          ]
         },
         {
           "id": "133",
@@ -458,9 +727,20 @@
           "category": "starters",
           "description": "Spicy peri peri chicken wings (8 pieces)",
           "variations": [
-            { "type": "NON_VEG", "price": 160, "available": true }
+            {
+              "type": "NON_VEG",
+              "price": 160,
+              "available": true
+            }
           ],
-          "keywords": ["chicken", "wings", "peri", "peri", "spicy", "starter"]
+          "keywords": [
+            "chicken",
+            "wings",
+            "peri",
+            "peri",
+            "spicy",
+            "starter"
+          ]
         },
         {
           "id": "134",
@@ -468,9 +748,19 @@
           "category": "starters",
           "description": "Crispy boneless chicken strips (3 pieces)",
           "variations": [
-            { "type": "NON_VEG", "price": 100, "available": true }
+            {
+              "type": "NON_VEG",
+              "price": 100,
+              "available": true
+            }
           ],
-          "keywords": ["chicken", "boneless", "strips", "crispy", "starter"]
+          "keywords": [
+            "chicken",
+            "boneless",
+            "strips",
+            "crispy",
+            "starter"
+          ]
         },
         {
           "id": "135",
@@ -478,9 +768,20 @@
           "category": "starters",
           "description": "Spicy peri peri boneless chicken strips (3 pieces)",
           "variations": [
-            { "type": "NON_VEG", "price": 110, "available": true }
+            {
+              "type": "NON_VEG",
+              "price": 110,
+              "available": true
+            }
           ],
-          "keywords": ["chicken", "boneless", "strips", "peri", "peri", "spicy"]
+          "keywords": [
+            "chicken",
+            "boneless",
+            "strips",
+            "peri",
+            "peri",
+            "spicy"
+          ]
         },
         {
           "id": "136",
@@ -488,9 +789,19 @@
           "category": "starters",
           "description": "Crispy fried chicken pieces (2 pieces)",
           "variations": [
-            { "type": "NON_VEG", "price": 150, "available": true }
+            {
+              "type": "NON_VEG",
+              "price": 150,
+              "available": true
+            }
           ],
-          "keywords": ["chicken", "fried", "crispy", "pieces", "starter"]
+          "keywords": [
+            "chicken",
+            "fried",
+            "crispy",
+            "pieces",
+            "starter"
+          ]
         },
         {
           "id": "137",
@@ -498,9 +809,19 @@
           "category": "starters",
           "description": "Crispy fried chicken pieces (4 pieces)",
           "variations": [
-            { "type": "NON_VEG", "price": 290, "available": true }
+            {
+              "type": "NON_VEG",
+              "price": 290,
+              "available": true
+            }
           ],
-          "keywords": ["chicken", "fried", "crispy", "pieces", "starter"]
+          "keywords": [
+            "chicken",
+            "fried",
+            "crispy",
+            "pieces",
+            "starter"
+          ]
         },
         {
           "id": "138",
@@ -508,10 +829,19 @@
           "category": "starters",
           "description": "Crispy golden french fries",
           "variations": [
-            { "type": "VEG", "price": 70, "available": true },
-            { "type": "JAIN", "price": 70, "available": true }
+            {
+              "type": "VEG",
+              "price": 70,
+              "available": true
+            }
           ],
-          "keywords": ["french", "fries", "crispy", "golden", "starter"]
+          "keywords": [
+            "french",
+            "fries",
+            "crispy",
+            "golden",
+            "starter"
+          ]
         },
         {
           "id": "139",
@@ -519,26 +849,60 @@
           "category": "starters",
           "description": "Spicy peri peri french fries",
           "variations": [
-            { "type": "VEG", "price": 80, "available": true },
-            { "type": "JAIN", "price": 80, "available": true }
+            {
+              "type": "VEG",
+              "price": 80,
+              "available": true
+            }
           ],
-          "keywords": ["french", "fries", "peri", "peri", "spicy", "starter"]
+          "keywords": [
+            "french",
+            "fries",
+            "peri",
+            "peri",
+            "spicy",
+            "starter"
+          ]
         },
         {
           "id": "140",
           "name": "Cheese French Fries",
           "category": "starters",
           "description": "French fries topped with cheese",
-          "variations": [{ "type": "VEG", "price": 100, "available": true }],
-          "keywords": ["french", "fries", "cheese", "topped", "starter"]
+          "variations": [
+            {
+              "type": "VEG",
+              "price": 100,
+              "available": true
+            }
+          ],
+          "keywords": [
+            "french",
+            "fries",
+            "cheese",
+            "topped",
+            "starter"
+          ]
         },
         {
           "id": "141",
           "name": "Chipotle Cheese French Fries",
           "category": "starters",
           "description": "French fries with chipotle cheese",
-          "variations": [{ "type": "VEG", "price": 110, "available": true }],
-          "keywords": ["french", "fries", "chipotle", "cheese", "starter"]
+          "variations": [
+            {
+              "type": "VEG",
+              "price": 110,
+              "available": true
+            }
+          ],
+          "keywords": [
+            "french",
+            "fries",
+            "chipotle",
+            "cheese",
+            "starter"
+          ]
         },
         {
           "id": "142",
@@ -546,10 +910,20 @@
           "category": "starters",
           "description": "Spicy peri peri chipotle french fries",
           "variations": [
-            { "type": "VEG", "price": 90, "available": true },
-            { "type": "JAIN", "price": 90, "available": true }
+            {
+              "type": "VEG",
+              "price": 90,
+              "available": true
+            }
           ],
-          "keywords": ["french", "fries", "peri", "peri", "chipotle", "spicy"]
+          "keywords": [
+            "french",
+            "fries",
+            "peri",
+            "peri",
+            "chipotle",
+            "spicy"
+          ]
         },
         {
           "id": "143",
@@ -557,10 +931,18 @@
           "category": "starters",
           "description": "Crispy potato wedges",
           "variations": [
-            { "type": "VEG", "price": 70, "available": true },
-            { "type": "JAIN", "price": 70, "available": true }
+            {
+              "type": "VEG",
+              "price": 70,
+              "available": true
+            }
           ],
-          "keywords": ["potato", "wedges", "crispy", "starter"]
+          "keywords": [
+            "potato",
+            "wedges",
+            "crispy",
+            "starter"
+          ]
         },
         {
           "id": "144",
@@ -568,26 +950,60 @@
           "category": "starters",
           "description": "Spicy peri peri potato wedges",
           "variations": [
-            { "type": "VEG", "price": 80, "available": true },
-            { "type": "JAIN", "price": 80, "available": true }
+            {
+              "type": "VEG",
+              "price": 80,
+              "available": true
+            }
           ],
-          "keywords": ["potato", "wedges", "peri", "peri", "spicy", "starter"]
+          "keywords": [
+            "potato",
+            "wedges",
+            "peri",
+            "peri",
+            "spicy",
+            "starter"
+          ]
         },
         {
           "id": "145",
           "name": "Cheese Potato Wedges",
           "category": "starters",
           "description": "Potato wedges topped with cheese",
-          "variations": [{ "type": "VEG", "price": 100, "available": true }],
-          "keywords": ["potato", "wedges", "cheese", "topped", "starter"]
+          "variations": [
+            {
+              "type": "VEG",
+              "price": 100,
+              "available": true
+            }
+          ],
+          "keywords": [
+            "potato",
+            "wedges",
+            "cheese",
+            "topped",
+            "starter"
+          ]
         },
         {
           "id": "146",
           "name": "Chipotle Cheese Potato Wedges",
           "category": "starters",
           "description": "Potato wedges with chipotle cheese",
-          "variations": [{ "type": "VEG", "price": 110, "available": true }],
-          "keywords": ["potato", "wedges", "chipotle", "cheese", "starter"]
+          "variations": [
+            {
+              "type": "VEG",
+              "price": 110,
+              "available": true
+            }
+          ],
+          "keywords": [
+            "potato",
+            "wedges",
+            "chipotle",
+            "cheese",
+            "starter"
+          ]
         },
         {
           "id": "147",
@@ -595,10 +1011,20 @@
           "category": "starters",
           "description": "Spicy peri peri chipotle potato wedges",
           "variations": [
-            { "type": "VEG", "price": 90, "available": true },
-            { "type": "JAIN", "price": 90, "available": true }
+            {
+              "type": "VEG",
+              "price": 90,
+              "available": true
+            }
           ],
-          "keywords": ["potato", "wedges", "peri", "peri", "chipotle", "spicy"]
+          "keywords": [
+            "potato",
+            "wedges",
+            "peri",
+            "peri",
+            "chipotle",
+            "spicy"
+          ]
         },
         {
           "id": "148",
@@ -606,9 +1032,19 @@
           "category": "starters",
           "description": "Chicken with cheese topping",
           "variations": [
-            { "type": "NON_VEG", "price": 130, "available": true }
+            {
+              "type": "NON_VEG",
+              "price": 130,
+              "available": true
+            }
           ],
-          "keywords": ["chicken", "cheese", "cheezvi", "topping", "starter"]
+          "keywords": [
+            "chicken",
+            "cheese",
+            "cheezvi",
+            "topping",
+            "starter"
+          ]
         },
         {
           "id": "149",
@@ -616,10 +1052,19 @@
           "category": "starters",
           "description": "Mixed vegetables with cheese topping",
           "variations": [
-            { "type": "VEG", "price": 130, "available": true },
-            { "type": "JAIN", "price": 130, "available": true }
+            {
+              "type": "VEG",
+              "price": 130,
+              "available": true
+            }
           ],
-          "keywords": ["vegetable", "cheese", "cheezvi", "mixed", "starter"]
+          "keywords": [
+            "vegetable",
+            "cheese",
+            "cheezvi",
+            "mixed",
+            "starter"
+          ]
         },
         {
           "id": "150",
@@ -627,10 +1072,19 @@
           "category": "starters",
           "description": "Paneer with cheese topping",
           "variations": [
-            { "type": "VEG", "price": 130, "available": true },
-            { "type": "JAIN", "price": 130, "available": true }
+            {
+              "type": "VEG",
+              "price": 130,
+              "available": true
+            }
           ],
-          "keywords": ["paneer", "cheese", "cheezvi", "topping", "starter"]
+          "keywords": [
+            "paneer",
+            "cheese",
+            "cheezvi",
+            "topping",
+            "starter"
+          ]
         },
         {
           "id": "151",
@@ -638,10 +1092,19 @@
           "category": "starters",
           "description": "Chilli garlic flavored pops (20 pieces)",
           "variations": [
-            { "type": "VEG", "price": 100, "available": true },
-            { "type": "JAIN", "price": 100, "available": true }
+            {
+              "type": "VEG",
+              "price": 100,
+              "available": true
+            }
           ],
-          "keywords": ["chilli", "garlic", "pops", "spicy", "starter"]
+          "keywords": [
+            "chilli",
+            "garlic",
+            "pops",
+            "spicy",
+            "starter"
+          ]
         },
         {
           "id": "152",
@@ -649,10 +1112,19 @@
           "category": "starters",
           "description": "Potato cheese shots (8 pieces)",
           "variations": [
-            { "type": "VEG", "price": 100, "available": true },
-            { "type": "JAIN", "price": 100, "available": true }
+            {
+              "type": "VEG",
+              "price": 100,
+              "available": true
+            }
           ],
-          "keywords": ["potato", "cheese", "shots", "pieces", "starter"]
+          "keywords": [
+            "potato",
+            "cheese",
+            "shots",
+            "pieces",
+            "starter"
+          ]
         }
       ]
     },
@@ -666,10 +1138,19 @@
           "category": "momos",
           "description": "Vegetable momos - steam or fried (8 pieces)",
           "variations": [
-            { "type": "VEG", "price": 70, "available": true },
-            { "type": "JAIN", "price": 70, "available": true }
+            {
+              "type": "VEG",
+              "price": 70,
+              "available": true
+            }
           ],
-          "keywords": ["veg", "momos", "steam", "fried", "dumplings"]
+          "keywords": [
+            "veg",
+            "momos",
+            "steam",
+            "fried",
+            "dumplings"
+          ]
         },
         {
           "id": "154",
@@ -677,10 +1158,20 @@
           "category": "momos",
           "description": "Spicy peri peri vegetable momos (8 pieces)",
           "variations": [
-            { "type": "VEG", "price": 80, "available": true },
-            { "type": "JAIN", "price": 80, "available": true }
+            {
+              "type": "VEG",
+              "price": 80,
+              "available": true
+            }
           ],
-          "keywords": ["veg", "momos", "peri", "peri", "spicy", "dumplings"]
+          "keywords": [
+            "veg",
+            "momos",
+            "peri",
+            "peri",
+            "spicy",
+            "dumplings"
+          ]
         },
         {
           "id": "155",
@@ -688,18 +1179,39 @@
           "category": "momos",
           "description": "Paneer momos - steam or fried (8 pieces)",
           "variations": [
-            { "type": "VEG", "price": 90, "available": true },
-            { "type": "JAIN", "price": 90, "available": true }
+            {
+              "type": "VEG",
+              "price": 90,
+              "available": true
+            }
           ],
-          "keywords": ["paneer", "momos", "steam", "fried", "dumplings"]
+          "keywords": [
+            "paneer",
+            "momos",
+            "steam",
+            "fried",
+            "dumplings"
+          ]
         },
         {
           "id": "156",
           "name": "Chicken Steam/Fried Momos (8 Pcs)",
           "category": "momos",
           "description": "Chicken momos - steam or fried (8 pieces)",
-          "variations": [{ "type": "NON_VEG", "price": 90, "available": true }],
-          "keywords": ["chicken", "momos", "steam", "fried", "dumplings"]
+          "variations": [
+            {
+              "type": "NON_VEG",
+              "price": 90,
+              "available": true
+            }
+          ],
+          "keywords": [
+            "chicken",
+            "momos",
+            "steam",
+            "fried",
+            "dumplings"
+          ]
         },
         {
           "id": "157",
@@ -707,10 +1219,23 @@
           "category": "momos",
           "description": "Fried momos (8 pieces)",
           "variations": [
-            { "type": "VEG", "price": 100, "available": true },
-            { "type": "NON_VEG", "price": 100, "available": true }
+            {
+              "type": "VEG",
+              "price": 100,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 100,
+              "available": true
+            }
           ],
-          "keywords": ["momos", "fried", "crispy", "dumplings"]
+          "keywords": [
+            "momos",
+            "fried",
+            "crispy",
+            "dumplings"
+          ]
         }
       ]
     },
@@ -724,10 +1249,23 @@
           "category": "mexican",
           "description": "Classic taco with choice of filling",
           "variations": [
-            { "type": "VEG", "price": 60, "available": true },
-            { "type": "NON_VEG", "price": 70, "available": true }
+            {
+              "type": "VEG",
+              "price": 60,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 70,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "classic", "filling", "mexican"]
+          "keywords": [
+            "taco",
+            "classic",
+            "filling",
+            "mexican"
+          ]
         },
         {
           "id": "159",
@@ -735,10 +1273,19 @@
           "category": "mexican",
           "description": "Double vegetable taco",
           "variations": [
-            { "type": "VEG", "price": 110, "available": true },
-            { "type": "JAIN", "price": 110, "available": true }
+            {
+              "type": "VEG",
+              "price": 110,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "veg", "double", "vegetable", "mexican"]
+          "keywords": [
+            "taco",
+            "veg",
+            "double",
+            "vegetable",
+            "mexican"
+          ]
         },
         {
           "id": "160",
@@ -746,10 +1293,19 @@
           "category": "mexican",
           "description": "Taco with paneer filling",
           "variations": [
-            { "type": "VEG", "price": 70, "available": true },
-            { "type": "JAIN", "price": 70, "available": true }
+            {
+              "type": "VEG",
+              "price": 70,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "paneer", "filling", "cottage", "mexican"]
+          "keywords": [
+            "taco",
+            "paneer",
+            "filling",
+            "cottage",
+            "mexican"
+          ]
         },
         {
           "id": "161",
@@ -757,18 +1313,39 @@
           "category": "mexican",
           "description": "Double paneer taco",
           "variations": [
-            { "type": "VEG", "price": 130, "available": true },
-            { "type": "JAIN", "price": 130, "available": true }
+            {
+              "type": "VEG",
+              "price": 130,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "paneer", "double", "cottage", "mexican"]
+          "keywords": [
+            "taco",
+            "paneer",
+            "double",
+            "cottage",
+            "mexican"
+          ]
         },
         {
           "id": "162",
           "name": "Chicken Taco",
           "category": "mexican",
           "description": "Taco with chicken filling",
-          "variations": [{ "type": "NON_VEG", "price": 80, "available": true }],
-          "keywords": ["taco", "chicken", "filling", "non-veg", "mexican"]
+          "variations": [
+            {
+              "type": "NON_VEG",
+              "price": 80,
+              "available": true
+            }
+          ],
+          "keywords": [
+            "taco",
+            "chicken",
+            "filling",
+            "non-veg",
+            "mexican"
+          ]
         },
         {
           "id": "163",
@@ -776,9 +1353,19 @@
           "category": "mexican",
           "description": "Double chicken taco",
           "variations": [
-            { "type": "NON_VEG", "price": 150, "available": true }
+            {
+              "type": "NON_VEG",
+              "price": 150,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "chicken", "double", "non-veg", "mexican"]
+          "keywords": [
+            "taco",
+            "chicken",
+            "double",
+            "non-veg",
+            "mexican"
+          ]
         },
         {
           "id": "164",
@@ -786,10 +1373,24 @@
           "category": "mexican",
           "description": "Spicy peri peri taco",
           "variations": [
-            { "type": "VEG", "price": 70, "available": true },
-            { "type": "NON_VEG", "price": 80, "available": true }
+            {
+              "type": "VEG",
+              "price": 70,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 80,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "peri", "peri", "spicy", "mexican"]
+          "keywords": [
+            "taco",
+            "peri",
+            "peri",
+            "spicy",
+            "mexican"
+          ]
         },
         {
           "id": "165",
@@ -797,10 +1398,20 @@
           "category": "mexican",
           "description": "Spicy peri peri double vegetable taco",
           "variations": [
-            { "type": "VEG", "price": 130, "available": true },
-            { "type": "JAIN", "price": 130, "available": true }
+            {
+              "type": "VEG",
+              "price": 130,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "peri", "peri", "veg", "double", "mexican"]
+          "keywords": [
+            "taco",
+            "peri",
+            "peri",
+            "veg",
+            "double",
+            "mexican"
+          ]
         },
         {
           "id": "166",
@@ -808,10 +1419,20 @@
           "category": "mexican",
           "description": "Spicy peri peri paneer taco",
           "variations": [
-            { "type": "VEG", "price": 80, "available": true },
-            { "type": "JAIN", "price": 80, "available": true }
+            {
+              "type": "VEG",
+              "price": 80,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "peri", "peri", "paneer", "spicy", "mexican"]
+          "keywords": [
+            "taco",
+            "peri",
+            "peri",
+            "paneer",
+            "spicy",
+            "mexican"
+          ]
         },
         {
           "id": "167",
@@ -819,18 +1440,41 @@
           "category": "mexican",
           "description": "Spicy peri peri double paneer taco",
           "variations": [
-            { "type": "VEG", "price": 150, "available": true },
-            { "type": "JAIN", "price": 150, "available": true }
+            {
+              "type": "VEG",
+              "price": 150,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "peri", "peri", "paneer", "double", "mexican"]
+          "keywords": [
+            "taco",
+            "peri",
+            "peri",
+            "paneer",
+            "double",
+            "mexican"
+          ]
         },
         {
           "id": "168",
           "name": "Peri Peri Chicken Taco",
           "category": "mexican",
           "description": "Spicy peri peri chicken taco",
-          "variations": [{ "type": "NON_VEG", "price": 90, "available": true }],
-          "keywords": ["taco", "peri", "peri", "chicken", "spicy", "mexican"]
+          "variations": [
+            {
+              "type": "NON_VEG",
+              "price": 90,
+              "available": true
+            }
+          ],
+          "keywords": [
+            "taco",
+            "peri",
+            "peri",
+            "chicken",
+            "spicy",
+            "mexican"
+          ]
         },
         {
           "id": "169",
@@ -838,9 +1482,20 @@
           "category": "mexican",
           "description": "Spicy peri peri double chicken taco",
           "variations": [
-            { "type": "NON_VEG", "price": 160, "available": true }
+            {
+              "type": "NON_VEG",
+              "price": 160,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "peri", "peri", "chicken", "double", "mexican"]
+          "keywords": [
+            "taco",
+            "peri",
+            "peri",
+            "chicken",
+            "double",
+            "mexican"
+          ]
         },
         {
           "id": "170",
@@ -848,10 +1503,24 @@
           "category": "mexican",
           "description": "Chipotle flavored taco",
           "variations": [
-            { "type": "VEG", "price": 70, "available": true },
-            { "type": "NON_VEG", "price": 80, "available": true }
+            {
+              "type": "VEG",
+              "price": 70,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 80,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "chipotle", "flavored", "spicy", "mexican"]
+          "keywords": [
+            "taco",
+            "chipotle",
+            "flavored",
+            "spicy",
+            "mexican"
+          ]
         },
         {
           "id": "171",
@@ -859,10 +1528,19 @@
           "category": "mexican",
           "description": "Chipotle double vegetable taco",
           "variations": [
-            { "type": "VEG", "price": 130, "available": true },
-            { "type": "JAIN", "price": 130, "available": true }
+            {
+              "type": "VEG",
+              "price": 130,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "chipotle", "veg", "double", "mexican"]
+          "keywords": [
+            "taco",
+            "chipotle",
+            "veg",
+            "double",
+            "mexican"
+          ]
         },
         {
           "id": "172",
@@ -870,10 +1548,18 @@
           "category": "mexican",
           "description": "Chipotle paneer taco",
           "variations": [
-            { "type": "VEG", "price": 80, "available": true },
-            { "type": "JAIN", "price": 80, "available": true }
+            {
+              "type": "VEG",
+              "price": 80,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "chipotle", "paneer", "mexican"]
+          "keywords": [
+            "taco",
+            "chipotle",
+            "paneer",
+            "mexican"
+          ]
         },
         {
           "id": "173",
@@ -881,18 +1567,38 @@
           "category": "mexican",
           "description": "Chipotle double paneer taco",
           "variations": [
-            { "type": "VEG", "price": 150, "available": true },
-            { "type": "JAIN", "price": 150, "available": true }
+            {
+              "type": "VEG",
+              "price": 150,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "chipotle", "paneer", "double", "mexican"]
+          "keywords": [
+            "taco",
+            "chipotle",
+            "paneer",
+            "double",
+            "mexican"
+          ]
         },
         {
           "id": "174",
           "name": "Chipotle Chicken Taco",
           "category": "mexican",
           "description": "Chipotle chicken taco",
-          "variations": [{ "type": "NON_VEG", "price": 90, "available": true }],
-          "keywords": ["taco", "chipotle", "chicken", "mexican"]
+          "variations": [
+            {
+              "type": "NON_VEG",
+              "price": 90,
+              "available": true
+            }
+          ],
+          "keywords": [
+            "taco",
+            "chipotle",
+            "chicken",
+            "mexican"
+          ]
         },
         {
           "id": "175",
@@ -900,9 +1606,19 @@
           "category": "mexican",
           "description": "Chipotle double chicken taco",
           "variations": [
-            { "type": "NON_VEG", "price": 160, "available": true }
+            {
+              "type": "NON_VEG",
+              "price": 160,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "chipotle", "chicken", "double", "mexican"]
+          "keywords": [
+            "taco",
+            "chipotle",
+            "chicken",
+            "double",
+            "mexican"
+          ]
         },
         {
           "id": "176",
@@ -910,10 +1626,24 @@
           "category": "mexican",
           "description": "Chilli garlic flavored taco",
           "variations": [
-            { "type": "VEG", "price": 70, "available": true },
-            { "type": "NON_VEG", "price": 80, "available": true }
+            {
+              "type": "VEG",
+              "price": 70,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 80,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "chilli", "garlic", "spicy", "mexican"]
+          "keywords": [
+            "taco",
+            "chilli",
+            "garlic",
+            "spicy",
+            "mexican"
+          ]
         },
         {
           "id": "177",
@@ -921,10 +1651,20 @@
           "category": "mexican",
           "description": "Chilli garlic double vegetable taco",
           "variations": [
-            { "type": "VEG", "price": 130, "available": true },
-            { "type": "JAIN", "price": 130, "available": true }
+            {
+              "type": "VEG",
+              "price": 130,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "chilli", "garlic", "veg", "double", "mexican"]
+          "keywords": [
+            "taco",
+            "chilli",
+            "garlic",
+            "veg",
+            "double",
+            "mexican"
+          ]
         },
         {
           "id": "178",
@@ -932,10 +1672,19 @@
           "category": "mexican",
           "description": "Chilli garlic paneer taco",
           "variations": [
-            { "type": "VEG", "price": 80, "available": true },
-            { "type": "JAIN", "price": 80, "available": true }
+            {
+              "type": "VEG",
+              "price": 80,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "chilli", "garlic", "paneer", "mexican"]
+          "keywords": [
+            "taco",
+            "chilli",
+            "garlic",
+            "paneer",
+            "mexican"
+          ]
         },
         {
           "id": "179",
@@ -943,8 +1692,11 @@
           "category": "mexican",
           "description": "Chilli garlic double paneer taco",
           "variations": [
-            { "type": "VEG", "price": 150, "available": true },
-            { "type": "JAIN", "price": 150, "available": true }
+            {
+              "type": "VEG",
+              "price": 150,
+              "available": true
+            }
           ],
           "keywords": [
             "taco",
@@ -960,8 +1712,20 @@
           "name": "Chilli Garlic Chicken Taco",
           "category": "mexican",
           "description": "Chilli garlic chicken taco",
-          "variations": [{ "type": "NON_VEG", "price": 90, "available": true }],
-          "keywords": ["taco", "chilli", "garlic", "chicken", "mexican"]
+          "variations": [
+            {
+              "type": "NON_VEG",
+              "price": 90,
+              "available": true
+            }
+          ],
+          "keywords": [
+            "taco",
+            "chilli",
+            "garlic",
+            "chicken",
+            "mexican"
+          ]
         },
         {
           "id": "181",
@@ -969,7 +1733,11 @@
           "category": "mexican",
           "description": "Chilli garlic double chicken taco",
           "variations": [
-            { "type": "NON_VEG", "price": 160, "available": true }
+            {
+              "type": "NON_VEG",
+              "price": 160,
+              "available": true
+            }
           ],
           "keywords": [
             "taco",
@@ -986,10 +1754,24 @@
           "category": "mexican",
           "description": "Honey mustard flavored taco",
           "variations": [
-            { "type": "VEG", "price": 70, "available": true },
-            { "type": "NON_VEG", "price": 80, "available": true }
+            {
+              "type": "VEG",
+              "price": 70,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 80,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "honey", "mustard", "sweet", "mexican"]
+          "keywords": [
+            "taco",
+            "honey",
+            "mustard",
+            "sweet",
+            "mexican"
+          ]
         },
         {
           "id": "183",
@@ -997,10 +1779,20 @@
           "category": "mexican",
           "description": "Honey mustard double vegetable taco",
           "variations": [
-            { "type": "VEG", "price": 130, "available": true },
-            { "type": "JAIN", "price": 130, "available": true }
+            {
+              "type": "VEG",
+              "price": 130,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "honey", "mustard", "veg", "double", "mexican"]
+          "keywords": [
+            "taco",
+            "honey",
+            "mustard",
+            "veg",
+            "double",
+            "mexican"
+          ]
         },
         {
           "id": "184",
@@ -1008,10 +1800,19 @@
           "category": "mexican",
           "description": "Honey mustard paneer taco",
           "variations": [
-            { "type": "VEG", "price": 80, "available": true },
-            { "type": "JAIN", "price": 80, "available": true }
+            {
+              "type": "VEG",
+              "price": 80,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "honey", "mustard", "paneer", "mexican"]
+          "keywords": [
+            "taco",
+            "honey",
+            "mustard",
+            "paneer",
+            "mexican"
+          ]
         },
         {
           "id": "185",
@@ -1019,8 +1820,11 @@
           "category": "mexican",
           "description": "Honey mustard double paneer taco",
           "variations": [
-            { "type": "VEG", "price": 150, "available": true },
-            { "type": "JAIN", "price": 150, "available": true }
+            {
+              "type": "VEG",
+              "price": 150,
+              "available": true
+            }
           ],
           "keywords": [
             "taco",
@@ -1036,8 +1840,20 @@
           "name": "Honey Mustard Chicken Taco",
           "category": "mexican",
           "description": "Honey mustard chicken taco",
-          "variations": [{ "type": "NON_VEG", "price": 90, "available": true }],
-          "keywords": ["taco", "honey", "mustard", "chicken", "mexican"]
+          "variations": [
+            {
+              "type": "NON_VEG",
+              "price": 90,
+              "available": true
+            }
+          ],
+          "keywords": [
+            "taco",
+            "honey",
+            "mustard",
+            "chicken",
+            "mexican"
+          ]
         },
         {
           "id": "187",
@@ -1045,7 +1861,11 @@
           "category": "mexican",
           "description": "Honey mustard double chicken taco",
           "variations": [
-            { "type": "NON_VEG", "price": 160, "available": true }
+            {
+              "type": "NON_VEG",
+              "price": 160,
+              "available": true
+            }
           ],
           "keywords": [
             "taco",
@@ -1062,10 +1882,24 @@
           "category": "mexican",
           "description": "BBQ flavored taco",
           "variations": [
-            { "type": "VEG", "price": 70, "available": true },
-            { "type": "NON_VEG", "price": 80, "available": true }
+            {
+              "type": "VEG",
+              "price": 70,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 80,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "bbq", "barbecue", "smoky", "mexican"]
+          "keywords": [
+            "taco",
+            "bbq",
+            "barbecue",
+            "smoky",
+            "mexican"
+          ]
         },
         {
           "id": "189",
@@ -1073,10 +1907,19 @@
           "category": "mexican",
           "description": "BBQ double vegetable taco",
           "variations": [
-            { "type": "VEG", "price": 130, "available": true },
-            { "type": "JAIN", "price": 130, "available": true }
+            {
+              "type": "VEG",
+              "price": 130,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "bbq", "veg", "double", "mexican"]
+          "keywords": [
+            "taco",
+            "bbq",
+            "veg",
+            "double",
+            "mexican"
+          ]
         },
         {
           "id": "190",
@@ -1084,10 +1927,18 @@
           "category": "mexican",
           "description": "BBQ paneer taco",
           "variations": [
-            { "type": "VEG", "price": 80, "available": true },
-            { "type": "JAIN", "price": 80, "available": true }
+            {
+              "type": "VEG",
+              "price": 80,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "bbq", "paneer", "mexican"]
+          "keywords": [
+            "taco",
+            "bbq",
+            "paneer",
+            "mexican"
+          ]
         },
         {
           "id": "191",
@@ -1095,18 +1946,38 @@
           "category": "mexican",
           "description": "BBQ double paneer taco",
           "variations": [
-            { "type": "VEG", "price": 150, "available": true },
-            { "type": "JAIN", "price": 150, "available": true }
+            {
+              "type": "VEG",
+              "price": 150,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "bbq", "paneer", "double", "mexican"]
+          "keywords": [
+            "taco",
+            "bbq",
+            "paneer",
+            "double",
+            "mexican"
+          ]
         },
         {
           "id": "192",
           "name": "BBQ Chicken Taco",
           "category": "mexican",
           "description": "BBQ chicken taco",
-          "variations": [{ "type": "NON_VEG", "price": 90, "available": true }],
-          "keywords": ["taco", "bbq", "chicken", "mexican"]
+          "variations": [
+            {
+              "type": "NON_VEG",
+              "price": 90,
+              "available": true
+            }
+          ],
+          "keywords": [
+            "taco",
+            "bbq",
+            "chicken",
+            "mexican"
+          ]
         },
         {
           "id": "193",
@@ -1114,9 +1985,19 @@
           "category": "mexican",
           "description": "BBQ double chicken taco",
           "variations": [
-            { "type": "NON_VEG", "price": 160, "available": true }
+            {
+              "type": "NON_VEG",
+              "price": 160,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "bbq", "chicken", "double", "mexican"]
+          "keywords": [
+            "taco",
+            "bbq",
+            "chicken",
+            "double",
+            "mexican"
+          ]
         },
         {
           "id": "194",
@@ -1124,10 +2005,24 @@
           "category": "mexican",
           "description": "Mint flavored taco",
           "variations": [
-            { "type": "VEG", "price": 70, "available": true },
-            { "type": "NON_VEG", "price": 80, "available": true }
+            {
+              "type": "VEG",
+              "price": 70,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 80,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "mint", "fresh", "herbal", "mexican"]
+          "keywords": [
+            "taco",
+            "mint",
+            "fresh",
+            "herbal",
+            "mexican"
+          ]
         },
         {
           "id": "195",
@@ -1135,10 +2030,19 @@
           "category": "mexican",
           "description": "Mint double vegetable taco",
           "variations": [
-            { "type": "VEG", "price": 130, "available": true },
-            { "type": "JAIN", "price": 130, "available": true }
+            {
+              "type": "VEG",
+              "price": 130,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "mint", "veg", "double", "mexican"]
+          "keywords": [
+            "taco",
+            "mint",
+            "veg",
+            "double",
+            "mexican"
+          ]
         },
         {
           "id": "196",
@@ -1146,10 +2050,18 @@
           "category": "mexican",
           "description": "Mint paneer taco",
           "variations": [
-            { "type": "VEG", "price": 80, "available": true },
-            { "type": "JAIN", "price": 80, "available": true }
+            {
+              "type": "VEG",
+              "price": 80,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "mint", "paneer", "mexican"]
+          "keywords": [
+            "taco",
+            "mint",
+            "paneer",
+            "mexican"
+          ]
         },
         {
           "id": "197",
@@ -1157,18 +2069,38 @@
           "category": "mexican",
           "description": "Mint double paneer taco",
           "variations": [
-            { "type": "VEG", "price": 150, "available": true },
-            { "type": "JAIN", "price": 150, "available": true }
+            {
+              "type": "VEG",
+              "price": 150,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "mint", "paneer", "double", "mexican"]
+          "keywords": [
+            "taco",
+            "mint",
+            "paneer",
+            "double",
+            "mexican"
+          ]
         },
         {
           "id": "198",
           "name": "Mint Chicken Taco",
           "category": "mexican",
           "description": "Mint chicken taco",
-          "variations": [{ "type": "NON_VEG", "price": 90, "available": true }],
-          "keywords": ["taco", "mint", "chicken", "mexican"]
+          "variations": [
+            {
+              "type": "NON_VEG",
+              "price": 90,
+              "available": true
+            }
+          ],
+          "keywords": [
+            "taco",
+            "mint",
+            "chicken",
+            "mexican"
+          ]
         },
         {
           "id": "199",
@@ -1176,9 +2108,19 @@
           "category": "mexican",
           "description": "Mint double chicken taco",
           "variations": [
-            { "type": "NON_VEG", "price": 160, "available": true }
+            {
+              "type": "NON_VEG",
+              "price": 160,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "mint", "chicken", "double", "mexican"]
+          "keywords": [
+            "taco",
+            "mint",
+            "chicken",
+            "double",
+            "mexican"
+          ]
         },
         {
           "id": "200",
@@ -1186,10 +2128,24 @@
           "category": "mexican",
           "description": "Schezwan flavored taco",
           "variations": [
-            { "type": "VEG", "price": 70, "available": true },
-            { "type": "NON_VEG", "price": 80, "available": true }
+            {
+              "type": "VEG",
+              "price": 70,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 80,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "schezwan", "spicy", "chinese", "mexican"]
+          "keywords": [
+            "taco",
+            "schezwan",
+            "spicy",
+            "chinese",
+            "mexican"
+          ]
         },
         {
           "id": "201",
@@ -1197,10 +2153,19 @@
           "category": "mexican",
           "description": "Schezwan double vegetable taco",
           "variations": [
-            { "type": "VEG", "price": 130, "available": true },
-            { "type": "JAIN", "price": 130, "available": true }
+            {
+              "type": "VEG",
+              "price": 130,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "schezwan", "veg", "double", "mexican"]
+          "keywords": [
+            "taco",
+            "schezwan",
+            "veg",
+            "double",
+            "mexican"
+          ]
         },
         {
           "id": "202",
@@ -1208,10 +2173,18 @@
           "category": "mexican",
           "description": "Schezwan paneer taco",
           "variations": [
-            { "type": "VEG", "price": 80, "available": true },
-            { "type": "JAIN", "price": 80, "available": true }
+            {
+              "type": "VEG",
+              "price": 80,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "schezwan", "paneer", "mexican"]
+          "keywords": [
+            "taco",
+            "schezwan",
+            "paneer",
+            "mexican"
+          ]
         },
         {
           "id": "203",
@@ -1219,18 +2192,38 @@
           "category": "mexican",
           "description": "Schezwan double paneer taco",
           "variations": [
-            { "type": "VEG", "price": 150, "available": true },
-            { "type": "JAIN", "price": 150, "available": true }
+            {
+              "type": "VEG",
+              "price": 150,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "schezwan", "paneer", "double", "mexican"]
+          "keywords": [
+            "taco",
+            "schezwan",
+            "paneer",
+            "double",
+            "mexican"
+          ]
         },
         {
           "id": "204",
           "name": "Schezwan Chicken Taco",
           "category": "mexican",
           "description": "Schezwan chicken taco",
-          "variations": [{ "type": "NON_VEG", "price": 90, "available": true }],
-          "keywords": ["taco", "schezwan", "chicken", "mexican"]
+          "variations": [
+            {
+              "type": "NON_VEG",
+              "price": 90,
+              "available": true
+            }
+          ],
+          "keywords": [
+            "taco",
+            "schezwan",
+            "chicken",
+            "mexican"
+          ]
         },
         {
           "id": "205",
@@ -1238,9 +2231,19 @@
           "category": "mexican",
           "description": "Schezwan double chicken taco",
           "variations": [
-            { "type": "NON_VEG", "price": 160, "available": true }
+            {
+              "type": "NON_VEG",
+              "price": 160,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "schezwan", "chicken", "double", "mexican"]
+          "keywords": [
+            "taco",
+            "schezwan",
+            "chicken",
+            "double",
+            "mexican"
+          ]
         },
         {
           "id": "206",
@@ -1248,10 +2251,24 @@
           "category": "mexican",
           "description": "Siracha flavored taco",
           "variations": [
-            { "type": "VEG", "price": 70, "available": true },
-            { "type": "NON_VEG", "price": 80, "available": true }
+            {
+              "type": "VEG",
+              "price": 70,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 80,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "siracha", "spicy", "hot", "mexican"]
+          "keywords": [
+            "taco",
+            "siracha",
+            "spicy",
+            "hot",
+            "mexican"
+          ]
         },
         {
           "id": "207",
@@ -1259,10 +2276,19 @@
           "category": "mexican",
           "description": "Siracha double vegetable taco",
           "variations": [
-            { "type": "VEG", "price": 130, "available": true },
-            { "type": "JAIN", "price": 130, "available": true }
+            {
+              "type": "VEG",
+              "price": 130,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "siracha", "veg", "double", "mexican"]
+          "keywords": [
+            "taco",
+            "siracha",
+            "veg",
+            "double",
+            "mexican"
+          ]
         },
         {
           "id": "208",
@@ -1270,10 +2296,18 @@
           "category": "mexican",
           "description": "Siracha paneer taco",
           "variations": [
-            { "type": "VEG", "price": 80, "available": true },
-            { "type": "JAIN", "price": 80, "available": true }
+            {
+              "type": "VEG",
+              "price": 80,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "siracha", "paneer", "mexican"]
+          "keywords": [
+            "taco",
+            "siracha",
+            "paneer",
+            "mexican"
+          ]
         },
         {
           "id": "209",
@@ -1281,18 +2315,38 @@
           "category": "mexican",
           "description": "Siracha double paneer taco",
           "variations": [
-            { "type": "VEG", "price": 150, "available": true },
-            { "type": "JAIN", "price": 150, "available": true }
+            {
+              "type": "VEG",
+              "price": 150,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "siracha", "paneer", "double", "mexican"]
+          "keywords": [
+            "taco",
+            "siracha",
+            "paneer",
+            "double",
+            "mexican"
+          ]
         },
         {
           "id": "210",
           "name": "Siracha Chicken Taco",
           "category": "mexican",
           "description": "Siracha chicken taco",
-          "variations": [{ "type": "NON_VEG", "price": 90, "available": true }],
-          "keywords": ["taco", "siracha", "chicken", "mexican"]
+          "variations": [
+            {
+              "type": "NON_VEG",
+              "price": 90,
+              "available": true
+            }
+          ],
+          "keywords": [
+            "taco",
+            "siracha",
+            "chicken",
+            "mexican"
+          ]
         },
         {
           "id": "211",
@@ -1300,9 +2354,19 @@
           "category": "mexican",
           "description": "Siracha double chicken taco",
           "variations": [
-            { "type": "NON_VEG", "price": 160, "available": true }
+            {
+              "type": "NON_VEG",
+              "price": 160,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "siracha", "chicken", "double", "mexican"]
+          "keywords": [
+            "taco",
+            "siracha",
+            "chicken",
+            "double",
+            "mexican"
+          ]
         },
         {
           "id": "212",
@@ -1310,10 +2374,24 @@
           "category": "mexican",
           "description": "Lemon pepper flavored taco",
           "variations": [
-            { "type": "VEG", "price": 70, "available": true },
-            { "type": "NON_VEG", "price": 80, "available": true }
+            {
+              "type": "VEG",
+              "price": 70,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 80,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "lemon", "pepper", "citrus", "mexican"]
+          "keywords": [
+            "taco",
+            "lemon",
+            "pepper",
+            "citrus",
+            "mexican"
+          ]
         },
         {
           "id": "213",
@@ -1321,10 +2399,20 @@
           "category": "mexican",
           "description": "Lemon pepper double vegetable taco",
           "variations": [
-            { "type": "VEG", "price": 130, "available": true },
-            { "type": "JAIN", "price": 130, "available": true }
+            {
+              "type": "VEG",
+              "price": 130,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "lemon", "pepper", "veg", "double", "mexican"]
+          "keywords": [
+            "taco",
+            "lemon",
+            "pepper",
+            "veg",
+            "double",
+            "mexican"
+          ]
         },
         {
           "id": "214",
@@ -1332,10 +2420,19 @@
           "category": "mexican",
           "description": "Lemon pepper paneer taco",
           "variations": [
-            { "type": "VEG", "price": 80, "available": true },
-            { "type": "JAIN", "price": 80, "available": true }
+            {
+              "type": "VEG",
+              "price": 80,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "lemon", "pepper", "paneer", "mexican"]
+          "keywords": [
+            "taco",
+            "lemon",
+            "pepper",
+            "paneer",
+            "mexican"
+          ]
         },
         {
           "id": "215",
@@ -1343,18 +2440,40 @@
           "category": "mexican",
           "description": "Lemon pepper double paneer taco",
           "variations": [
-            { "type": "VEG", "price": 150, "available": true },
-            { "type": "JAIN", "price": 150, "available": true }
+            {
+              "type": "VEG",
+              "price": 150,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "lemon", "pepper", "paneer", "double", "mexican"]
+          "keywords": [
+            "taco",
+            "lemon",
+            "pepper",
+            "paneer",
+            "double",
+            "mexican"
+          ]
         },
         {
           "id": "216",
           "name": "Lemon Pepper Chicken Taco",
           "category": "mexican",
           "description": "Lemon pepper chicken taco",
-          "variations": [{ "type": "NON_VEG", "price": 90, "available": true }],
-          "keywords": ["taco", "lemon", "pepper", "chicken", "mexican"]
+          "variations": [
+            {
+              "type": "NON_VEG",
+              "price": 90,
+              "available": true
+            }
+          ],
+          "keywords": [
+            "taco",
+            "lemon",
+            "pepper",
+            "chicken",
+            "mexican"
+          ]
         },
         {
           "id": "217",
@@ -1362,7 +2481,11 @@
           "category": "mexican",
           "description": "Lemon pepper double chicken taco",
           "variations": [
-            { "type": "NON_VEG", "price": 160, "available": true }
+            {
+              "type": "NON_VEG",
+              "price": 160,
+              "available": true
+            }
           ],
           "keywords": [
             "taco",
@@ -1379,10 +2502,24 @@
           "category": "mexican",
           "description": "Lemon chili flavored taco",
           "variations": [
-            { "type": "VEG", "price": 70, "available": true },
-            { "type": "NON_VEG", "price": 80, "available": true }
+            {
+              "type": "VEG",
+              "price": 70,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 80,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "lemon", "chili", "spicy", "mexican"]
+          "keywords": [
+            "taco",
+            "lemon",
+            "chili",
+            "spicy",
+            "mexican"
+          ]
         },
         {
           "id": "219",
@@ -1390,10 +2527,20 @@
           "category": "mexican",
           "description": "Lemon chili double vegetable taco",
           "variations": [
-            { "type": "VEG", "price": 130, "available": true },
-            { "type": "JAIN", "price": 130, "available": true }
+            {
+              "type": "VEG",
+              "price": 130,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "lemon", "chili", "veg", "double", "mexican"]
+          "keywords": [
+            "taco",
+            "lemon",
+            "chili",
+            "veg",
+            "double",
+            "mexican"
+          ]
         },
         {
           "id": "220",
@@ -1401,10 +2548,19 @@
           "category": "mexican",
           "description": "Lemon chili paneer taco",
           "variations": [
-            { "type": "VEG", "price": 80, "available": true },
-            { "type": "JAIN", "price": 80, "available": true }
+            {
+              "type": "VEG",
+              "price": 80,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "lemon", "chili", "paneer", "mexican"]
+          "keywords": [
+            "taco",
+            "lemon",
+            "chili",
+            "paneer",
+            "mexican"
+          ]
         },
         {
           "id": "221",
@@ -1412,18 +2568,40 @@
           "category": "mexican",
           "description": "Lemon chili double paneer taco",
           "variations": [
-            { "type": "VEG", "price": 150, "available": true },
-            { "type": "JAIN", "price": 150, "available": true }
+            {
+              "type": "VEG",
+              "price": 150,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "lemon", "chili", "paneer", "double", "mexican"]
+          "keywords": [
+            "taco",
+            "lemon",
+            "chili",
+            "paneer",
+            "double",
+            "mexican"
+          ]
         },
         {
           "id": "222",
           "name": "Lemon Chili Chicken Taco",
           "category": "mexican",
           "description": "Lemon chili chicken taco",
-          "variations": [{ "type": "NON_VEG", "price": 90, "available": true }],
-          "keywords": ["taco", "lemon", "chili", "chicken", "mexican"]
+          "variations": [
+            {
+              "type": "NON_VEG",
+              "price": 90,
+              "available": true
+            }
+          ],
+          "keywords": [
+            "taco",
+            "lemon",
+            "chili",
+            "chicken",
+            "mexican"
+          ]
         },
         {
           "id": "223",
@@ -1431,9 +2609,20 @@
           "category": "mexican",
           "description": "Lemon chili double chicken taco",
           "variations": [
-            { "type": "NON_VEG", "price": 160, "available": true }
+            {
+              "type": "NON_VEG",
+              "price": 160,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "lemon", "chili", "chicken", "double", "mexican"]
+          "keywords": [
+            "taco",
+            "lemon",
+            "chili",
+            "chicken",
+            "double",
+            "mexican"
+          ]
         },
         {
           "id": "224",
@@ -1441,10 +2630,24 @@
           "category": "mexican",
           "description": "Thousand island flavored taco",
           "variations": [
-            { "type": "VEG", "price": 70, "available": true },
-            { "type": "NON_VEG", "price": 80, "available": true }
+            {
+              "type": "VEG",
+              "price": 70,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 80,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "thousand", "island", "creamy", "mexican"]
+          "keywords": [
+            "taco",
+            "thousand",
+            "island",
+            "creamy",
+            "mexican"
+          ]
         },
         {
           "id": "225",
@@ -1452,10 +2655,20 @@
           "category": "mexican",
           "description": "Thousand island double vegetable taco",
           "variations": [
-            { "type": "VEG", "price": 130, "available": true },
-            { "type": "JAIN", "price": 130, "available": true }
+            {
+              "type": "VEG",
+              "price": 130,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "thousand", "island", "veg", "double", "mexican"]
+          "keywords": [
+            "taco",
+            "thousand",
+            "island",
+            "veg",
+            "double",
+            "mexican"
+          ]
         },
         {
           "id": "226",
@@ -1463,10 +2676,19 @@
           "category": "mexican",
           "description": "Thousand island paneer taco",
           "variations": [
-            { "type": "VEG", "price": 80, "available": true },
-            { "type": "JAIN", "price": 80, "available": true }
+            {
+              "type": "VEG",
+              "price": 80,
+              "available": true
+            }
           ],
-          "keywords": ["taco", "thousand", "island", "paneer", "mexican"]
+          "keywords": [
+            "taco",
+            "thousand",
+            "island",
+            "paneer",
+            "mexican"
+          ]
         },
         {
           "id": "227",
@@ -1474,8 +2696,11 @@
           "category": "mexican",
           "description": "Thousand island double paneer taco",
           "variations": [
-            { "type": "VEG", "price": 150, "available": true },
-            { "type": "JAIN", "price": 150, "available": true }
+            {
+              "type": "VEG",
+              "price": 150,
+              "available": true
+            }
           ],
           "keywords": [
             "taco",
@@ -1491,8 +2716,20 @@
           "name": "Thousand Island Chicken Taco",
           "category": "mexican",
           "description": "Thousand island chicken taco",
-          "variations": [{ "type": "NON_VEG", "price": 90, "available": true }],
-          "keywords": ["taco", "thousand", "island", "chicken", "mexican"]
+          "variations": [
+            {
+              "type": "NON_VEG",
+              "price": 90,
+              "available": true
+            }
+          ],
+          "keywords": [
+            "taco",
+            "thousand",
+            "island",
+            "chicken",
+            "mexican"
+          ]
         },
         {
           "id": "229",
@@ -1500,7 +2737,11 @@
           "category": "mexican",
           "description": "Thousand island double chicken taco",
           "variations": [
-            { "type": "NON_VEG", "price": 160, "available": true }
+            {
+              "type": "NON_VEG",
+              "price": 160,
+              "available": true
+            }
           ],
           "keywords": [
             "taco",
@@ -1523,18 +2764,37 @@
           "category": "sandwiches",
           "description": "Grilled vegetable sandwich",
           "variations": [
-            { "type": "VEG", "price": 80, "available": true },
-            { "type": "JAIN", "price": 80, "available": true }
+            {
+              "type": "VEG",
+              "price": 80,
+              "available": true
+            }
           ],
-          "keywords": ["sandwich", "veg", "grilled", "vegetable"]
+          "keywords": [
+            "sandwich",
+            "veg",
+            "grilled",
+            "vegetable"
+          ]
         },
         {
           "id": "231",
           "name": "Veg Cheese Grilled Sandwich",
           "category": "sandwiches",
           "description": "Grilled vegetable sandwich with cheese",
-          "variations": [{ "type": "VEG", "price": 100, "available": true }],
-          "keywords": ["sandwich", "veg", "cheese", "grilled"]
+          "variations": [
+            {
+              "type": "VEG",
+              "price": 100,
+              "available": true
+            }
+          ],
+          "keywords": [
+            "sandwich",
+            "veg",
+            "cheese",
+            "grilled"
+          ]
         },
         {
           "id": "232",
@@ -1542,10 +2802,18 @@
           "category": "sandwiches",
           "description": "Grilled paneer sandwich",
           "variations": [
-            { "type": "VEG", "price": 80, "available": true },
-            { "type": "JAIN", "price": 80, "available": true }
+            {
+              "type": "VEG",
+              "price": 80,
+              "available": true
+            }
           ],
-          "keywords": ["sandwich", "paneer", "grilled", "cottage"]
+          "keywords": [
+            "sandwich",
+            "paneer",
+            "grilled",
+            "cottage"
+          ]
         },
         {
           "id": "233",
@@ -1553,10 +2821,18 @@
           "category": "sandwiches",
           "description": "Grilled paneer sandwich with cheese",
           "variations": [
-            { "type": "VEG", "price": 100, "available": true },
-            { "type": "JAIN", "price": 100, "available": true }
+            {
+              "type": "VEG",
+              "price": 100,
+              "available": true
+            }
           ],
-          "keywords": ["sandwich", "paneer", "cheese", "grilled"]
+          "keywords": [
+            "sandwich",
+            "paneer",
+            "cheese",
+            "grilled"
+          ]
         },
         {
           "id": "234",
@@ -1564,10 +2840,18 @@
           "category": "sandwiches",
           "description": "Grilled mushroom sandwich with cheese",
           "variations": [
-            { "type": "VEG", "price": 100, "available": true },
-            { "type": "JAIN", "price": 100, "available": true }
+            {
+              "type": "VEG",
+              "price": 100,
+              "available": true
+            }
           ],
-          "keywords": ["sandwich", "mushroom", "cheese", "grilled"]
+          "keywords": [
+            "sandwich",
+            "mushroom",
+            "cheese",
+            "grilled"
+          ]
         },
         {
           "id": "235",
@@ -1575,18 +2859,37 @@
           "category": "sandwiches",
           "description": "Grilled corn sandwich with cheese",
           "variations": [
-            { "type": "VEG", "price": 100, "available": true },
-            { "type": "JAIN", "price": 100, "available": true }
+            {
+              "type": "VEG",
+              "price": 100,
+              "available": true
+            }
           ],
-          "keywords": ["sandwich", "corn", "cheese", "grilled"]
+          "keywords": [
+            "sandwich",
+            "corn",
+            "cheese",
+            "grilled"
+          ]
         },
         {
           "id": "236",
           "name": "Egg Omlet Grilled Sandwich",
           "category": "sandwiches",
           "description": "Grilled sandwich with egg omelette",
-          "variations": [{ "type": "NON_VEG", "price": 80, "available": true }],
-          "keywords": ["sandwich", "egg", "omelette", "grilled"]
+          "variations": [
+            {
+              "type": "NON_VEG",
+              "price": 80,
+              "available": true
+            }
+          ],
+          "keywords": [
+            "sandwich",
+            "egg",
+            "omelette",
+            "grilled"
+          ]
         },
         {
           "id": "237",
@@ -1594,17 +2897,38 @@
           "category": "sandwiches",
           "description": "Grilled sandwich with egg omelette and cheese",
           "variations": [
-            { "type": "NON_VEG", "price": 100, "available": true }
+            {
+              "type": "NON_VEG",
+              "price": 100,
+              "available": true
+            }
           ],
-          "keywords": ["sandwich", "egg", "omelette", "cheese", "grilled"]
+          "keywords": [
+            "sandwich",
+            "egg",
+            "omelette",
+            "cheese",
+            "grilled"
+          ]
         },
         {
           "id": "238",
           "name": "Chicken Grilled Sandwich",
           "category": "sandwiches",
           "description": "Grilled chicken sandwich",
-          "variations": [{ "type": "NON_VEG", "price": 90, "available": true }],
-          "keywords": ["sandwich", "chicken", "grilled", "non-veg"]
+          "variations": [
+            {
+              "type": "NON_VEG",
+              "price": 90,
+              "available": true
+            }
+          ],
+          "keywords": [
+            "sandwich",
+            "chicken",
+            "grilled",
+            "non-veg"
+          ]
         },
         {
           "id": "239",
@@ -1612,9 +2936,18 @@
           "category": "sandwiches",
           "description": "Grilled chicken sandwich with cheese",
           "variations": [
-            { "type": "NON_VEG", "price": 110, "available": true }
+            {
+              "type": "NON_VEG",
+              "price": 110,
+              "available": true
+            }
           ],
-          "keywords": ["sandwich", "chicken", "cheese", "grilled"]
+          "keywords": [
+            "sandwich",
+            "chicken",
+            "cheese",
+            "grilled"
+          ]
         },
         {
           "id": "240",
@@ -1622,9 +2955,19 @@
           "category": "sandwiches",
           "description": "Grilled chicken tikka sandwich with cheese",
           "variations": [
-            { "type": "NON_VEG", "price": 110, "available": true }
+            {
+              "type": "NON_VEG",
+              "price": 110,
+              "available": true
+            }
           ],
-          "keywords": ["sandwich", "chicken", "tikka", "cheese", "grilled"]
+          "keywords": [
+            "sandwich",
+            "chicken",
+            "tikka",
+            "cheese",
+            "grilled"
+          ]
         }
       ]
     },
@@ -1638,18 +2981,38 @@
           "category": "kathi-rolls",
           "description": "Kathi roll with potato filling",
           "variations": [
-            { "type": "VEG", "price": 70, "available": true },
-            { "type": "JAIN", "price": 70, "available": true }
+            {
+              "type": "VEG",
+              "price": 70,
+              "available": true
+            }
           ],
-          "keywords": ["kathi", "roll", "potato", "kolkata"]
+          "keywords": [
+            "kathi",
+            "roll",
+            "potato",
+            "kolkata"
+          ]
         },
         {
           "id": "242",
           "name": "Egg Potato Kathi Roll",
           "category": "kathi-rolls",
           "description": "Kathi roll with egg and potato filling",
-          "variations": [{ "type": "NON_VEG", "price": 80, "available": true }],
-          "keywords": ["kathi", "roll", "egg", "potato", "kolkata"]
+          "variations": [
+            {
+              "type": "NON_VEG",
+              "price": 80,
+              "available": true
+            }
+          ],
+          "keywords": [
+            "kathi",
+            "roll",
+            "egg",
+            "potato",
+            "kolkata"
+          ]
         },
         {
           "id": "243",
@@ -1657,26 +3020,55 @@
           "category": "kathi-rolls",
           "description": "Classic kathi roll",
           "variations": [
-            { "type": "VEG", "price": 70, "available": true },
-            { "type": "JAIN", "price": 70, "available": true }
+            {
+              "type": "VEG",
+              "price": 70,
+              "available": true
+            }
           ],
-          "keywords": ["kathi", "roll", "classic", "kolkata"]
+          "keywords": [
+            "kathi",
+            "roll",
+            "classic",
+            "kolkata"
+          ]
         },
         {
           "id": "244",
           "name": "Egg Kathi Roll",
           "category": "kathi-rolls",
           "description": "Kathi roll with egg filling",
-          "variations": [{ "type": "NON_VEG", "price": 80, "available": true }],
-          "keywords": ["kathi", "roll", "egg", "kolkata"]
+          "variations": [
+            {
+              "type": "NON_VEG",
+              "price": 80,
+              "available": true
+            }
+          ],
+          "keywords": [
+            "kathi",
+            "roll",
+            "egg",
+            "kolkata"
+          ]
         },
         {
           "id": "245",
           "name": "Egg Roll",
           "category": "kathi-rolls",
           "description": "Egg roll",
-          "variations": [{ "type": "NON_VEG", "price": 70, "available": true }],
-          "keywords": ["egg", "roll", "kolkata"]
+          "variations": [
+            {
+              "type": "NON_VEG",
+              "price": 70,
+              "available": true
+            }
+          ],
+          "keywords": [
+            "egg",
+            "roll",
+            "kolkata"
+          ]
         },
         {
           "id": "246",
@@ -1684,10 +3076,18 @@
           "category": "kathi-rolls",
           "description": "Kathi roll with paneer filling",
           "variations": [
-            { "type": "VEG", "price": 90, "available": true },
-            { "type": "JAIN", "price": 90, "available": true }
+            {
+              "type": "VEG",
+              "price": 90,
+              "available": true
+            }
           ],
-          "keywords": ["kathi", "roll", "paneer", "kolkata"]
+          "keywords": [
+            "kathi",
+            "roll",
+            "paneer",
+            "kolkata"
+          ]
         },
         {
           "id": "247",
@@ -1695,9 +3095,19 @@
           "category": "kathi-rolls",
           "description": "Kathi roll with egg and paneer filling",
           "variations": [
-            { "type": "NON_VEG", "price": 100, "available": true }
+            {
+              "type": "NON_VEG",
+              "price": 100,
+              "available": true
+            }
           ],
-          "keywords": ["kathi", "roll", "egg", "paneer", "kolkata"]
+          "keywords": [
+            "kathi",
+            "roll",
+            "egg",
+            "paneer",
+            "kolkata"
+          ]
         },
         {
           "id": "248",
@@ -1705,9 +3115,20 @@
           "category": "kathi-rolls",
           "description": "Kathi roll with double egg and paneer filling",
           "variations": [
-            { "type": "NON_VEG", "price": 110, "available": true }
+            {
+              "type": "NON_VEG",
+              "price": 110,
+              "available": true
+            }
           ],
-          "keywords": ["kathi", "roll", "double", "egg", "paneer", "kolkata"]
+          "keywords": [
+            "kathi",
+            "roll",
+            "double",
+            "egg",
+            "paneer",
+            "kolkata"
+          ]
         },
         {
           "id": "249",
@@ -1715,17 +3136,39 @@
           "category": "kathi-rolls",
           "description": "Kathi roll with double egg and double paneer filling",
           "variations": [
-            { "type": "NON_VEG", "price": 130, "available": true }
+            {
+              "type": "NON_VEG",
+              "price": 130,
+              "available": true
+            }
           ],
-          "keywords": ["kathi", "roll", "double", "egg", "paneer", "kolkata"]
+          "keywords": [
+            "kathi",
+            "roll",
+            "double",
+            "egg",
+            "paneer",
+            "kolkata"
+          ]
         },
         {
           "id": "250",
           "name": "Chicken Kathi Roll",
           "category": "kathi-rolls",
           "description": "Kathi roll with chicken filling",
-          "variations": [{ "type": "NON_VEG", "price": 90, "available": true }],
-          "keywords": ["kathi", "roll", "chicken", "kolkata"]
+          "variations": [
+            {
+              "type": "NON_VEG",
+              "price": 90,
+              "available": true
+            }
+          ],
+          "keywords": [
+            "kathi",
+            "roll",
+            "chicken",
+            "kolkata"
+          ]
         },
         {
           "id": "251",
@@ -1733,9 +3176,19 @@
           "category": "kathi-rolls",
           "description": "Kathi roll with egg and chicken filling",
           "variations": [
-            { "type": "NON_VEG", "price": 100, "available": true }
+            {
+              "type": "NON_VEG",
+              "price": 100,
+              "available": true
+            }
           ],
-          "keywords": ["kathi", "roll", "egg", "chicken", "kolkata"]
+          "keywords": [
+            "kathi",
+            "roll",
+            "egg",
+            "chicken",
+            "kolkata"
+          ]
         },
         {
           "id": "252",
@@ -1743,9 +3196,20 @@
           "category": "kathi-rolls",
           "description": "Kathi roll with double egg and double chicken filling",
           "variations": [
-            { "type": "NON_VEG", "price": 130, "available": true }
+            {
+              "type": "NON_VEG",
+              "price": 130,
+              "available": true
+            }
           ],
-          "keywords": ["kathi", "roll", "double", "egg", "chicken", "kolkata"]
+          "keywords": [
+            "kathi",
+            "roll",
+            "double",
+            "egg",
+            "chicken",
+            "kolkata"
+          ]
         },
         {
           "id": "253",
@@ -1753,9 +3217,20 @@
           "category": "kathi-rolls",
           "description": "Kathi roll with double egg and chicken filling",
           "variations": [
-            { "type": "NON_VEG", "price": 110, "available": true }
+            {
+              "type": "NON_VEG",
+              "price": 110,
+              "available": true
+            }
           ],
-          "keywords": ["kathi", "roll", "double", "egg", "chicken", "kolkata"]
+          "keywords": [
+            "kathi",
+            "roll",
+            "double",
+            "egg",
+            "chicken",
+            "kolkata"
+          ]
         }
       ]
     },
@@ -1769,10 +3244,22 @@
           "category": "wrap-rolls",
           "description": "Classic wrap roll",
           "variations": [
-            { "type": "VEG", "price": 70, "available": true },
-            { "type": "NON_VEG", "price": 80, "available": true }
+            {
+              "type": "VEG",
+              "price": 70,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 80,
+              "available": true
+            }
           ],
-          "keywords": ["wrap", "roll", "classic"]
+          "keywords": [
+            "wrap",
+            "roll",
+            "classic"
+          ]
         },
         {
           "id": "255",
@@ -1780,10 +3267,24 @@
           "category": "wrap-rolls",
           "description": "Spicy peri peri wrap roll",
           "variations": [
-            { "type": "VEG", "price": 80, "available": true },
-            { "type": "NON_VEG", "price": 90, "available": true }
+            {
+              "type": "VEG",
+              "price": 80,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 90,
+              "available": true
+            }
           ],
-          "keywords": ["wrap", "roll", "peri", "peri", "spicy"]
+          "keywords": [
+            "wrap",
+            "roll",
+            "peri",
+            "peri",
+            "spicy"
+          ]
         },
         {
           "id": "256",
@@ -1791,10 +3292,23 @@
           "category": "wrap-rolls",
           "description": "Chipotle flavored wrap roll",
           "variations": [
-            { "type": "VEG", "price": 80, "available": true },
-            { "type": "NON_VEG", "price": 90, "available": true }
+            {
+              "type": "VEG",
+              "price": 80,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 90,
+              "available": true
+            }
           ],
-          "keywords": ["wrap", "roll", "chipotle", "flavored"]
+          "keywords": [
+            "wrap",
+            "roll",
+            "chipotle",
+            "flavored"
+          ]
         },
         {
           "id": "257",
@@ -1802,10 +3316,24 @@
           "category": "wrap-rolls",
           "description": "Chilli garlic flavored wrap roll",
           "variations": [
-            { "type": "VEG", "price": 80, "available": true },
-            { "type": "NON_VEG", "price": 90, "available": true }
+            {
+              "type": "VEG",
+              "price": 80,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 90,
+              "available": true
+            }
           ],
-          "keywords": ["wrap", "roll", "chilli", "garlic", "spicy"]
+          "keywords": [
+            "wrap",
+            "roll",
+            "chilli",
+            "garlic",
+            "spicy"
+          ]
         },
         {
           "id": "258",
@@ -1813,10 +3341,24 @@
           "category": "wrap-rolls",
           "description": "Honey mustard flavored wrap roll",
           "variations": [
-            { "type": "VEG", "price": 80, "available": true },
-            { "type": "NON_VEG", "price": 90, "available": true }
+            {
+              "type": "VEG",
+              "price": 80,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 90,
+              "available": true
+            }
           ],
-          "keywords": ["wrap", "roll", "honey", "mustard", "sweet"]
+          "keywords": [
+            "wrap",
+            "roll",
+            "honey",
+            "mustard",
+            "sweet"
+          ]
         },
         {
           "id": "259",
@@ -1824,10 +3366,23 @@
           "category": "wrap-rolls",
           "description": "BBQ flavored wrap roll",
           "variations": [
-            { "type": "VEG", "price": 80, "available": true },
-            { "type": "NON_VEG", "price": 90, "available": true }
+            {
+              "type": "VEG",
+              "price": 80,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 90,
+              "available": true
+            }
           ],
-          "keywords": ["wrap", "roll", "bbq", "barbecue"]
+          "keywords": [
+            "wrap",
+            "roll",
+            "bbq",
+            "barbecue"
+          ]
         },
         {
           "id": "260",
@@ -1835,10 +3390,23 @@
           "category": "wrap-rolls",
           "description": "Mint flavored wrap roll",
           "variations": [
-            { "type": "VEG", "price": 80, "available": true },
-            { "type": "NON_VEG", "price": 90, "available": true }
+            {
+              "type": "VEG",
+              "price": 80,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 90,
+              "available": true
+            }
           ],
-          "keywords": ["wrap", "roll", "mint", "fresh"]
+          "keywords": [
+            "wrap",
+            "roll",
+            "mint",
+            "fresh"
+          ]
         },
         {
           "id": "261",
@@ -1846,10 +3414,23 @@
           "category": "wrap-rolls",
           "description": "Schezwan flavored wrap roll",
           "variations": [
-            { "type": "VEG", "price": 80, "available": true },
-            { "type": "NON_VEG", "price": 90, "available": true }
+            {
+              "type": "VEG",
+              "price": 80,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 90,
+              "available": true
+            }
           ],
-          "keywords": ["wrap", "roll", "schezwan", "spicy"]
+          "keywords": [
+            "wrap",
+            "roll",
+            "schezwan",
+            "spicy"
+          ]
         },
         {
           "id": "262",
@@ -1857,10 +3438,23 @@
           "category": "wrap-rolls",
           "description": "Siracha flavored wrap roll",
           "variations": [
-            { "type": "VEG", "price": 80, "available": true },
-            { "type": "NON_VEG", "price": 90, "available": true }
+            {
+              "type": "VEG",
+              "price": 80,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 90,
+              "available": true
+            }
           ],
-          "keywords": ["wrap", "roll", "siracha", "spicy"]
+          "keywords": [
+            "wrap",
+            "roll",
+            "siracha",
+            "spicy"
+          ]
         },
         {
           "id": "263",
@@ -1868,10 +3462,24 @@
           "category": "wrap-rolls",
           "description": "Lemon pepper flavored wrap roll",
           "variations": [
-            { "type": "VEG", "price": 80, "available": true },
-            { "type": "NON_VEG", "price": 90, "available": true }
+            {
+              "type": "VEG",
+              "price": 80,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 90,
+              "available": true
+            }
           ],
-          "keywords": ["wrap", "roll", "lemon", "pepper", "citrus"]
+          "keywords": [
+            "wrap",
+            "roll",
+            "lemon",
+            "pepper",
+            "citrus"
+          ]
         },
         {
           "id": "264",
@@ -1879,10 +3487,24 @@
           "category": "wrap-rolls",
           "description": "Lemon chili flavored wrap roll",
           "variations": [
-            { "type": "VEG", "price": 80, "available": true },
-            { "type": "NON_VEG", "price": 90, "available": true }
+            {
+              "type": "VEG",
+              "price": 80,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 90,
+              "available": true
+            }
           ],
-          "keywords": ["wrap", "roll", "lemon", "chili", "spicy"]
+          "keywords": [
+            "wrap",
+            "roll",
+            "lemon",
+            "chili",
+            "spicy"
+          ]
         },
         {
           "id": "265",
@@ -1890,10 +3512,24 @@
           "category": "wrap-rolls",
           "description": "Thousand island flavored wrap roll",
           "variations": [
-            { "type": "VEG", "price": 80, "available": true },
-            { "type": "NON_VEG", "price": 90, "available": true }
+            {
+              "type": "VEG",
+              "price": 80,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 90,
+              "available": true
+            }
           ],
-          "keywords": ["wrap", "roll", "thousand", "island", "creamy"]
+          "keywords": [
+            "wrap",
+            "roll",
+            "thousand",
+            "island",
+            "creamy"
+          ]
         }
       ]
     },
@@ -1907,10 +3543,23 @@
           "category": "jumbo-wrap-rolls",
           "description": "Large jumbo wrap roll",
           "variations": [
-            { "type": "VEG", "price": 100, "available": true },
-            { "type": "NON_VEG", "price": 110, "available": true }
+            {
+              "type": "VEG",
+              "price": 100,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 110,
+              "available": true
+            }
           ],
-          "keywords": ["jumbo", "wrap", "roll", "large"]
+          "keywords": [
+            "jumbo",
+            "wrap",
+            "roll",
+            "large"
+          ]
         },
         {
           "id": "267",
@@ -1918,10 +3567,25 @@
           "category": "jumbo-wrap-rolls",
           "description": "Spicy peri peri jumbo wrap roll",
           "variations": [
-            { "type": "VEG", "price": 110, "available": true },
-            { "type": "NON_VEG", "price": 120, "available": true }
+            {
+              "type": "VEG",
+              "price": 110,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 120,
+              "available": true
+            }
           ],
-          "keywords": ["jumbo", "wrap", "roll", "peri", "peri", "spicy"]
+          "keywords": [
+            "jumbo",
+            "wrap",
+            "roll",
+            "peri",
+            "peri",
+            "spicy"
+          ]
         },
         {
           "id": "268",
@@ -1929,10 +3593,23 @@
           "category": "jumbo-wrap-rolls",
           "description": "Chipotle flavored jumbo wrap roll",
           "variations": [
-            { "type": "VEG", "price": 110, "available": true },
-            { "type": "NON_VEG", "price": 120, "available": true }
+            {
+              "type": "VEG",
+              "price": 110,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 120,
+              "available": true
+            }
           ],
-          "keywords": ["jumbo", "wrap", "roll", "chipotle"]
+          "keywords": [
+            "jumbo",
+            "wrap",
+            "roll",
+            "chipotle"
+          ]
         },
         {
           "id": "269",
@@ -1940,10 +3617,24 @@
           "category": "jumbo-wrap-rolls",
           "description": "Chilli garlic flavored jumbo wrap roll",
           "variations": [
-            { "type": "VEG", "price": 110, "available": true },
-            { "type": "NON_VEG", "price": 120, "available": true }
+            {
+              "type": "VEG",
+              "price": 110,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 120,
+              "available": true
+            }
           ],
-          "keywords": ["jumbo", "wrap", "roll", "chilli", "garlic"]
+          "keywords": [
+            "jumbo",
+            "wrap",
+            "roll",
+            "chilli",
+            "garlic"
+          ]
         },
         {
           "id": "270",
@@ -1951,10 +3642,24 @@
           "category": "jumbo-wrap-rolls",
           "description": "Honey mustard flavored jumbo wrap roll",
           "variations": [
-            { "type": "VEG", "price": 110, "available": true },
-            { "type": "NON_VEG", "price": 120, "available": true }
+            {
+              "type": "VEG",
+              "price": 110,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 120,
+              "available": true
+            }
           ],
-          "keywords": ["jumbo", "wrap", "roll", "honey", "mustard"]
+          "keywords": [
+            "jumbo",
+            "wrap",
+            "roll",
+            "honey",
+            "mustard"
+          ]
         },
         {
           "id": "271",
@@ -1962,10 +3667,23 @@
           "category": "jumbo-wrap-rolls",
           "description": "BBQ flavored jumbo wrap roll",
           "variations": [
-            { "type": "VEG", "price": 110, "available": true },
-            { "type": "NON_VEG", "price": 120, "available": true }
+            {
+              "type": "VEG",
+              "price": 110,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 120,
+              "available": true
+            }
           ],
-          "keywords": ["jumbo", "wrap", "roll", "bbq"]
+          "keywords": [
+            "jumbo",
+            "wrap",
+            "roll",
+            "bbq"
+          ]
         },
         {
           "id": "272",
@@ -1973,10 +3691,23 @@
           "category": "jumbo-wrap-rolls",
           "description": "Mint flavored jumbo wrap roll",
           "variations": [
-            { "type": "VEG", "price": 110, "available": true },
-            { "type": "NON_VEG", "price": 120, "available": true }
+            {
+              "type": "VEG",
+              "price": 110,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 120,
+              "available": true
+            }
           ],
-          "keywords": ["jumbo", "wrap", "roll", "mint"]
+          "keywords": [
+            "jumbo",
+            "wrap",
+            "roll",
+            "mint"
+          ]
         },
         {
           "id": "273",
@@ -1984,10 +3715,23 @@
           "category": "jumbo-wrap-rolls",
           "description": "Schezwan flavored jumbo wrap roll",
           "variations": [
-            { "type": "VEG", "price": 110, "available": true },
-            { "type": "NON_VEG", "price": 120, "available": true }
+            {
+              "type": "VEG",
+              "price": 110,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 120,
+              "available": true
+            }
           ],
-          "keywords": ["jumbo", "wrap", "roll", "schezwan"]
+          "keywords": [
+            "jumbo",
+            "wrap",
+            "roll",
+            "schezwan"
+          ]
         },
         {
           "id": "274",
@@ -1995,10 +3739,23 @@
           "category": "jumbo-wrap-rolls",
           "description": "Siracha flavored jumbo wrap roll",
           "variations": [
-            { "type": "VEG", "price": 110, "available": true },
-            { "type": "NON_VEG", "price": 120, "available": true }
+            {
+              "type": "VEG",
+              "price": 110,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 120,
+              "available": true
+            }
           ],
-          "keywords": ["jumbo", "wrap", "roll", "siracha"]
+          "keywords": [
+            "jumbo",
+            "wrap",
+            "roll",
+            "siracha"
+          ]
         },
         {
           "id": "275",
@@ -2006,10 +3763,24 @@
           "category": "jumbo-wrap-rolls",
           "description": "Lemon pepper flavored jumbo wrap roll",
           "variations": [
-            { "type": "VEG", "price": 110, "available": true },
-            { "type": "NON_VEG", "price": 120, "available": true }
+            {
+              "type": "VEG",
+              "price": 110,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 120,
+              "available": true
+            }
           ],
-          "keywords": ["jumbo", "wrap", "roll", "lemon", "pepper"]
+          "keywords": [
+            "jumbo",
+            "wrap",
+            "roll",
+            "lemon",
+            "pepper"
+          ]
         },
         {
           "id": "276",
@@ -2017,10 +3788,24 @@
           "category": "jumbo-wrap-rolls",
           "description": "Lemon chili flavored jumbo wrap roll",
           "variations": [
-            { "type": "VEG", "price": 110, "available": true },
-            { "type": "NON_VEG", "price": 120, "available": true }
+            {
+              "type": "VEG",
+              "price": 110,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 120,
+              "available": true
+            }
           ],
-          "keywords": ["jumbo", "wrap", "roll", "lemon", "chili"]
+          "keywords": [
+            "jumbo",
+            "wrap",
+            "roll",
+            "lemon",
+            "chili"
+          ]
         },
         {
           "id": "277",
@@ -2028,10 +3813,24 @@
           "category": "jumbo-wrap-rolls",
           "description": "Thousand island flavored jumbo wrap roll",
           "variations": [
-            { "type": "VEG", "price": 110, "available": true },
-            { "type": "NON_VEG", "price": 120, "available": true }
+            {
+              "type": "VEG",
+              "price": 110,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 120,
+              "available": true
+            }
           ],
-          "keywords": ["jumbo", "wrap", "roll", "thousand", "island"]
+          "keywords": [
+            "jumbo",
+            "wrap",
+            "roll",
+            "thousand",
+            "island"
+          ]
         }
       ]
     },
@@ -2045,10 +3844,22 @@
           "category": "burgers",
           "description": "Classic burger",
           "variations": [
-            { "type": "VEG", "price": 70, "available": true },
-            { "type": "NON_VEG", "price": 80, "available": true }
+            {
+              "type": "VEG",
+              "price": 70,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 80,
+              "available": true
+            }
           ],
-          "keywords": ["burger", "classic", "bun"]
+          "keywords": [
+            "burger",
+            "classic",
+            "bun"
+          ]
         },
         {
           "id": "279",
@@ -2056,10 +3867,23 @@
           "category": "burgers",
           "description": "Spicy peri peri burger",
           "variations": [
-            { "type": "VEG", "price": 80, "available": true },
-            { "type": "NON_VEG", "price": 90, "available": true }
+            {
+              "type": "VEG",
+              "price": 80,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 90,
+              "available": true
+            }
           ],
-          "keywords": ["burger", "peri", "peri", "spicy"]
+          "keywords": [
+            "burger",
+            "peri",
+            "peri",
+            "spicy"
+          ]
         },
         {
           "id": "280",
@@ -2067,10 +3891,22 @@
           "category": "burgers",
           "description": "Chipotle flavored burger",
           "variations": [
-            { "type": "VEG", "price": 80, "available": true },
-            { "type": "NON_VEG", "price": 90, "available": true }
+            {
+              "type": "VEG",
+              "price": 80,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 90,
+              "available": true
+            }
           ],
-          "keywords": ["burger", "chipotle", "flavored"]
+          "keywords": [
+            "burger",
+            "chipotle",
+            "flavored"
+          ]
         },
         {
           "id": "281",
@@ -2078,10 +3914,23 @@
           "category": "burgers",
           "description": "Chilli garlic flavored burger",
           "variations": [
-            { "type": "VEG", "price": 80, "available": true },
-            { "type": "NON_VEG", "price": 90, "available": true }
+            {
+              "type": "VEG",
+              "price": 80,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 90,
+              "available": true
+            }
           ],
-          "keywords": ["burger", "chilli", "garlic", "spicy"]
+          "keywords": [
+            "burger",
+            "chilli",
+            "garlic",
+            "spicy"
+          ]
         },
         {
           "id": "282",
@@ -2089,10 +3938,23 @@
           "category": "burgers",
           "description": "Honey mustard flavored burger",
           "variations": [
-            { "type": "VEG", "price": 80, "available": true },
-            { "type": "NON_VEG", "price": 90, "available": true }
+            {
+              "type": "VEG",
+              "price": 80,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 90,
+              "available": true
+            }
           ],
-          "keywords": ["burger", "honey", "mustard", "sweet"]
+          "keywords": [
+            "burger",
+            "honey",
+            "mustard",
+            "sweet"
+          ]
         },
         {
           "id": "283",
@@ -2100,10 +3962,23 @@
           "category": "burgers",
           "description": "BBQ flavored burger",
           "variations": [
-            { "type": "VEG", "price": 80, "available": true },
-            { "type": "NON_VEG", "price": 90, "available": true }
+            {
+              "type": "VEG",
+              "price": 80,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 90,
+              "available": true
+            }
           ],
-          "keywords": ["burger", "bbq", "barbecue", "smoky"]
+          "keywords": [
+            "burger",
+            "bbq",
+            "barbecue",
+            "smoky"
+          ]
         },
         {
           "id": "284",
@@ -2111,10 +3986,23 @@
           "category": "burgers",
           "description": "Mint flavored burger",
           "variations": [
-            { "type": "VEG", "price": 80, "available": true },
-            { "type": "NON_VEG", "price": 90, "available": true }
+            {
+              "type": "VEG",
+              "price": 80,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 90,
+              "available": true
+            }
           ],
-          "keywords": ["burger", "mint", "fresh", "herbal"]
+          "keywords": [
+            "burger",
+            "mint",
+            "fresh",
+            "herbal"
+          ]
         },
         {
           "id": "285",
@@ -2122,10 +4010,23 @@
           "category": "burgers",
           "description": "Schezwan flavored burger",
           "variations": [
-            { "type": "VEG", "price": 80, "available": true },
-            { "type": "NON_VEG", "price": 90, "available": true }
+            {
+              "type": "VEG",
+              "price": 80,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 90,
+              "available": true
+            }
           ],
-          "keywords": ["burger", "schezwan", "spicy", "chinese"]
+          "keywords": [
+            "burger",
+            "schezwan",
+            "spicy",
+            "chinese"
+          ]
         },
         {
           "id": "286",
@@ -2133,10 +4034,23 @@
           "category": "burgers",
           "description": "Siracha flavored burger",
           "variations": [
-            { "type": "VEG", "price": 80, "available": true },
-            { "type": "NON_VEG", "price": 90, "available": true }
+            {
+              "type": "VEG",
+              "price": 80,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 90,
+              "available": true
+            }
           ],
-          "keywords": ["burger", "siracha", "spicy", "hot"]
+          "keywords": [
+            "burger",
+            "siracha",
+            "spicy",
+            "hot"
+          ]
         },
         {
           "id": "287",
@@ -2144,10 +4058,23 @@
           "category": "burgers",
           "description": "Lemon pepper flavored burger",
           "variations": [
-            { "type": "VEG", "price": 80, "available": true },
-            { "type": "NON_VEG", "price": 90, "available": true }
+            {
+              "type": "VEG",
+              "price": 80,
+              "available": true
+            },
+            {
+              "type": "NON_VEG",
+              "price": 90,
+              "available": true
+            }
           ],
-          "keywords": ["burger", "lemon", "pepper", "citrus"]
+          "keywords": [
+            "burger",
+            "lemon",
+            "pepper",
+            "citrus"
+          ]
         },
         {
           "id": "288",
@@ -2155,9 +4082,18 @@
           "category": "burgers",
           "description": "Lemon chili flavored burger",
           "variations": [
-            { "type": "NON_VEG", "price": 100, "available": true }
+            {
+              "type": "NON_VEG",
+              "price": 100,
+              "available": true
+            }
           ],
-          "keywords": ["burger", "lemon", "chili", "spicy"]
+          "keywords": [
+            "burger",
+            "lemon",
+            "chili",
+            "spicy"
+          ]
         },
         {
           "id": "289",
@@ -2165,9 +4101,18 @@
           "category": "burgers",
           "description": "Thousand island flavored burger",
           "variations": [
-            { "type": "NON_VEG", "price": 100, "available": true }
+            {
+              "type": "NON_VEG",
+              "price": 100,
+              "available": true
+            }
           ],
-          "keywords": ["burger", "thousand", "island", "creamy"]
+          "keywords": [
+            "burger",
+            "thousand",
+            "island",
+            "creamy"
+          ]
         },
         {
           "id": "290",
@@ -2175,9 +4120,18 @@
           "category": "burgers",
           "description": "Special grilled burger",
           "variations": [
-            { "type": "NON_VEG", "price": 100, "available": true }
+            {
+              "type": "NON_VEG",
+              "price": 100,
+              "available": true
+            }
           ],
-          "keywords": ["burger", "special", "grill", "grilled"]
+          "keywords": [
+            "burger",
+            "special",
+            "grill",
+            "grilled"
+          ]
         },
         {
           "id": "291",
@@ -2185,9 +4139,18 @@
           "category": "burgers",
           "description": "Double decker chicken burger",
           "variations": [
-            { "type": "NON_VEG", "price": 130, "available": true }
+            {
+              "type": "NON_VEG",
+              "price": 130,
+              "available": true
+            }
           ],
-          "keywords": ["burger", "chicken", "double", "decker"]
+          "keywords": [
+            "burger",
+            "chicken",
+            "double",
+            "decker"
+          ]
         }
       ]
     }
