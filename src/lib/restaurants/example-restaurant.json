@@ -1,0 +1,36 @@
+{
+  "id": "example",
+  "name": "Example Restaurant",
+  "mobileNumbers": [
+    { "number": "+91-9876543210", "label": "Main" },
+    { "number": "+91-9876543211", "label": "Delivery" }
+  ],
+  "cuisine": ["VEG", "NON_VEG"],
+  "timing": {
+    "open": "10:00",
+    "close": "22:00",
+    "days": ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
+  },
+  "address": "Example Location, MIT Campus, Manipal",
+  "deliveryCost": 25,
+  "description": "Example restaurant description",
+  "categories": [
+    {
+      "id": "main-dishes",
+      "name": "Main Dishes",
+      "items": [
+        {
+          "id": "example-1",
+          "name": "Example Dish",
+          "category": "main-dishes",
+          "description": "Example dish description",
+          "variations": [
+            { "type": "VEG", "price": 100, "available": true },
+            { "type": "NON_VEG", "price": 120, "available": true }
+          ],
+          "keywords": ["example", "dish", "main"]
+        }
+      ]
+    }
+  ]
+}
