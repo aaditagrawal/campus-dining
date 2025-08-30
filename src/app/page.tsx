@@ -54,16 +54,18 @@ export default function Home() {
     <div className="w-full">
       <div className="container mx-auto px-4 py-8 max-w-7xl">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 font-serif">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 bg-clip-text text-transparent mb-6">
             MIT Manipal
           </h1>
-          <p className="text-slate-600 text-xl sm:text-2xl font-light mb-4">
-            Campus Dining
-          </p>
-          <p className="text-slate-500 text-base sm:text-lg max-w-2xl mx-auto">
-            Discover delicious food from your favorite campus restaurants
-          </p>
+          <div className="text-slate-600 text-lg sm:text-xl max-w-4xl mx-auto space-y-3">
+            <p>
+              <strong>Why does this exist?</strong> - To provide one central, filterable and navigable menu platform for MIT restaurants, unlike changepe or dotfood which are about sales.
+            </p>
+            <p>
+              <strong>How do I order?</strong> - Just save the contact and order away
+            </p>
+          </div>
         </div>
 
         {/* Search & Filters */}

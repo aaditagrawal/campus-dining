@@ -15,6 +15,7 @@ module.exports = {
       fontFamily: {
         sans: ['var(--font-inter)', 'Inter', 'system-ui', 'sans-serif'],
         mono: ['var(--font-jetbrains-mono)', 'JetBrains Mono', 'monospace'],
+        serif: ['var(--font-instrument-serif)', 'Instrument Serif', 'serif'],
       },
     },
   },
