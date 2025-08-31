@@ -48,13 +48,27 @@ export interface MenuCategory {
 export function isRestaurantOpen(timing: Timing): boolean {
   const now = new Date();
   const currentDay = now.toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase();
-  const currentTime = now.toTimeString().slice(0, 5); // HH:MM
+
+  // Get current time in IST (Indian Standard Time - Asia/Kolkata)
+  const istTime = now.toLocaleString('en-IN', {
+    timeZone: 'Asia/Kolkata',
+    hour12: false,
+    hour: '2-digit',
+    minute: '2-digit'
+  });
 
   if (!timing.days.includes(currentDay)) {
     return false;
   }
 
-  return currentTime >= timing.open && currentTime <= timing.close;
+  // Handle restaurants that close after midnight (close time < open time)
+  if (timing.close < timing.open) {
+    // Restaurant is open if current time is after opening OR before closing (next day)
+    return istTime >= timing.open || istTime <= timing.close;
+  } else {
+    // Normal case: restaurant opens and closes on the same day
+    return istTime >= timing.open && istTime <= timing.close;
+  }
 }
 
 // Helper function to get cuisine color
