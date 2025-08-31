@@ -10,7 +10,7 @@ import { Switch } from '@/components/ui/switch';
 
 import { getAllRestaurants } from '@/lib/dataLoader';
 import { CuisineType, isRestaurantOpen } from '@/lib/types';
-import { Search, Clock, MapPin, Phone, Truck, Filter } from 'lucide-react';
+import { Search, Clock, MapPin, Phone, Truck, Filter, Package } from 'lucide-react';
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -55,10 +55,10 @@ export default function Home() {
       <div className="container mx-auto px-4 py-8 max-w-7xl">
         {/* Header */}
         <div className="text-center mb-16 font-serif">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 bg-clip-text text-transparent mb-6">
-            MIT Manipal
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 px-4 leading-relaxed py-4 relative">
+            <span className="block bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 bg-clip-text text-transparent pb-2 bg-clip-text">Campus Dining @ MIT Manipal</span>
           </h1>
-          <div className="text-slate-600 text-lg sm:text-xl max-w-4xl mx-auto space-y-3">
+          <div className="text-slate-600 text-base sm:text-lg md:text-xl max-w-4xl mx-auto space-y-3 px-4">
             <p>
               <strong>Why does this exist?</strong> - To provide one central, filterable and navigable menu platform for MIT restaurants, unlike changepe or dotfood which are about sales.
             </p>
@@ -124,20 +124,20 @@ export default function Home() {
         </div>
 
         {/* Restaurant Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 max-w-7xl mx-auto px-4">
           {filteredRestaurants.map(restaurant => {
             const isOpen = restaurant.timing ? isRestaurantOpen(restaurant.timing) : false;
             return (
               <Link key={restaurant.id} href={`/restaurant/${restaurant.id}`}>
                 <Card className="group relative bg-white/90 backdrop-blur-xl border border-slate-200/60 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 rounded-3xl cursor-pointer overflow-hidden">
                   <div className={`absolute inset-x-0 top-0 h-1 ${isOpen ? 'bg-gradient-to-r from-emerald-400 via-green-500 to-emerald-400' : 'bg-gradient-to-r from-slate-300 via-slate-400 to-slate-300'}`} />
-                  <CardContent className="p-6">
-                    <div className="space-y-5">
+                  <CardContent className="p-4 sm:p-6">
+                    <div className="space-y-4 sm:space-y-5">
                       {/* Heading Row */}
                       <div className="flex items-start gap-3">
                         <div className="flex-1">
                           <div className="flex items-center gap-3 flex-wrap">
-                            <h3 className="text-lg font-bold text-slate-900 tracking-tight group-hover:text-blue-600 transition-colors">
+                            <h3 className="text-lg font-bold text-slate-900 tracking-tight group-hover:text-blue-600 transition-colors break-words hyphens-auto">
                               {restaurant.name}
                             </h3>
                             <Badge
@@ -149,7 +149,7 @@ export default function Home() {
                           </div>
                           <div className="mt-1 text-slate-600 text-sm flex items-start gap-2">
                             <MapPin className="h-4 w-4 text-slate-400 mt-0.5 shrink-0" />
-                            <span className="break-words">{restaurant.address ?? ''}</span>
+                            <span className="break-words hyphens-auto leading-relaxed">{restaurant.address ?? ''}</span>
                           </div>
                         </div>
                       </div>
@@ -175,24 +175,28 @@ export default function Home() {
                       </div>
 
                       {/* Meta Row */}
-                      <div className="grid grid-cols-2 gap-4 text-sm">
-                        <div className="flex items-center gap-2 text-slate-600">
-                          <Clock className="h-4 w-4" />
-                          <span className="font-medium">{restaurant.timing?.open ?? '—'} - {restaurant.timing?.close ?? '—'}</span>
+                      <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3 text-sm">
+                        <div className="flex items-center gap-2 text-slate-600 min-w-0">
+                          <Clock className="h-4 w-4 shrink-0" />
+                          <span className="font-medium truncate">{restaurant.timing?.open ?? '—'} - {restaurant.timing?.close ?? '—'}</span>
                         </div>
-                        <div className="flex items-center justify-end gap-2 text-slate-600">
-                          <Truck className="h-4 w-4" />
-                          <span className="font-medium">Delivery ₹{restaurant.deliveryCost ?? 0}</span>
+                        <div className="flex items-center gap-2 text-slate-600 min-w-0">
+                          <Truck className="h-4 w-4 shrink-0" />
+                          <span className="font-medium truncate">₹{restaurant.deliveryCost ?? 0}</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-slate-600 min-w-0">
+                          <Package className="h-4 w-4 shrink-0" />
+                          <span className="font-medium truncate">{restaurant.packagingCharges ?? 'N/A'}</span>
                         </div>
                       </div>
 
                       {/* Contact */}
                       <div className="flex items-center justify-between pt-3 border-t border-slate-200/70">
-                        <div className="flex items-center gap-2 text-slate-600 text-sm">
-                          <Phone className="h-4 w-4" />
-                          <span>{restaurant.mobileNumbers?.[0]?.number ?? 'N/A'}</span>
+                        <div className="flex items-center gap-2 text-slate-600 text-sm min-w-0 flex-1">
+                          <Phone className="h-4 w-4 shrink-0" />
+                          <span className="truncate">{restaurant.mobileNumbers?.[0]?.number ?? 'N/A'}</span>
                         </div>
-                        <span className="text-slate-400 text-xs group-hover:text-blue-600 transition-colors">View menu →</span>
+                        <span className="text-slate-400 text-xs group-hover:text-blue-600 transition-colors shrink-0 ml-2">View menu →</span>
                       </div>
                     </div>
                   </CardContent>

@@ -19,6 +19,7 @@ export interface Restaurant {
   timing: Timing;
   address: string;
   deliveryCost: number;
+  packagingCharges: string;
   description?: string;
   categories?: MenuCategory[];
 }

@@ -84,6 +84,15 @@
   background-clip: text;
 }
 
+/* Ensure gradient text renders properly without cutoff */
+.bg-clip-text {
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.1;
+  display: inline-block;
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -95,6 +104,8 @@ html, body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
 }
 
 /* Custom scrollbar */

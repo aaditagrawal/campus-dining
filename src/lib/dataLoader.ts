@@ -2,13 +2,16 @@ import { Restaurant, MenuCategory } from './types';
 
 // Import restaurant data
 import hungryHouseData from './restaurants/hungryHouse.json';
+import hitAndRunData from './restaurants/hitAndRun.json';
 
 export const restaurants: Restaurant[] = [
-  hungryHouseData as Restaurant
+  hungryHouseData as Restaurant,
+  hitAndRunData as Restaurant
 ];
 
 export const menuCategories: Record<string, MenuCategory[]> = {
-  '4': hungryHouseData.categories as MenuCategory[]
+  '1': hungryHouseData.categories as MenuCategory[],
+  '2': hitAndRunData.categories as MenuCategory[]
 };
 
 export function getRestaurantById(id: string): Restaurant | undefined {
