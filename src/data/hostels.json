@@ -30,6 +30,22 @@
     ]
   },
   {
+    "block": "Block 18",
+    "campus": "T & M Campus Hostels",
+    "address": "MAHE, Manipal - 576104",
+    "receptionPhone": "6361503887",
+    "email": "hb18.mit@manipal.edu",
+    "wardens": [
+      {
+        "name": "Dr. Gurumurthy S C",
+        "designation": "Asso. Prof, Dept. of Physics",
+        "officePhone": "0820 2925823",
+        "mobiles": ["6364920853"],
+        "email": "gurumurthy.sc@manipal.edu"
+      }
+    ]
+  },
+  {
     "block": "Block 19",
     "campus": "T & M Campus Hostels",
     "address": "MAHE, Manipal - 576104",
@@ -62,4 +78,3 @@
     ]
   }
 ]
-
