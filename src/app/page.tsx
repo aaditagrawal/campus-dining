@@ -9,7 +9,7 @@ export default function Home() {
         <p className="text-muted-foreground">Quickly find restaurants, hostels, travel options, and emergency services.</p>
       </section>
       <section className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-        <Link href="/restaurants" legacyBehavior>
+        <Link href="/restaurants">
           <Card className="glass hover:shadow-lg transition-transform duration-200 will-change-transform hover:-translate-y-0.5">
             <CardHeader>
               <CardTitle>Restaurants</CardTitle>
@@ -17,7 +17,7 @@ export default function Home() {
             <CardContent className="text-sm text-muted-foreground">Menus, timings, delivery and contacts</CardContent>
           </Card>
         </Link>
-        <Link href="/hostels" legacyBehavior>
+        <Link href="/hostels">
           <Card className="glass hover:shadow-lg transition-transform duration-200 will-change-transform hover:-translate-y-0.5">
             <CardHeader>
               <CardTitle>Hostels</CardTitle>
@@ -25,7 +25,7 @@ export default function Home() {
             <CardContent className="text-sm text-muted-foreground">Wardens and contacts per block</CardContent>
           </Card>
         </Link>
-        <Link href="/travel" legacyBehavior>
+        <Link href="/travel">
           <Card className="glass hover:shadow-lg transition-transform duration-200 will-change-transform hover:-translate-y-0.5">
             <CardHeader>
               <CardTitle>Travel</CardTitle>
@@ -33,7 +33,7 @@ export default function Home() {
             <CardContent className="text-sm text-muted-foreground">Autos, cabs, taxis, buggies</CardContent>
           </Card>
         </Link>
-        <Link href="/emergency" legacyBehavior>
+        <Link href="/emergency">
           <Card className="glass hover:shadow-lg transition-transform duration-200 will-change-transform hover:-translate-y-0.5 border-green-500/40">
             <CardHeader>
               <CardTitle>Emergency</CardTitle>
