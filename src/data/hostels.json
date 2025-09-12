@@ -1,21 +1,5 @@
 [
   {
-    "block": "Block 19",
-    "campus": "T & M Campus Hostels",
-    "address": "MAHE, Manipal - 576104",
-    "receptionPhone": "0820 2927470",
-    "email": "hb19.mit@manipal.edu",
-    "wardens": [
-      {
-        "name": "Dr. Balachandra Hadimani S",
-        "designation": "Asso: Prof, Dept. of Maths",
-        "officePhone": "0820 2925262",
-        "mobiles": ["9538761985", "6364789842"],
-        "email": "bs.hadimani@manipal.edu"
-      }
-    ]
-  },
-  {
     "block": "Block 10",
     "campus": "T & M Campus Hostels",
     "address": "MAHE, Manipal - 576104",
@@ -44,7 +28,38 @@
         "email": "ak.acharya@manipal.edu"
       }
     ]
+  },
+  {
+    "block": "Block 19",
+    "campus": "T & M Campus Hostels",
+    "address": "MAHE, Manipal - 576104",
+    "receptionPhone": "6361503893",
+    "email": "hb19.mit@manipal.edu",
+    "wardens": [
+      {
+        "name": "Dr. Balachandra Hadimani S",
+        "designation": "Asso: Prof, Dept. of Maths",
+        "officePhone": "0820 2925262",
+        "mobiles": ["9538761985", "6364789842"],
+        "email": "bs.hadimani@manipal.edu"
+      }
+    ]
+  },
+  {
+    "block": "Block 20",
+    "campus": "T & M Campus Hostels",
+    "address": "MAHE, Manipal - 576104",
+    "receptionPhone": "0820 2927480",
+    "email": "hb20.mit@manipal.edu",
+    "wardens": [
+      {
+        "name": "Dr. Vijaya Arjunan",
+        "designation": "Professor, Dept. of CSE",
+        "officePhone": "0820 2924514",
+        "mobiles": ["9535680918"],
+        "email": "vijay.arjun@manipal.edu"
+      }
+    ]
   }
 ]
-
 
