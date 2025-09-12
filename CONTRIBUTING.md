@@ -150,8 +150,8 @@ You can edit JSON files directly on GitHub without setting up a development envi
 **Installation:**
 ```bash
 # Clone your fork
-git clone https://github.com/yourusername/alac.git
-cd alac
+git clone https://github.com/aaditagrawal/campus-dining.git
+cd campus-dining
 
 # Install dependencies
 bun install  # or npm install
