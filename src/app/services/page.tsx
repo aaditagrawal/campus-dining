@@ -60,7 +60,11 @@ export default function ServicesPage() {
               <CardHeader>
                 <CardTitle>MIT Map – Nakshatra</CardTitle>
               </CardHeader>
-              <CardContent className="text-sm text-muted-foreground">Interactive campus map</CardContent>
+              <CardContent className="text-sm text-muted-foreground">
+                Interactive campus map
+                <br />
+                <span className="text-xs text-gray-500">https://mit.nakshatramaps.com/</span>
+              </CardContent>
             </Card>
           </a>
           <a href="https://fc2.coolstuff.work" target="_blank" rel="noreferrer">
@@ -68,7 +72,11 @@ export default function ServicesPage() {
               <CardHeader>
                 <CardTitle>Indian Kitchen – Weekly Menu</CardTitle>
               </CardHeader>
-              <CardContent className="text-sm text-muted-foreground">Current week&apos;s mess menu</CardContent>
+              <CardContent className="text-sm text-muted-foreground">
+                Current week&apos;s mess menu
+                <br />
+                <span className="text-xs text-gray-500">https://fc2.coolstuff.work</span>
+              </CardContent>
             </Card>
           </a>
         </div>
