@@ -1,6 +1,6 @@
 [
   { "name": "Taco House", "phones": ["+91 7795815315"], "deliveryFee": "—", "packagingFee": "—", "address": "—" },
-  { "name": "Hungry House", "phones": ["+91 9820243177"], "deliveryFee": "₹5", "packagingFee": "0", "address": "—", "hours": [
+  { "name": "Hungry House", "phones": ["+91 9820243177"], "deliveryFee": "₹5", "packagingFee": "₹0", "address": "—", "hours": [
     { "day": 0, "open": "12:00", "close": "00:30" },
     { "day": 1, "open": "12:00", "close": "00:30" },
     { "day": 2, "open": "12:00", "close": "00:30" },
