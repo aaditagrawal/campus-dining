@@ -33,6 +33,14 @@ export default function Home() {
             <CardContent className="text-sm text-muted-foreground">Autos, cabs, taxis, buggies</CardContent>
           </Card>
         </Link>
+        <Link href="/services">
+          <Card className="glass hover:shadow-lg transition-transform duration-200 will-change-transform hover:-translate-y-0.5">
+            <CardHeader>
+              <CardTitle>Services</CardTitle>
+            </CardHeader>
+            <CardContent className="text-sm text-muted-foreground">Laundry, Xerox, and other misc</CardContent>
+          </Card>
+        </Link>
         <Link href="/emergency">
           <Card className="glass hover:shadow-lg transition-transform duration-200 will-change-transform hover:-translate-y-0.5 border-green-500/40">
             <CardHeader>

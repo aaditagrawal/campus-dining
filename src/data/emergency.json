@@ -1,6 +1,6 @@
 [
-  { "name": "Student Clinic", "phones": ["—"], "address": "—", "notes": "—", "accent": "green" },
-  { "name": "Ambulance", "phones": ["—"], "notes": "—", "accent": "green" }
+  { "name": "Campus Patrol", "phones": ["+91 9632101004"], "address": "", "notes": "", "accent": "green"},
+  { "name": "Ambulance", "phones": ["+91 7624846100"], "notes": "KMC Provisioned", "accent": "green" }
 ]
 
 

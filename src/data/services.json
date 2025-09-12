@@ -1,0 +1,9 @@
+{
+  "laundry": [
+    { "name": "Dhobimate", "phones": ["+919663593089", "+917019403001"], "notes": "" }
+  ],
+  "xerox": [
+    { "name": "Om Xerox", "phones": ["86189 98616"], "notes": "" },
+    { "name": "Print Shop (near Om Xerox)", "phones": ["99015 96012"], "notes": "" }
+  ]
+}

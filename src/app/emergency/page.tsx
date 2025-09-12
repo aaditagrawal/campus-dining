@@ -21,7 +21,7 @@ export default function EmergencyPage() {
           <Card key={e.name} className="glass border-green-500/30">
             <CardHeader className="flex flex-row items-center justify-between">
               <CardTitle>{e.name}</CardTitle>
-              <Badge className="bg-green-600 text-white">Healthcare</Badge>
+              <Badge className="bg-green-600 text-white">Emergency</Badge>
             </CardHeader>
             <CardContent className="space-y-2 text-sm">
               <div className="flex flex-wrap gap-2 items-center">
