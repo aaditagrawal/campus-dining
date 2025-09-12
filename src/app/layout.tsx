@@ -43,6 +43,19 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <SiteHeader />
           {children}
+          <footer className="py-8 text-center text-muted-foreground text-sm">
+            <p>
+              Help improve this directory by contributing at{" "}
+              <a
+                href="https://github.com/aaditagrawal/campus-dining"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-foreground hover:text-primary transition-colors underline decoration-1 underline-offset-2"
+              >
+                GitHub
+              </a>
+            </p>
+          </footer>
         </ThemeProvider>
       </body>
     </html>

@@ -1,10 +1,11 @@
 "use client";
 
-import { useMemo, useEffect, useState } from "react";
+import { useMemo } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { buildVCard, downloadVCardFile } from "@/lib/vcard";
+import restaurantsData from "@/data/restaurants.json";
 
 type Restaurant = {
   name: string;
@@ -114,31 +115,14 @@ function downloadRestaurantVcf(r: Restaurant) {
 }
 
 export default function RestaurantsPage() {
-  const [restaurants, setRestaurants] = useState<Restaurant[]>([]);
-
-  useEffect(() => {
-    let active = true;
-    fetch("/data/restaurants.json")
-      .then((r) => r.json())
-      .then((json: Restaurant[]) => {
-        if (active) setRestaurants(json);
-      })
-      .catch(() => {
-        // ignore
-      });
-    return () => {
-      active = false;
-    };
-  }, []);
-
   const enhanced = useMemo(
     () =>
-      restaurants.map((r) => ({
+      restaurantsData.map((r) => ({
         ...r,
         open: isOpenNow(r.hours),
         range: getDisplayRange(r.hours),
       })),
-    [restaurants]
+    []
   );
 
   return (
