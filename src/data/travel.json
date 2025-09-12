@@ -1,0 +1,13 @@
+{
+  "autos": [
+    { "name": "Campus Auto Stand", "phones": ["—"], "notes": "—" }
+  ],
+  "cabs": [
+    { "name": "— Cab Provider", "phones": ["—"], "notes": "—" }
+  ],
+  "buggies": [
+    { "name": "Internal Buggy", "phones": ["—"], "notes": "—" }
+  ]
+}
+
+
