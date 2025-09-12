@@ -14,6 +14,36 @@
         "email": "bs.hadimani@manipal.edu"
       }
     ]
+  },
+  {
+    "block": "Block 10",
+    "campus": "T & M Campus Hostels",
+    "address": "MAHE, Manipal - 576104",
+    "receptionPhone": "0820 2927500",
+    "email": "hb10.mit@manipal.edu",
+    "wardens": [
+      {
+        "name": "Dr. M. Srivivasulu",
+        "designation": "Additional Professor, Dept. of Chemistry",
+        "officePhone": "0820 2924412",
+        "mobiles": ["897023042", "6364920830"],
+        "email": "s.maddasani@manipal.edu"
+      },
+      {
+        "name": "Mr. Rohit Kumar",
+        "designation": "Asst. Professor, Dept. of Design, MSAP",
+        "officePhone": "0820 2924114",
+        "mobiles": ["8368541593", "6364920833"],
+        "email": "kumar.rohit@manipal.edu"
+      },
+      {
+        "name": "Dr. Aneesha Acharya",
+        "designation": "Asst.Prof.-Sr. Scale, Dept. of ICE",
+        "officePhone": "0820 2925152",
+        "mobiles": ["9964019363"],
+        "email": "ak.acharya@manipal.edu"
+      }
+    ]
   }
 ]
 

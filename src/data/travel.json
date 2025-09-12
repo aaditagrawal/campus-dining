@@ -1,7 +1,7 @@
 {
   "autos": [
-    { "name": "Gate 2 - Auto Stand", "phones": ["+91 8618202787"], "notes": "Might be down during rush hour." },
-    { "name": "Gate 4 - Auto Stand", "phones": ["+91 8202572290"], "notes": "—" }
+    { "name": "Gate 2 - Auto Stand", "phones": ["+91 8618202787"], "notes": "Might be down during rush hour. Retry." },
+    { "name": "Gate 4 - Auto Stand", "phones": ["+91 8202572290"], "notes": "Might be down during rush hour. Retry." }
   ],
   "cabs": [
     { "name": "— Cab Provider", "phones": ["—"], "notes": "—" }
