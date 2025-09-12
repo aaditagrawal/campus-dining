@@ -1,6 +1,7 @@
 {
   "autos": [
-    { "name": "Campus Auto Stand", "phones": ["—"], "notes": "—" }
+    { "name": "Gate 2 - Auto Stand", "phones": ["+91 8618202787"], "notes": "Might be down during rush hour." },
+    { "name": "Gate 4 - Auto Stand", "phones": ["+91 8202572290"], "notes": "—" }
   ],
   "cabs": [
     { "name": "— Cab Provider", "phones": ["—"], "notes": "—" }
