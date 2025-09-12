@@ -1,6 +1,10 @@
+"use client";
+
 import data from "@/data/emergency.json";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { buildVCard, downloadVCardFile } from "@/lib/vcard";
 
 type Emergency = { name: string; phones: string[]; address?: string; notes?: string; accent?: string };
 
@@ -29,6 +33,17 @@ export default function EmergencyPage() {
               </div>
               {e.address && <div>{e.address}</div>}
               {e.notes && <div className="text-muted-foreground">{e.notes}</div>}
+              <div>
+                <Button
+                  variant="secondary"
+                  onClick={() => {
+                    const v = buildVCard({ name: e.name, phones: e.phones, address: e.address, org: "Emergency" });
+                    downloadVCardFile(e.name, v);
+                  }}
+                >
+                  Download contact
+                </Button>
+              </div>
             </CardContent>
           </Card>
         ))}

@@ -1,10 +1,10 @@
 "use client";
 
-import { useMemo } from "react";
-import data from "@/data/restaurants.json";
+import { useMemo, useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { buildVCard, downloadVCardFile } from "@/lib/vcard";
 
 type Restaurant = {
   name: string;
@@ -108,22 +108,28 @@ function getDisplayRange(hours?: Restaurant["hours"]) {
   return `${formatTime12h(h.open)}–${formatTime12h(h.close)}`;
 }
 
-function buildVCard(r: Restaurant) {
-  const phone = r.phones?.[0] ?? "";
-  const lines = [
-    "BEGIN:VCARD",
-    "VERSION:3.0",
-    `FN:${r.name}`,
-    `ORG:${r.name}`,
-    phone ? `TEL;TYPE=CELL:${phone}` : undefined,
-    r.address ? `ADR;TYPE=WORK:;;${r.address}` : undefined,
-    "END:VCARD",
-  ].filter(Boolean);
-  return lines.join("\n");
+function downloadRestaurantVcf(r: Restaurant) {
+  const v = buildVCard({ name: r.name, org: r.name, phones: r.phones, address: r.address });
+  downloadVCardFile(r.name, v);
 }
 
 export default function RestaurantsPage() {
-  const restaurants = data as Restaurant[];
+  const [restaurants, setRestaurants] = useState<Restaurant[]>([]);
+
+  useEffect(() => {
+    let active = true;
+    fetch("/data/restaurants.json")
+      .then((r) => r.json())
+      .then((json: Restaurant[]) => {
+        if (active) setRestaurants(json);
+      })
+      .catch(() => {
+        // ignore
+      });
+    return () => {
+      active = false;
+    };
+  }, []);
 
   const enhanced = useMemo(
     () =>
@@ -152,7 +158,7 @@ export default function RestaurantsPage() {
                 )}
               </div>
               {r.open !== undefined && (
-                <Badge variant={r.open ? "default" : "secondary"}>{r.open ? "Open" : "Closed"}</Badge>
+                <Badge className={r.open ? "bg-green-600 text-white" : "bg-red-600 text-white"}>{r.open ? "Open" : "Closed"}</Badge>
               )}
             </CardHeader>
             <CardContent className="space-y-3">
@@ -179,21 +185,7 @@ export default function RestaurantsPage() {
                 >
                   Copy Phone
                 </Button>
-                <Button
-                  onClick={() => {
-                    const blob = new Blob([buildVCard(r)], { type: "text/vcard" });
-                    const url = URL.createObjectURL(blob);
-                    const a = document.createElement("a");
-                    a.href = url;
-                    a.download = `${r.name.replace(/\s+/g, "_")}.vcf`;
-                    document.body.appendChild(a);
-                    a.click();
-                    a.remove();
-                    URL.revokeObjectURL(url);
-                  }}
-                >
-                  Download VCF
-                </Button>
+                <Button onClick={() => downloadRestaurantVcf(r)}>Download contact</Button>
               </div>
             </CardContent>
           </Card>

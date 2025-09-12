@@ -1,8 +1,18 @@
 [
   {
-    "block": "Block A",
+    "block": "Block 19",
+    "campus": "T & M Campus Hostels",
+    "address": "MAHE, Manipal - 576104",
+    "receptionPhone": "0820 2927470",
+    "email": "hb19.mit@manipal.edu",
     "wardens": [
-      { "name": "—", "phone": "—", "email": "—" }
+      {
+        "name": "Dr. Balachandra Hadimani S",
+        "designation": "Asso: Prof, Dept. of Maths",
+        "officePhone": "0820 2925262",
+        "mobiles": ["9538761985", "6364789842"],
+        "email": "bs.hadimani@manipal.edu"
+      }
     ]
   }
 ]

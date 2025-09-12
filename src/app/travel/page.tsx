@@ -1,5 +1,9 @@
+"use client";
+
 import data from "@/data/travel.json";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { buildVCard, downloadVCardFile } from "@/lib/vcard";
 
 type Listing = { name: string; phones: string[]; notes?: string };
 type TravelData = { autos: Listing[]; cabs: Listing[]; buggies: Listing[] };
@@ -24,6 +28,17 @@ export default function TravelPage() {
                 ))}
               </div>
               {i.notes && <div className="text-muted-foreground">{i.notes}</div>}
+              <div>
+                <Button
+                  variant="secondary"
+                  onClick={() => {
+                    const v = buildVCard({ name: i.name, phones: i.phones, org: "Travel" });
+                    downloadVCardFile(i.name, v);
+                  }}
+                >
+                  Download contact
+                </Button>
+              </div>
             </CardContent>
           </Card>
         ))}
