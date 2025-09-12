@@ -1,6 +1,7 @@
 [
-  { "name": "Campus Patrol", "phones": ["+91 9632101004"], "address": "", "notes": "", "accent": "green"},
-  { "name": "Ambulance", "phones": ["+91 7624846100"], "notes": "KMC Provisioned", "accent": "green" }
+  { "name": "Campus Patrol", "phones": ["+91 9632101004"], "address": "", "notes": "", "accent": "red"},
+  { "name": "Ambulance", "phones": ["+91 7624846100"], "notes": "KMC Provisioned", "accent": "red" },
+  { "name": "MIT Student Clinic", "phones": ["+91 820 2928311"], "address": "Student Plaza, MIT", "notes": "All Weekdays: 08:00 am to 10:00 am, 05:00 pm to 08:00 pm\nSundays and 3rd Saturday: 09:00 am to 01:00 pm\nClosed on all University Holidays", "accent": "red" }
 ]
 
 

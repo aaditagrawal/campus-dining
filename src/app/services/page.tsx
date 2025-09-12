@@ -52,6 +52,27 @@ export default function ServicesPage() {
         <h1 className="text-3xl">Services</h1>
         <p className="text-muted-foreground">Laundry and printing services on campus.</p>
       </div>
+      <div className="space-y-2">
+        <h2 className="text-xl">Web Resources</h2>
+        <div className="grid sm:grid-cols-2 gap-4">
+          <a href="https://mit.nakshatramaps.com/" target="_blank" rel="noreferrer">
+            <Card className="glass hover:shadow-lg transition-colors">
+              <CardHeader>
+                <CardTitle>MIT Map – Nakshatra</CardTitle>
+              </CardHeader>
+              <CardContent className="text-sm text-muted-foreground">Interactive campus map</CardContent>
+            </Card>
+          </a>
+          <a href="https://fc2.coolstuff.work" target="_blank" rel="noreferrer">
+            <Card className="glass hover:shadow-lg transition-colors">
+              <CardHeader>
+                <CardTitle>Indian Kitchen – Weekly Menu</CardTitle>
+              </CardHeader>
+              <CardContent className="text-sm text-muted-foreground">Current week&apos;s mess menu</CardContent>
+            </Card>
+          </a>
+        </div>
+      </div>
       <Section title="Laundry Services" items={services.laundry} />
       <Section title="Xerox & Printing" items={services.xerox} />
     </main>

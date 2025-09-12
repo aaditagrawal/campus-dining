@@ -34,17 +34,19 @@ Update restaurant information including:
 
 **Data Structure:**
 ```json
-{
-  "name": "Restaurant Name",
-  "phones": ["+91 XXXXX XXXXX"],
-  "deliveryFee": "₹50",
-  "packagingFee": "₹10",
-  "address": "Location description",
-  "hours": [
-    {"day": 0, "open": "09:00", "close": "22:00"},
-    {"day": 1, "open": "09:00", "close": "22:00"}
-  ]
-}
+[
+  {
+    "name": "Restaurant Name",
+    "phones": ["+91 XXXXX XXXXX"],
+    "deliveryFee": "₹50",
+    "packagingFee": "₹10",
+    "address": "Location description",
+    "hours": [
+      {"day": 0, "open": "09:00", "close": "22:00"},
+      {"day": 1, "open": "09:00", "close": "22:00"}
+    ]
+  }
+]
 ```
 
 ### 🏠 Hostels (`src/data/hostels.json`)
@@ -56,22 +58,24 @@ Keep hostel contact information current:
 
 **Data Structure:**
 ```json
-{
-  "block": "Block Name",
-  "campus": "Campus Name",
-  "address": "Full address",
-  "receptionPhone": "0820 XXXXXXX",
-  "email": "hbX.mit@manipal.edu",
-  "wardens": [
-    {
-      "name": "Warden Full Name",
-      "designation": "Position/Department",
-      "officePhone": "0820 XXXXXXX",
-      "mobiles": ["XXXXXXXXXX"],
-      "email": "warden@manipal.edu"
-    }
-  ]
-}
+[
+  {
+    "block": "Block Name",
+    "campus": "Campus Name",
+    "address": "Full address",
+    "receptionPhone": "0820 XXXXXXX",
+    "email": "hbX.mit@manipal.edu",
+    "wardens": [
+      {
+        "name": "Warden Full Name",
+        "designation": "Position/Department",
+        "officePhone": "0820 XXXXXXX",
+        "mobiles": ["XXXXXXXXXX"],
+        "email": "warden@manipal.edu"
+      }
+    ]
+  }
+]
 ```
 
 ### 🚑 Emergency Services (`src/data/emergency.json`)
@@ -83,13 +87,15 @@ Critical information that must stay current:
 
 **Data Structure:**
 ```json
-{
-  "name": "Service Name",
-  "phones": ["Emergency Number"],
-  "address": "Location",
-  "notes": "Additional information",
-  "accent": "green"
-}
+[
+  {
+    "name": "Service Name",
+    "phones": ["Emergency Number"],
+    "address": "Location",
+    "notes": "Additional information",
+    "accent": "red"
+  }
+]
 ```
 
 ### 🚗 Travel Services (`src/data/travel.json`)
@@ -111,6 +117,33 @@ Update transportation information:
   ],
   "cabs": [...],
   "buggies": [...]
+}
+```
+
+### 🔧 General Services (`src/data/services.json`)
+Keep general campus services information current:
+- **Laundry services** - Update contact numbers and locations
+- **Printing/Xerox shops** - Add/update printing service contacts
+- **New service providers** - Add newly opened service establishments
+- **Service changes** - Update when services or contacts change
+
+**Data Structure:**
+```json
+{
+  "laundry": [
+    {
+      "name": "Service Name",
+      "phones": ["+91 XXXXX XXXXX"],
+      "notes": "Additional information"
+    }
+  ],
+  "xerox": [
+    {
+      "name": "Shop Name",
+      "phones": ["Contact Number"],
+      "notes": "Additional information"
+    }
+  ]
 }
 ```
 
@@ -151,7 +184,7 @@ You can edit JSON files directly on GitHub without setting up a development envi
 ```bash
 # Clone your fork
 git clone https://github.com/aaditagrawal/campus-dining.git
-cd campus-dining
+cd alac
 
 # Install dependencies
 bun install  # or npm install
@@ -170,6 +203,7 @@ bun dev  # or npm run dev
    - `src/data/hostels.json`
    - `src/data/emergency.json`
    - `src/data/travel.json`
+   - `src/data/services.json`
 3. **Click the Edit button** (pencil icon)
 4. **Make your changes** following the data structure guidelines
 5. **Preview your changes** to ensure they're correct
@@ -177,6 +211,8 @@ bun dev  # or npm run dev
    - "Update phone number for Taco House"
    - "Add business hours for Kamath Cafe"
    - "Update warden contact for Block 19"
+   - "Add new laundry service provider"
+   - "Update Xerox shop contact information"
 
 ### For Code Changes
 

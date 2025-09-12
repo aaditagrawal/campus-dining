@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Siren } from "lucide-react";
 
 export default function Home() {
   return (
@@ -42,11 +43,14 @@ export default function Home() {
           </Card>
         </Link>
         <Link href="/emergency">
-          <Card className="glass hover:shadow-lg transition-transform duration-200 will-change-transform hover:-translate-y-0.5 border-green-500/40">
+          <Card className="glass hover:shadow-lg transition-transform duration-200 will-change-transform hover:-translate-y-0.5 border-red-500/80">
             <CardHeader>
-              <CardTitle>Emergency</CardTitle>
+              <CardTitle className="flex items-center gap-2 text-red-600">
+                <Siren className="h-5 w-5 text-red-600" />
+                Emergency
+              </CardTitle>
             </CardHeader>
-            <CardContent className="text-sm text-muted-foreground">Clinic, ambulance, security</CardContent>
+            <CardContent className="text-sm text-red-600">Clinic, ambulance, security</CardContent>
           </Card>
         </Link>
       </section>

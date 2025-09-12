@@ -1,6 +1,6 @@
 # MIT Manipal Campus Directory
 
-A comprehensive directory web application for MIT Manipal students to quickly find essential campus services including restaurants, hostels, travel options, and emergency contacts.
+A comprehensive directory web application for MIT Manipal students to quickly find essential campus services including restaurants, hostels, travel options, emergency contacts, and general services.
 
 ## 🌟 Features
 
@@ -8,19 +8,23 @@ A comprehensive directory web application for MIT Manipal students to quickly fi
 - **Hostels**: Find wardens and contact details for each hostel block
 - **Travel**: Discover auto, cab, taxi, and buggy services around campus
 - **Emergency**: Quick access to clinic, ambulance, and security contacts
+- **Services**: Laundry services, printing/xerox shops, and useful web resources
 - **Responsive Design**: Works seamlessly on desktop and mobile devices
 - **Dark Mode**: Built-in theme switching capability
 - **Contact Integration**: Direct vCard downloads for easy contact saving
+- **Web Resources**: Quick links to campus map and mess menu
 
 ## 🚀 Tech Stack
 
-- **Framework**: Next.js 15 with App Router
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
+- **Framework**: Next.js 15.5.3 with App Router
+- **Language**: TypeScript 5
+- **Runtime**: React 19.1.0
+- **Styling**: Tailwind CSS 4
 - **UI Components**: Radix UI primitives
-- **Icons**: Lucide React
-- **Theme**: next-themes for dark/light mode
-- **Build Tool**: Bun (recommended)
+- **Icons**: Lucide React 0.544.0
+- **Theme**: next-themes 0.4.6 for dark/light mode
+- **Build Tool**: Bun (recommended) or npm/yarn/pnpm
+- **Font**: Geist Sans & Mono, Instrument Serif
 
 ## 🛠️ Getting Started
 
@@ -33,8 +37,8 @@ A comprehensive directory web application for MIT Manipal students to quickly fi
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/alac.git
-cd alac
+git clone https://github.com/aaditagrawal/campus-dining.git
+cd campus-dining
 ```
 
 2. Install dependencies:
@@ -74,18 +78,27 @@ pnpm dev
 ```
 src/
 ├── app/                    # Next.js app router pages
-│   ├── restaurants/       # Restaurants directory page
-│   ├── hostels/           # Hostels directory page
-│   ├── travel/            # Travel services page
 │   ├── emergency/         # Emergency contacts page
+│   ├── hostels/           # Hostels directory page
+│   ├── restaurants/       # Restaurants directory page
+│   ├── services/          # General services page
+│   ├── travel/            # Travel services page
+│   ├── globals.css        # Global styles
+│   ├── layout.tsx         # Root layout
 │   └── page.tsx           # Home page
 ├── components/            # Reusable UI components
-│   ├── ui/               # Shadcn/ui components
-│   └── site-header.tsx   # Navigation header
+│   ├── ui/               # Radix UI components
+│   ├── site-header.tsx   # Navigation header
+│   └── theme-provider.tsx # Theme provider
 ├── data/                  # JSON data files for services
-├── lib/                   # Utility functions
-│   └── vcard.ts          # vCard generation utilities
-└── styles/               # Global styles
+│   ├── emergency.json     # Emergency contacts
+│   ├── hostels.json       # Hostel information
+│   ├── restaurants.json   # Restaurant data
+│   ├── services.json      # General services
+│   └── travel.json        # Travel services
+└── lib/                   # Utility functions
+    ├── utils.ts           # Utility functions
+    └── vcard.ts           # vCard generation utilities
 ```
 
 ## 🏗️ Building for Production

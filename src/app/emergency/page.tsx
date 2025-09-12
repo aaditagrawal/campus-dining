@@ -10,44 +10,179 @@ type Emergency = { name: string; phones: string[]; address?: string; notes?: str
 
 export default function EmergencyPage() {
   const entries = data as Emergency[];
+  const manipalHelplines: Emergency[] = [
+    { name: "Student Health Clinic", phones: ["0820-2922057"] },
+    { name: "KMC Ambulance", phones: ["0820-2922761"] },
+    { name: "KMC Emergency", phones: ["0820-2922761", "0820-2922246", "0820-2923154", "0820-2922352", "0820-2922721"] },
+    { name: "Fire", phones: ["0820-2922607"] },
+    { name: "MAHE Control Room (All Emergency)", phones: ["0820-2922515"] },
+    { name: "Police Station", phones: ["0820-2570328", "0820-2526444"] },
+    { name: "SP Udupi", phones: ["94808 05401"] },
+    { name: "Anti-Ragging", phones: ["1800 425 6090"] },
+    { name: "Campus Patrol", phones: ["99456 70913", "96321 01004"] },
+  ];
+
+  const suicidePrevention: Emergency[] = [
+    { name: "Aasra 24x7 Helpline", phones: ["91-22-27546669"] },
+    { name: "Spandana (24-hour)", phones: ["65000111", "65000222"] },
+  ];
+
+  const indiaHelplines: Emergency[] = [
+    { name: "Police Control Room", phones: ["100"] },
+    { name: "Fire", phones: ["101"] },
+    { name: "Ambulance", phones: ["102"] },
+    { name: "Women’s Helpline", phones: ["181"] },
+    { name: "Women in Distress", phones: ["1091"] },
+    { name: "Child in Distress", phones: ["1098"] },
+    { name: "AIDS Helpline", phones: ["1097"] },
+    { name: "Alcohol and Drug Helpline (9:30 am to 6 pm)", phones: ["1800-11-0031"] },
+    { name: "All-in-one Emergency Number", phones: ["112"] },
+  ];
   return (
     <main className="max-w-5xl mx-auto px-4 py-8 grid gap-6">
       <div>
         <h1 className="text-3xl">Emergency Services</h1>
         <p className="text-muted-foreground">Health and safety contacts. In emergencies, call the ambulance first.</p>
       </div>
-      <div className="grid sm:grid-cols-2 gap-4">
-        {entries.map((e) => (
-          <Card key={e.name} className="glass border-green-500/30">
-            <CardHeader className="flex flex-row items-center justify-between">
-              <CardTitle>{e.name}</CardTitle>
-              <Badge className="bg-green-600 text-white">Emergency</Badge>
-            </CardHeader>
-            <CardContent className="space-y-2 text-sm">
-              <div className="flex flex-wrap gap-2 items-center">
-                {e.phones.map((p) => (
-                  <a key={p} href={`tel:${p}`} className="underline">
-                    {p}
-                  </a>
-                ))}
-              </div>
-              {e.address && <div>{e.address}</div>}
-              {e.notes && <div className="text-muted-foreground">{e.notes}</div>}
-              <div>
-                <Button
-                  variant="secondary"
-                  onClick={() => {
-                    const v = buildVCard({ name: e.name, phones: e.phones, address: e.address, org: "Emergency" });
-                    downloadVCardFile(e.name, v);
-                  }}
-                >
-                  Download contact
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
+      <section className="space-y-2">
+        <h2 className="text-xl">Emergency Contacts</h2>
+        <div className="grid sm:grid-cols-2 gap-4">
+          {entries.map((e) => (
+            <Card key={e.name} className="glass border-red-500/30">
+              <CardHeader className="flex flex-row items-center justify-between">
+                <CardTitle>{e.name}</CardTitle>
+                <Badge className="bg-red-600 text-white">Emergency</Badge>
+              </CardHeader>
+              <CardContent className="space-y-2 text-sm">
+                <div className="flex flex-wrap gap-2 items-center">
+                  {e.phones.map((p) => (
+                    <a key={p} href={`tel:${p.replace(/\s+/g, "")}`} className="underline">
+                      {p}
+                    </a>
+                  ))}
+                </div>
+                {e.address && <div>{e.address}</div>}
+                {e.notes && <div className="text-muted-foreground">{e.notes}</div>}
+                <div>
+                  <Button
+                    variant="secondary"
+                    onClick={() => {
+                      const v = buildVCard({ name: e.name, phones: e.phones, address: e.address, org: "Emergency" });
+                      downloadVCardFile(e.name, v);
+                    }}
+                  >
+                    Download contact
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+      <section className="space-y-3">
+        <h2 className="text-xl">In Manipal</h2>
+        <div className="grid sm:grid-cols-2 gap-4">
+          {manipalHelplines.map((e) => (
+            <Card key={`manipal-${e.name}`} className="glass border-red-500/30">
+              <CardHeader className="flex flex-row items-center justify-between">
+                <CardTitle>{e.name}</CardTitle>
+                <Badge className="bg-red-600 text-white">Emergency</Badge>
+              </CardHeader>
+              <CardContent className="space-y-2 text-sm">
+                <div className="flex flex-wrap gap-2 items-center">
+                  {e.phones.map((p) => (
+                    <a key={p} href={`tel:${p.replace(/\s+/g, "")}`} className="underline">
+                      {p}
+                    </a>
+                  ))}
+                </div>
+                {e.address && <div>{e.address}</div>}
+                {e.notes && <div className="text-muted-foreground">{e.notes}</div>}
+                <div>
+                  <Button
+                    variant="secondary"
+                    onClick={() => {
+                      const v = buildVCard({ name: e.name, phones: e.phones, address: e.address, org: "Helpline" });
+                      downloadVCardFile(e.name, v);
+                    }}
+                  >
+                    Download contact
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-xl">Suicide Prevention Helplines in India</h2>
+        <div className="grid sm:grid-cols-2 gap-4">
+          {suicidePrevention.map((e) => (
+            <Card key={`sp-${e.name}`} className="glass border-red-500/30">
+              <CardHeader className="flex flex-row items-center justify-between">
+                <CardTitle>{e.name}</CardTitle>
+                <Badge className="bg-red-600 text-white">Emergency</Badge>
+              </CardHeader>
+              <CardContent className="space-y-2 text-sm">
+                <div className="flex flex-wrap gap-2 items-center">
+                  {e.phones.map((p) => (
+                    <a key={p} href={`tel:${p.replace(/\s+/g, "")}`} className="underline">
+                      {p}
+                    </a>
+                  ))}
+                </div>
+                <div>
+                  <Button
+                    variant="secondary"
+                    onClick={() => {
+                      const v = buildVCard({ name: e.name, phones: e.phones, org: "Helpline" });
+                      downloadVCardFile(e.name, v);
+                    }}
+                  >
+                    Download contact
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-xl">Helplines Across India</h2>
+        <div className="grid sm:grid-cols-2 gap-4">
+          {indiaHelplines.map((e) => (
+            <Card key={`india-${e.name}`} className="glass border-red-500/30">
+              <CardHeader className="flex flex-row items-center justify-between">
+                <CardTitle>{e.name}</CardTitle>
+                <Badge className="bg-red-600 text-white">Emergency</Badge>
+              </CardHeader>
+              <CardContent className="space-y-2 text-sm">
+                <div className="flex flex-wrap gap-2 items-center">
+                  {e.phones.map((p) => (
+                    <a key={p} href={`tel:${p.replace(/\s+/g, "")}`} className="underline">
+                      {p}
+                    </a>
+                  ))}
+                </div>
+                <div>
+                  <Button
+                    variant="secondary"
+                    onClick={() => {
+                      const v = buildVCard({ name: e.name, phones: e.phones, org: "Helpline" });
+                      downloadVCardFile(e.name, v);
+                    }}
+                  >
+                    Download contact
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+        <p className="text-xs text-muted-foreground">Source: <a className="underline" href="https://ssc.manipal.edu/resources.aspx" target="_blank" rel="noreferrer">Student Support Centre resources</a></p>
+      </section>
     </main>
   );
 }
