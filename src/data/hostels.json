@@ -98,5 +98,21 @@
         "email": "vijay.arjun@manipal.edu"
       }
     ]
+  },
+  {
+    "block": "Block 21",
+    "campus": "T & M Campus Hostels",
+    "address": "MAHE, Manipal - 576104",
+    "receptionPhone": "0820 2927300",
+    "email": "hb21.mit@manipal.edu",
+    "wardens": [
+      {
+        "name": "Dr. D. Cenitta",
+        "designation": "Asst. Prof-Senior Scale, SCE",
+        "officePhone": "0820 2924514",
+        "mobiles": ["9738891473", "6364920858"],
+        "email": "cenitta.d@manipal.edu"
+      }
+    ]
   }
 ]
