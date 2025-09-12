@@ -1,247 +1,240 @@
 # Contributing to MIT Manipal Campus Directory
 
-Thank you for your interest in contributing to the MIT Manipal Campus Directory! This document provides guidelines and information for contributors.
+Thank you for your interest in contributing to the MIT Manipal Campus Directory! This guide focuses primarily on **data contributions** since keeping campus information current and accurate is crucial for students.
 
 ## 📋 Table of Contents
 
-- [Getting Started](#getting-started)
+- [Quick Data Contribution](#quick-data-contribution)
+- [Data Categories](#data-categories)
+- [Data Guidelines](#data-guidelines)
 - [Development Setup](#development-setup)
-- [Project Structure](#project-structure)
-- [Coding Standards](#coding-standards)
 - [Contributing Process](#contributing-process)
-- [Types of Contributions](#types-of-contributions)
+- [Code Contributions](#code-contributions)
 - [Reporting Issues](#reporting-issues)
 
-## 🚀 Getting Started
+## ⚡ Quick Data Contribution
 
-1. **Fork the repository** on GitHub
-2. **Clone your fork** locally:
-   ```bash
-   git clone https://github.com/yourusername/alac.git
-   cd alac
-   ```
-3. **Set up the development environment** (see Development Setup below)
-4. **Create a new branch** for your contribution:
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
+**Most contributions are data updates!** You don't need to be a developer to help:
+
+1. **Fork the repo** on GitHub
+2. **Edit JSON files** in `src/data/` directly on GitHub
+3. **Submit a Pull Request** with your changes
+
+That's it! No coding required for most updates.
+
+## 📊 Data Categories
+
+### 🍽️ Restaurants (`src/data/restaurants.json`)
+Update restaurant information including:
+- **Contact numbers** - Add missing or update changed phone numbers
+- **Business hours** - Add opening/closing times for each day
+- **Delivery fees** - Update delivery and packaging costs
+- **Addresses** - Add location information
+- **New restaurants** - Add newly opened establishments
+
+**Data Structure:**
+```json
+{
+  "name": "Restaurant Name",
+  "phones": ["+91 XXXXX XXXXX"],
+  "deliveryFee": "₹50",
+  "packagingFee": "₹10",
+  "address": "Location description",
+  "hours": [
+    {"day": 0, "open": "09:00", "close": "22:00"},
+    {"day": 1, "open": "09:00", "close": "22:00"}
+  ]
+}
+```
+
+### 🏠 Hostels (`src/data/hostels.json`)
+Keep hostel contact information current:
+- **Warden details** - Update names, phone numbers, emails
+- **Reception contacts** - Update main hostel phone numbers
+- **New hostels** - Add information for new hostel blocks
+- **Contact changes** - Update when wardens or contacts change
+
+**Data Structure:**
+```json
+{
+  "block": "Block Name",
+  "campus": "Campus Name",
+  "address": "Full address",
+  "receptionPhone": "0820 XXXXXXX",
+  "email": "hbX.mit@manipal.edu",
+  "wardens": [
+    {
+      "name": "Warden Full Name",
+      "designation": "Position/Department",
+      "officePhone": "0820 XXXXXXX",
+      "mobiles": ["XXXXXXXXXX"],
+      "email": "warden@manipal.edu"
+    }
+  ]
+}
+```
+
+### 🚑 Emergency Services (`src/data/emergency.json`)
+Critical information that must stay current:
+- **Clinic contacts** - Update student clinic phone numbers
+- **Ambulance services** - Update emergency medical contacts
+- **Security numbers** - Update campus security contacts
+- **New emergency services** - Add new emergency resources
+
+**Data Structure:**
+```json
+{
+  "name": "Service Name",
+  "phones": ["Emergency Number"],
+  "address": "Location",
+  "notes": "Additional information",
+  "accent": "green"
+}
+```
+
+### 🚗 Travel Services (`src/data/travel.json`)
+Update transportation information:
+- **Auto rickshaw stands** - Update contact numbers and locations
+- **Cab services** - Add/update taxi company contacts
+- **Campus buggies** - Update internal transport contacts
+- **New transport options** - Add new transportation services
+
+**Data Structure:**
+```json
+{
+  "autos": [
+    {
+      "name": "Auto Stand Name",
+      "phones": ["Contact Number"],
+      "notes": "Additional information"
+    }
+  ],
+  "cabs": [...],
+  "buggies": [...]
+}
+```
+
+## 📋 Data Guidelines
+
+### ✅ What to Include
+- **Accurate contact information** - Verify phone numbers before adding
+- **Complete business details** - Hours, fees, addresses when available
+- **Clear location descriptions** - Specific building names, landmarks
+- **Current information** - Remove outdated or closed establishments
+
+### ❌ What to Avoid
+- **Unverified information** - Don't add contacts you haven't confirmed
+- **Personal phone numbers** - Only add official business contacts
+- **Incomplete data** - Use "—" for unknown information, don't leave blank
+- **Outdated information** - Remove closed businesses rather than leaving them
+
+### 🔍 Verification Steps
+Before submitting data updates:
+1. **Call the number** to verify it's working
+2. **Visit the location** to confirm addresses
+3. **Check with multiple sources** for accuracy
+4. **Update hours** by visiting during different times
+5. **Confirm with staff** for official information
 
 ## 🛠️ Development Setup
 
-### Prerequisites
+### For Data Contributors (No Coding Required)
+You can edit JSON files directly on GitHub without setting up a development environment.
 
-- **Node.js 18+** or **Bun**
-- **Git** for version control
+### For Code Contributors
 
-### Installation Steps
+**Prerequisites:**
+- Node.js 18+ or Bun
+- Git for version control
 
-1. **Install dependencies**:
-   ```bash
-   # Using bun (recommended)
-   bun install
+**Installation:**
+```bash
+# Clone your fork
+git clone https://github.com/yourusername/alac.git
+cd alac
 
-   # Or using npm
-   npm install
-   ```
+# Install dependencies
+bun install  # or npm install
 
-2. **Start the development server**:
-   ```bash
-   # Using bun
-   bun dev
-
-   # Or using npm
-   npm run dev
-   ```
-
-3. **Open your browser** to [http://localhost:3000](http://localhost:3000)
-
-### Development Scripts
-
-- `npm run dev` / `bun dev` - Start development server with hot reload
-- `npm run build` / `bun run build` - Build for production
-- `npm run start` / `bun run start` - Start production server
-- `npm run lint` / `bun run lint` - Run ESLint for code quality checks
-
-## 📁 Project Structure
-
-```
-src/
-├── app/                    # Next.js App Router pages
-│   ├── restaurants/       # Restaurant listings page
-│   ├── hostels/           # Hostel information page
-│   ├── travel/            # Travel services page
-│   ├── emergency/         # Emergency contacts page
-│   ├── layout.tsx         # Root layout
-│   ├── page.tsx           # Home page
-│   └── globals.css        # Global styles
-├── components/            # Reusable React components
-│   ├── ui/               # Shadcn/ui component library
-│   ├── site-header.tsx   # Navigation header
-│   └── theme-provider.tsx # Theme provider
-├── data/                  # Static JSON data files
-│   ├── restaurants.json   # Restaurant data
-│   ├── hostels.json       # Hostel data
-│   ├── travel.json        # Travel service data
-│   └── emergency.json     # Emergency contact data
-└── lib/                   # Utility functions and libraries
-    ├── utils.ts          # General utilities
-    └── vcard.ts          # vCard generation utilities
-```
-
-## 💻 Coding Standards
-
-### TypeScript/React Guidelines
-
-- **Use TypeScript** for all new code
-- **Functional components** with hooks preferred over class components
-- **Custom hooks** for reusable logic
-- **Descriptive component names** using PascalCase
-- **Props interfaces** for component props
-
-### Code Style
-
-- **ESLint** configuration is enforced - run `npm run lint` before committing
-- **Consistent naming conventions**:
-  - Variables: camelCase
-  - Components: PascalCase
-  - Files: kebab-case.tsx
-- **Meaningful commit messages** following conventional commits
-
-### Example Component Structure
-
-```tsx
-interface RestaurantCardProps {
-  name: string;
-  cuisine: string;
-  rating: number;
-  isOpen: boolean;
-}
-
-export function RestaurantCard({ name, cuisine, rating, isOpen }: RestaurantCardProps) {
-  return (
-    <div className="restaurant-card">
-      <h3>{name}</h3>
-      <p>{cuisine}</p>
-      <span>{rating} ⭐</span>
-      <span className={isOpen ? 'open' : 'closed'}>
-        {isOpen ? 'Open' : 'Closed'}
-      </span>
-    </div>
-  );
-}
+# Start development server
+bun dev  # or npm run dev
 ```
 
 ## 🔄 Contributing Process
 
-### 1. Choose an Issue
+### For Data Updates (Simple)
 
-- Check [open issues](https://github.com/yourusername/alac/issues) on GitHub
-- Look for issues labeled `good first issue` or `help wanted`
-- Comment on the issue to indicate you're working on it
+1. **Fork the repository** on GitHub
+2. **Navigate to the data file** you want to update:
+   - `src/data/restaurants.json`
+   - `src/data/hostels.json`
+   - `src/data/emergency.json`
+   - `src/data/travel.json`
+3. **Click the Edit button** (pencil icon)
+4. **Make your changes** following the data structure guidelines
+5. **Preview your changes** to ensure they're correct
+6. **Create a Pull Request** with a descriptive title like:
+   - "Update phone number for Taco House"
+   - "Add business hours for Kamath Cafe"
+   - "Update warden contact for Block 19"
 
-### 2. Create a Branch
+### For Code Changes
 
-```bash
-git checkout -b feature/your-feature-name
-# or
-git checkout -b fix/issue-number-description
-```
-
-### 3. Make Changes
-
-- Write clear, focused commits
-- Test your changes thoroughly
-- Ensure code follows project standards
-- Update documentation if needed
-
-### 4. Test Your Changes
-
-- Run the development server: `npm run dev`
-- Test functionality in the browser
-- Check for console errors
-- Verify responsive design on different screen sizes
-
-### 5. Submit a Pull Request
-
-1. **Push your branch** to your fork:
+1. **Set up development environment** (see above)
+2. **Create a feature branch:**
    ```bash
-   git push origin feature/your-feature-name
+   git checkout -b feature/your-feature-name
    ```
+3. **Make your changes** and test them
+4. **Run linting:** `bun run lint`
+5. **Submit a Pull Request** with detailed description
 
-2. **Create a Pull Request** on GitHub:
-   - Provide a clear title and description
-   - Reference any related issues
-   - Include screenshots for UI changes
-   - Describe the changes and why they're needed
+## 💻 Code Contributions
 
-3. **Wait for review** and address any feedback
+### Coding Standards
+- **Use TypeScript** for all new code
+- **Functional components** with hooks preferred
+- **ESLint** configuration must pass
+- **Descriptive commit messages**
 
-### Pull Request Guidelines
-
-- **Keep PRs focused** - one feature or fix per PR
-- **Write descriptive PR titles** (e.g., "Add dark mode toggle to header")
-- **Include screenshots** for visual changes
-- **Update documentation** if needed
-- **Add tests** for new functionality
-
-## 🎯 Types of Contributions
-
-### Code Contributions
-
-- **Bug fixes** - Fix existing issues
-- **Features** - Add new functionality
-- **UI/UX improvements** - Enhance user interface and experience
-- **Performance optimizations** - Improve loading times and efficiency
-- **Accessibility improvements** - Make the app more accessible
-
-### Non-Code Contributions
-
-- **Documentation** - Improve README, add code comments
-- **Data updates** - Update restaurant, hostel, or service information
-- **Translations** - Add support for additional languages
-- **Design feedback** - Suggest UI/UX improvements
-
-### Data Updates
-
-The app uses JSON files for data storage. To update information:
-
-1. Locate the relevant JSON file in `src/data/`
-2. Make your changes following the existing data structure
-3. Test the changes in the app
-4. Submit a PR with your updates
+### Example Data Handling Code
+```tsx
+interface Restaurant {
+  name: string;
+  phones: string[];
+  deliveryFee: string;
+  packagingFee: string;
+  address: string;
+  hours?: Array<{
+    day: number;
+    open: string;
+    close: string;
+  }>;
+}
+```
 
 ## 🐛 Reporting Issues
 
-### Bug Reports
+### Data Issues
+- **Outdated information** - Report incorrect or old data
+- **Missing information** - Point out gaps in current data
+- **New services** - Suggest additions to the directory
 
-When reporting bugs, please include:
+### Technical Issues
+- **App bugs** - Report functionality problems
+- **UI issues** - Point out display or usability problems
+- **Feature requests** - Suggest new functionality
 
-- **Clear title** describing the issue
-- **Steps to reproduce** the problem
-- **Expected behavior** vs. actual behavior
-- **Browser and OS** information
-- **Screenshots** if applicable
-- **Console errors** or logs
+## 🎯 Impact of Your Contribution
 
-### Feature Requests
+Your data contributions directly help:
+- **Freshmen** find their way around campus
+- **Students** get food delivered quickly
+- **Residents** contact their wardens easily
+- **Everyone** access emergency services when needed
 
-For new features, please provide:
-
-- **Clear description** of the proposed feature
-- **Use case** - why would this be useful?
-- **Mockups or examples** if applicable
-- **Implementation ideas** if you have them
-
-## 📞 Getting Help
-
-- **GitHub Issues**: For bugs, features, and general questions
-- **Pull Request Comments**: For discussion on specific changes
-- **Documentation**: Check the README.md for setup and usage instructions
-
-## 📜 Code of Conduct
-
-Please be respectful and inclusive when contributing to this project. We follow a code of conduct to ensure a positive experience for all contributors.
+**Every update makes the campus directory more useful for the MIT Manipal community!**
 
 ---
 
-Thank you for contributing to the MIT Manipal Campus Directory! 🎓
+Thank you for helping keep MIT Manipal's campus directory accurate and useful! 🎓📚
