@@ -1,6 +1,6 @@
 [
   { "name": "Taco House", "phones": ["+91 7795815315"], "deliveryFee": "—", "packagingFee": "—", "address": "—" },
-  { "name": "Hungry House", "phones": ["+91 9820243177"], "deliveryFee": "₹5", "packagingFee": "₹0", "address": "—", "hours": [
+  { "name": "Hungry House", "phones": ["+91 9820243177"], "deliveryFee": "₹5", "packagingFee": "₹0", "address": "Student Plaza", "hours": [
     { "day": 0, "open": "12:00", "close": "00:30" },
     { "day": 1, "open": "12:00", "close": "00:30" },
     { "day": 2, "open": "12:00", "close": "00:30" },
@@ -10,14 +10,14 @@
     { "day": 6, "open": "12:00", "close": "00:30" }
   ] },
   { "name": "MFC - Manipal Fried Chicken", "phones": ["+91 7338334970"], "deliveryFee": "—", "packagingFee": "—", "address": "—" },
-  { "name": "Hit&Run", "phones": ["+91 7406330088"], "deliveryFee": "—", "packagingFee": "—", "address": "—" },
+  { "name": "Hit&Run", "phones": ["+91 7406330088"], "deliveryFee": "—", "packagingFee": "₹10-50 (varies)", "address": "—" },
   { "name": "Janani Canteen", "phones": ["+91 8660138488"], "deliveryFee": "—", "packagingFee": "—", "address": "—" },
   { "name": "Dollar Cafe", "phones": ["+91 8105306109"], "deliveryFee": "—", "packagingFee": "—", "address": "—" },
   { "name": "Kamath Cafe", "phones": ["+91 8217044886"], "deliveryFee": "—", "packagingFee": "—", "address": "—" },
   { "name": "Aditya Mess", "phones": ["+91 7483644586"], "deliveryFee": "—", "packagingFee": "—", "address": "—" },
   { "name": "Apoorva Mess", "phones": ["+91 9108888320"], "deliveryFee": "—", "packagingFee": "—", "address": "—" },
-  { "name": "Food Court 2 (The Indian Kitchen)", "phones": ["+91 8861953102"], "deliveryFee": "—", "packagingFee": "—", "address": "—" },
-  { "name": "Poornima Canteen", "phones": ["+91 70906 41985"], "deliveryFee": "—", "packagingFee": "—", "address": "—" },
+  { "name": "Food Court 2 (The Indian Kitchen)", "phones": ["+91 8861953102"], "deliveryFee": "₹10", "packagingFee": "₹5", "address": "—" },
+  { "name": "Poornima Canteen", "phones": ["+91 70906 41985"], "deliveryFee": "₹0", "packagingFee": "₹0", "address": "Near Block 9" },
   { "name": "Nom Nom Cafe", "phones": ["+91 7619422026"], "deliveryFee": "—", "packagingFee": "—", "address": "—" },
   { "name": "Ashraya Mess", "phones": ["+91 6361201519"], "deliveryFee": "—", "packagingFee": "—", "address": "—" }
 ]
