@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { buildVCard, downloadVCardFile } from "@/lib/vcard";
 
 type Listing = { name: string; phones: string[]; notes?: string };
-type TravelData = { autos: Listing[]; cabs: Listing[]; buggies: Listing[] };
+type TravelData = { autos: Listing[]; cabs: Listing[] };
 
 export default function TravelPage() {
   const travel = data as TravelData;
@@ -50,11 +50,10 @@ export default function TravelPage() {
     <main className="max-w-5xl mx-auto px-4 py-8 grid gap-8">
       <div>
         <h1 className="text-3xl">Travel</h1>
-        <p className="text-muted-foreground">Autos, cabs, taxis and internal buggy transport.</p>
+        <p className="text-muted-foreground">Autos, cabs and taxi transport.</p>
       </div>
       <Section title="Autos" items={travel.autos} />
       <Section title="Cabs & Taxis" items={travel.cabs} />
-      <Section title="Internal Buggies" items={travel.buggies} />
     </main>
   );
 }

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useTheme } from "next-themes";
-import { Sun, Moon, Menu, Utensils, Building2, Bus, ShieldAlert, Wrench } from "lucide-react";
+import { Sun, Moon, Menu, Utensils, Building2, Bus, ShieldAlert, Wrench, GraduationCap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink } from "@/components/ui/navigation-menu";
 import { Sheet, SheetTrigger, SheetContent, SheetClose, SheetHeader, SheetTitle } from "@/components/ui/sheet";
@@ -24,6 +24,11 @@ export function SiteHeader() {
         <div className="hidden md:flex items-center gap-2">
           <NavigationMenu>
             <NavigationMenuList>
+              <NavigationMenuItem>
+                <NavigationMenuLink asChild>
+                  <Link href="/academics" className="px-3 py-2 rounded-md hover:bg-muted">Academics</Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
                   <Link href="/restaurants" className="px-3 py-2 rounded-md hover:bg-muted">Restaurants</Link>
@@ -78,6 +83,12 @@ export function SiteHeader() {
                 </div>
               </SheetHeader>
               <nav className="px-2 py-2">
+                <SheetClose asChild>
+                  <Link href="/academics" className="flex items-center gap-3 px-3 py-3 rounded-md hover:bg-muted focus:bg-muted transition-colors">
+                    <GraduationCap className="size-4 text-muted-foreground" />
+                    <span className="text-base">Academics</span>
+                  </Link>
+                </SheetClose>
                 <SheetClose asChild>
                   <Link href="/restaurants" className="flex items-center gap-3 px-3 py-3 rounded-md hover:bg-muted focus:bg-muted transition-colors">
                     <Utensils className="size-4 text-muted-foreground" />

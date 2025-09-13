@@ -131,14 +131,14 @@ export default function RestaurantsPage() {
         <h1 className="text-3xl">Restaurants</h1>
         <p className="text-muted-foreground">Click to copy phone or download contact.</p>
       </div>
-      <div className="grid sm:grid-cols-2 gap-4">
+      <div className="[column-fill:_balance]_columns-1 sm:columns-2 gap-4">
         {enhanced.map((r) => (
-          <Card key={r.name} className="glass">
+          <Card key={r.name} className="glass mb-4 break-inside-avoid">
             <CardHeader className="flex flex-row items-center justify-between">
               <div>
                 <CardTitle>{r.name}</CardTitle>
                 {r.range && (
-                  <div className="text-xs text-muted-foreground mt-1">{r.open ? "Open now" : "Hours"} • {r.range}</div>
+                  <div className="text-xs text-muted-foreground mt-1">Hours • {r.range}</div>
                 )}
               </div>
               {r.open !== undefined && (

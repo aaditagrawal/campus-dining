@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { Siren } from "lucide-react";
+import { Siren, GraduationCap } from "lucide-react";
 
 export default function Home() {
   return (
@@ -10,6 +10,17 @@ export default function Home() {
         <p className="text-muted-foreground">Quickly find restaurants, hostels, travel options, services and emergency info.</p>
       </section>
       <section className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <Link href="/academics">
+          <Card className="glass hover:shadow-lg transition-transform duration-200 will-change-transform hover:-translate-y-0.5">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <GraduationCap className="h-5 w-5" />
+                Academics
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="text-sm text-muted-foreground">Academic systems, resources and portals</CardContent>
+          </Card>
+        </Link>
         <Link href="/restaurants">
           <Card className="glass hover:shadow-lg transition-transform duration-200 will-change-transform hover:-translate-y-0.5">
             <CardHeader>

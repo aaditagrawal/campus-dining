@@ -54,9 +54,9 @@ export default function ServicesPage() {
       </div>
       <div className="space-y-2">
         <h2 className="text-xl">Web Resources</h2>
-        <div className="grid sm:grid-cols-2 gap-4">
+        <div className="[column-fill:_balance]_columns-1 sm:columns-2 gap-4">
           <a href="https://mit.nakshatramaps.com/" target="_blank" rel="noreferrer">
-            <Card className="glass hover:shadow-lg transition-colors">
+            <Card className="glass hover:shadow-lg transition-colors mb-4 break-inside-avoid">
               <CardHeader>
                 <CardTitle>MIT Map – Nakshatra</CardTitle>
               </CardHeader>
@@ -68,7 +68,7 @@ export default function ServicesPage() {
             </Card>
           </a>
           <a href="https://fc2.coolstuff.work" target="_blank" rel="noreferrer">
-            <Card className="glass hover:shadow-lg transition-colors">
+            <Card className="glass hover:shadow-lg transition-colors mb-4 break-inside-avoid">
               <CardHeader>
                 <CardTitle>Indian Kitchen – Weekly Menu</CardTitle>
               </CardHeader>
