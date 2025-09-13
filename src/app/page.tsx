@@ -43,14 +43,14 @@ export default function Home() {
           </Card>
         </Link>
         <Link href="/emergency">
-          <Card className="glass hover:shadow-lg transition-transform duration-200 will-change-transform hover:-translate-y-0.5 border-red-500/80">
+          <Card className="glass hover:shadow-lg transition-transform duration-200 will-change-transform hover:-translate-y-0.5 border-red-400/80">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-red-600">
-                <Siren className="h-5 w-5 text-red-600" />
+              <CardTitle className="flex items-center gap-2 text-red-500">
+                <Siren className="h-5 w-5 text-red-500" />
                 Emergency
               </CardTitle>
             </CardHeader>
-            <CardContent className="text-sm text-red-600">Clinic, ambulance, security</CardContent>
+            <CardContent className="text-sm text-red-500">Clinic, ambulance, security</CardContent>
           </Card>
         </Link>
       </section>

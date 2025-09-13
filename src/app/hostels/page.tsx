@@ -74,6 +74,8 @@ export default function HostelsPage() {
                   Download block contact
                 </Button>
               </div>
+              {/* separator between block details and wardens */}
+              <div className="my-3 h-px bg-border" />
               {h.wardens.map((w, i) => (
                 <div key={i} className="text-sm">
                   <div className="font-medium">{w.name}</div>
@@ -89,10 +91,10 @@ export default function HostelsPage() {
                   {w.mobiles && w.mobiles.length > 0 && (
                     <div>
                       Mobile : {w.mobiles.map((m, idx) => (
-                        <>
+                        <span key={idx}>
                           <a key={m} className="underline" href={`tel:${m}`}>{m}</a>
                           {idx < w.mobiles!.length - 1 ? "/" : null}
-                        </>
+                        </span>
                       ))}
                     </div>
                   )}
