@@ -45,7 +45,7 @@ export default function RootLayout({
           {children}
           <footer className="py-8 text-center text-muted-foreground text-sm">
             <p>
-              Help improve this directory by contributing at{" "}
+              Found something wrong or missing? Help improve this directory by contributing at{" "}
               <a
                 href="https://github.com/aaditagrawal/campus-dining"
                 target="_blank"

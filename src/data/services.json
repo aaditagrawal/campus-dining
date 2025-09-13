@@ -3,7 +3,9 @@
     { "name": "Dhobimate", "phones": ["+919663593089", "+917019403001"], "notes": "" }
   ],
   "xerox": [
-    { "name": "Om Xerox", "phones": ["86189 98616"], "notes": "" },
-    { "name": "Print Shop (near Om Xerox)", "phones": ["99015 96012"], "notes": "" }
+    { "name": "Om Xerox", "phones": ["86189 98616"], "notes": "Near AB3" },
+    { "name": "Print Shop", "phones": ["99015 96012"], "notes": "Near AB3" },
+    { "name": "Pratham Xerox", "phones": ["+91 63630 46658"], "notes": "Near Apoorva Mess and Block 14" },
+    { "name": "FC2 Xerox", "phones": ["+91 79752 17044"], "notes": "On the lower floor of Food Court 2" }
   ]
 }

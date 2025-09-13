@@ -1,5 +1,52 @@
 [
   {
+    "block": "Block 4",
+    "campus": "T & M Campus Hostels",
+    "address": "MAHE, Manipal - 576104",
+    "receptionPhone": "0820 2926400",
+    "email": "hb4.mit@manipal.edu",
+    "wardens": [
+      {
+        "name": "Dr. Anjana S",
+        "designation": "Asst.Prof-Senior Scale, Dept. of SCE Engg.",
+        "officePhone": "0820 2924514",
+        "mobiles": ["6360856104"],
+        "email": "anjana.s@manipal.edu"
+      }
+    ]
+  },
+  {
+    "block": "Block 7",
+    "campus": "T & M Campus Hostels",
+    "address": "MAHE, Manipal - 576104",
+    "receptionPhone": "0820 2926700",
+    "email": "hb7.mit@manipal.edu",
+    "wardens": [
+      {
+        "name": "Mrs. Shilpa S. Ratnoji",
+        "designation": "Asst.Prof-Selection grade, Dept. of Civil Engg.",
+        "mobiles": ["7259003111"],
+        "email": "shilpa.ratnoji@manipal.edu"
+      }
+    ]
+  },
+  {
+    "block": "Block 8",
+    "campus": "T & M Campus Hostels",
+    "address": "MAHE, Manipal - 576104",
+    "receptionPhone": "0820 2926800",
+    "email": "hb8.mit@manipal.edu",
+    "wardens": [
+      {
+        "name": "Dr. Surekha Kamath",
+        "designation": "Professor, Dept. of I&C",
+        "officePhone": "0820 2925152",
+        "mobiles": ["9964583262", "6364920859"],
+        "email": "surekha.kamath@manipal.edu"
+      }
+    ]
+  },
+  {
     "block": "Block 9",
     "campus": "T & M Campus Hostels",
     "address": "MAHE, Manipal - 576104",
@@ -230,3 +277,4 @@
     ]
   }
 ]
+

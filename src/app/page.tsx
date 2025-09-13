@@ -7,7 +7,7 @@ export default function Home() {
     <main className="max-w-5xl mx-auto px-4 py-10 grid gap-6">
       <section className="text-center space-y-3">
         <h1 className="text-4xl md:text-5xl">MIT Manipal Campus Directory</h1>
-        <p className="text-muted-foreground">Quickly find restaurants, hostels, travel options, and emergency services.</p>
+        <p className="text-muted-foreground">Quickly find restaurants, hostels, travel options, services and emergency info.</p>
       </section>
       <section className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
         <Link href="/restaurants">

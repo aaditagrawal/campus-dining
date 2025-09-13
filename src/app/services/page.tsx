@@ -50,7 +50,7 @@ export default function ServicesPage() {
     <main className="max-w-5xl mx-auto px-4 py-8 grid gap-8">
       <div>
         <h1 className="text-3xl">Services</h1>
-        <p className="text-muted-foreground">Laundry and printing services on campus.</p>
+        <p className="text-muted-foreground">Various student-centric services on campus.</p>
       </div>
       <div className="space-y-2">
         <h2 className="text-xl">Web Resources</h2>
