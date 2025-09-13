@@ -46,7 +46,7 @@ export default function AcademicsPage() {
           <a href="https://library-orpin-two.vercel.app" target="_blank" rel="noreferrer">
             <Card className="glass hover:shadow-lg transition-colors mb-4 break-inside-avoid">
               <CardHeader>
-                <CardTitle>Previous Years' Questions Archive</CardTitle>
+                <CardTitle>Previous Years&apos; Questions Archive</CardTitle>
               </CardHeader>
               <CardContent className="text-sm text-muted-foreground">
                 Browse past question papers
