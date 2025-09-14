@@ -4,6 +4,8 @@ import data from "@/data/hostels.json";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { buildVCard, downloadVCardFile } from "@/lib/vcard";
+import { slugify } from "@/lib/utils";
+
 
 type Hostel = {
   block: string;
@@ -30,7 +32,7 @@ export default function HostelsPage() {
       </div>
       <div className="grid sm:grid-cols-2 gap-4">
         {hostels.map((h) => (
-          <Card key={h.block} className="glass">
+          <Card key={h.block} id={slugify(h.block)} className="glass">
             <CardHeader>
               <CardTitle>{h.block}</CardTitle>
             </CardHeader>
@@ -77,7 +79,7 @@ export default function HostelsPage() {
               {/* separator between block details and wardens */}
               <div className="my-3 h-px bg-border" />
               {h.wardens.map((w, i) => (
-                <div key={i} className="text-sm">
+                <div key={i} id={slugify(`${h.block}-${w.name}`)} className="text-sm">
                   <div className="font-medium">{w.name}</div>
                   {w.designation && (
                     <div className="text-muted-foreground">{w.designation}</div>

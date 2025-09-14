@@ -6,6 +6,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { buildVCard, downloadVCardFile } from "@/lib/vcard";
 import restaurantsData from "@/data/restaurants.json";
+import { slugify } from "@/lib/utils";
+
 
 type Restaurant = {
   name: string;
@@ -133,7 +135,7 @@ export default function RestaurantsPage() {
       </div>
       <div className="[column-fill:_balance]_columns-1 sm:columns-2 gap-4">
         {enhanced.map((r) => (
-          <Card key={r.name} className="glass mb-4 break-inside-avoid">
+          <Card key={r.name} id={slugify(r.name)} className="glass mb-4 break-inside-avoid scroll-mt-24">
             <CardHeader className="flex flex-row items-center justify-between">
               <div>
                 <CardTitle>{r.name}</CardTitle>

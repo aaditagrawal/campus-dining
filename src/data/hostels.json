@@ -186,6 +186,41 @@
     "email": "hb18.mit@manipal.edu",
     "wardens": [
       {
+        "name": "Dr. Jayashree P.K",
+        "designation": "Senior Warden, Asso.Prof, Dept. of MIE & Industrial Engg.",
+        "officePhone": "0820 2925473",
+        "mobiles": ["9448783231", "6364564582"],
+        "email": "jayashree.pk@manipal.edu"
+      },
+      {
+        "name": "Mrs. Aparna V",
+        "designation": "Ground and 1st Floor, Asst.Prof-Senior Scale Dept. of E/C Engg.",
+        "officePhone": "0820 2924821",
+        "mobiles": ["8095813400"],
+        "email": "aparna.sreejith@manipal.edu"
+      },
+      {
+        "name": "Dr. Swapna K S",
+        "designation": "2nd and 3rd Floor, Asst.Prof-Senior Scale Dept. of Humanities &Management",
+        "officePhone": "0820 2924033",
+        "mobiles": ["9901014448", "6364920826"],
+        "email": "swapna.ks@manipal.edu"
+      },
+      {
+        "name": "Dr. Harinakshi Karkera",
+        "designation": "Asst. Professor, Dept. of Maths, 4th and 5th Floor",
+        "officePhone": "0820 2925262",
+        "mobiles": ["6364920837"],
+        "email": "harinakshi.karkera@manipal.edu"
+      },
+      {
+        "name": "Ms. Deepthi S",
+        "designation": "6th, 7th and 8th floor, Assistant Professor-Senior scale, Dept. SCE",
+        "officePhone": "0820 2924514",
+        "mobiles": ["9902518837"],
+        "email": "deepthi.s@manipal.edu"
+      },
+      {
         "name": "Dr. Gurumurthy S C",
         "designation": "Asso. Prof, Dept. of Physics",
         "officePhone": "0820 2925823",

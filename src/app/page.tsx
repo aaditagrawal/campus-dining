@@ -1,13 +1,28 @@
+"use client";
+
 import Link from "next/link";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { Siren, GraduationCap } from "lucide-react";
+import { Siren, GraduationCap, Search } from "lucide-react";
 
 export default function Home() {
   return (
     <main className="max-w-5xl mx-auto px-4 py-10 grid gap-6">
-      <section className="text-center space-y-3">
+      <section className="text-center space-y-4">
         <h1 className="text-4xl md:text-5xl">MIT Manipal Campus Directory</h1>
         <p className="text-muted-foreground">Quickly find restaurants, hostels, travel options, services and emergency info.</p>
+        <div className="mx-auto max-w-xl">
+          <button
+            className="w-full flex items-center gap-2 rounded-md border px-3 py-2 text-left text-sm hover:bg-muted/60"
+            onClick={() => {
+              window.dispatchEvent(new Event("open-global-search"));
+            }}
+            aria-label="Open search"
+          >
+            <Search className="size-4 text-muted-foreground" />
+            <span className="flex-1 text-muted-foreground">Search restaurants, hostels, travel, services…</span>
+            <kbd className="rounded bg-muted px-1.5 py-0.5 text-xs">⌘K</kbd>
+          </button>
+        </div>
       </section>
       <section className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
         <Link href="/academics">

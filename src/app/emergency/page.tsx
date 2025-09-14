@@ -5,6 +5,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { buildVCard, downloadVCardFile } from "@/lib/vcard";
+import { slugify } from "@/lib/utils";
+
 
 type Emergency = { name: string; phones: string[]; address?: string; notes?: string; accent?: string };
 
@@ -44,11 +46,11 @@ export default function EmergencyPage() {
         <h1 className="text-3xl">Emergency Services</h1>
         <p className="text-muted-foreground">Health and safety contacts. In emergencies, call the ambulance first.</p>
       </div>
-      <section className="space-y-2">
+      <section className="space-y-2" id={slugify("Emergency Contacts")}>
         <h2 className="text-xl">Emergency Contacts</h2>
         <div className="grid sm:grid-cols-2 gap-4">
           {entries.map((e) => (
-            <Card key={e.name} className="glass border-red-500/30">
+            <Card key={e.name} id={slugify(e.name)} className="glass border-red-500/30 scroll-mt-24">
               <CardHeader className="flex flex-row items-center justify-between">
                 <CardTitle>{e.name}</CardTitle>
                 <Badge className="bg-red-600 text-white">Emergency</Badge>
@@ -79,11 +81,11 @@ export default function EmergencyPage() {
           ))}
         </div>
       </section>
-      <section className="space-y-3">
+      <section className="space-y-3" id={slugify("In Manipal")}>
         <h2 className="text-xl">In Manipal</h2>
         <div className="grid sm:grid-cols-2 gap-4">
           {manipalHelplines.map((e) => (
-            <Card key={`manipal-${e.name}`} className="glass border-red-500/30">
+            <Card key={`manipal-${e.name}`} id={slugify(e.name)} className="glass border-red-500/30 scroll-mt-24">
               <CardHeader className="flex flex-row items-center justify-between">
                 <CardTitle>{e.name}</CardTitle>
                 <Badge className="bg-red-600 text-white">Emergency</Badge>
@@ -115,11 +117,11 @@ export default function EmergencyPage() {
         </div>
       </section>
 
-      <section className="space-y-3">
+      <section className="space-y-3" id={slugify("Suicide Prevention Helplines in India")}>
         <h2 className="text-xl">Suicide Prevention Helplines in India</h2>
         <div className="grid sm:grid-cols-2 gap-4">
           {suicidePrevention.map((e) => (
-            <Card key={`sp-${e.name}`} className="glass border-red-500/30">
+            <Card key={`sp-${e.name}`} id={slugify(e.name)} className="glass border-red-500/30 scroll-mt-24">
               <CardHeader className="flex flex-row items-center justify-between">
                 <CardTitle>{e.name}</CardTitle>
                 <Badge className="bg-red-600 text-white">Emergency</Badge>
@@ -149,11 +151,11 @@ export default function EmergencyPage() {
         </div>
       </section>
 
-      <section className="space-y-3">
+      <section className="space-y-3" id={slugify("Helplines Across India")}>
         <h2 className="text-xl">Helplines Across India</h2>
         <div className="grid sm:grid-cols-2 gap-4">
           {indiaHelplines.map((e) => (
-            <Card key={`india-${e.name}`} className="glass border-red-500/30">
+            <Card key={`india-${e.name}`} id={slugify(e.name)} className="glass border-red-500/30 scroll-mt-24">
               <CardHeader className="flex flex-row items-center justify-between">
                 <CardTitle>{e.name}</CardTitle>
                 <Badge className="bg-red-600 text-white">Emergency</Badge>

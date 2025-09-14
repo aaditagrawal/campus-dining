@@ -4,6 +4,8 @@ import data from "@/data/services.json";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { buildVCard, downloadVCardFile } from "@/lib/vcard";
+import { slugify } from "@/lib/utils";
+
 
 type Listing = { name: string; phones: string[]; notes?: string };
 type ServicesData = { laundry: Listing[]; xerox: Listing[] };
@@ -11,11 +13,11 @@ type ServicesData = { laundry: Listing[]; xerox: Listing[] };
 export default function ServicesPage() {
   const services = data as ServicesData;
   const Section = ({ title, items }: { title: string; items: Listing[] }) => (
-    <div className="space-y-2">
+    <div className="space-y-2 scroll-mt-24" id={slugify(title)}>
       <h2 className="text-xl">{title}</h2>
       <div className="grid sm:grid-cols-2 gap-4">
         {items.map((i) => (
-          <Card key={i.name} className="glass">
+          <Card key={i.name} id={slugify(i.name)} className="glass scroll-mt-24">
             <CardHeader>
               <CardTitle>{i.name}</CardTitle>
             </CardHeader>
@@ -52,7 +54,7 @@ export default function ServicesPage() {
         <h1 className="text-3xl">Services</h1>
         <p className="text-muted-foreground">Various student-centric services on campus.</p>
       </div>
-      <div className="space-y-2">
+      <div className="space-y-2" id={slugify("Web Resources")}>
         <h2 className="text-xl">Web Resources</h2>
         <div className="[column-fill:_balance]_columns-1 sm:columns-2 gap-4">
           <a href="https://mit.nakshatramaps.com/" target="_blank" rel="noreferrer">
