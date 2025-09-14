@@ -208,7 +208,7 @@
       },
       {
         "name": "Dr. Harinakshi Karkera",
-        "designation": "Asst. Professor, Dept. of Maths, 4th and 5th Floor",
+        "designation": "4th and 5th Floor, Asst. Professor, Dept. of Maths",
         "officePhone": "0820 2925262",
         "mobiles": ["6364920837"],
         "email": "harinakshi.karkera@manipal.edu"
@@ -308,6 +308,21 @@
         "officePhone": "0820 2925342",
         "mobiles": ["9480267168"],
         "email": "lakshmi.alapati@manipal.edu"
+      }
+    ]
+  },
+  {
+    "block": "Block 23",
+    "campus": "T & M Campus Hostels",
+    "address": "MAHE, Manipal - 576104",
+    "email": "hb23.mit@manipal.edu",
+    "wardens": [
+      {
+        "name": "Dr. Shailendra Kumar Tiwari",
+        "designation": "Asso. Prof, Dept. of E/C",
+        "officePhone": "0820 2924821",
+        "mobiles": ["7892095510"],
+        "email": "sk.tiwari@manipal.edu"
       }
     ]
   }
