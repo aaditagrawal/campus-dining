@@ -1,0 +1,91 @@
+[
+  {
+    "section": "Student Lifecycle Management",
+    "items": [
+      {
+        "name": "SLCM 2.0",
+        "description": "New SLCM portal",
+        "url": "https://maheslcmtech.manipal.edu"
+      },
+      {
+        "name": "SLCM (Classic)",
+        "description": "Legacy SLCM portal",
+        "url": "https://slcm.manipal.edu"
+      }
+    ]
+  },
+  {
+    "section": "Library",
+    "items": [
+      {
+        "name": "Previous Years' Questions Archive",
+        "description": "Browse past question papers",
+        "url": "https://library-orpin-two.vercel.app"
+      },
+      {
+        "name": "EBSCO search",
+        "description": "Search academic databases",
+        "url": "https://research.ebsco.com/c/fqdtcf/search",
+        "credentials": {
+          "userId": "ebscopreviewmity",
+          "password": "UIPreview2021!"
+        }
+      },
+      {
+        "name": "Library Portal",
+        "description": "MIT Library portal",
+        "url": "https://libportal.manipal.edu/MIT/MIT.aspx"
+      }
+    ]
+  },
+  {
+    "section": "Academic Resources",
+    "items": [
+      {
+        "name": "Lighthouse",
+        "description": "Semester-wise resources and quiz platform",
+        "url": "https://lighthouse.manipal.edu"
+      },
+      {
+        "name": "Pulse (Android)",
+        "description": "Brightspace Pulse app for Lighthouse",
+        "url": "https://play.google.com/store/apps/details?id=com.d2l.brightspace.student.android"
+      },
+      {
+        "name": "Pulse (iOS)",
+        "description": "Brightspace Pulse app for Lighthouse",
+        "url": "https://apps.apple.com/us/app/brightspace-pulse/id1001688546"
+      },
+      {
+        "name": "Impartus",
+        "description": "Class recordings platform",
+        "url": "https://impartus.manipal.edu"
+      }
+    ]
+  },
+  {
+    "section": "Research",
+    "items": [
+      {
+        "name": "Manipal PURE",
+        "description": "Researchers directory",
+        "url": "https://researcher.manipal.edu"
+      }
+    ]
+  },
+  {
+    "section": "Microsoft 365",
+    "items": [
+      {
+        "name": "Outlook",
+        "description": "Web mail",
+        "url": "https://outlook.office365.com/mail/"
+      },
+      {
+        "name": "Office 365",
+        "description": "Microsoft 365 apps",
+        "url": "https://m365.cloud.microsoft/apps/"
+      }
+    ]
+  }
+]

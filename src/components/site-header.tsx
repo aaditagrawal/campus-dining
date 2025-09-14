@@ -69,15 +69,24 @@ export function SiteHeader() {
     // shuffle lightweight
     const shuffled = [...pool].sort(() => Math.random() - 0.5);
     return shuffled.slice(0, 8);
-  }, [items, searchOpen]);
+  }, [items]);
 
   useEffect(() => {
     if (!query) {
       setResults(defaultSuggestions);
       return;
     }
-    const r = fuse.search(query).slice(0, 10).map((x) => x.item);
-    setResults(r);
+    try {
+      const searchResults = fuse.search(query);
+      const r = searchResults.slice(0, 10).map((result) => {
+        // Fuse.js returns results with different structure depending on version
+        return result.item || result;
+      });
+      setResults(r);
+    } catch (error) {
+      console.error('Search error:', error);
+      setResults([]);
+    }
   }, [query, fuse, defaultSuggestions]);
 
   return (
@@ -201,8 +210,8 @@ export function SiteHeader() {
       </div>
 
       {searchOpen && (
-        <div className="fixed inset-0 z-[60] flex items-start justify-center p-4 pt-24 bg-black/50" role="dialog" aria-modal="true">
-          <div className="w-full max-w-xl rounded-lg border bg-background shadow-lg">
+        <div className="fixed inset-0 z-[60] flex items-start justify-center p-4 bg-black/50" role="dialog" aria-modal="true" style={{ paddingTop: 'calc(3.5rem + 1rem)' }}>
+          <div className="w-full max-w-xl rounded-lg border bg-background shadow-lg" style={{ marginTop: 0 }}>
             <div className="flex items-center gap-2 px-3 py-2 border-b">
               <Search className="size-4 text-muted-foreground" />
               <input
@@ -223,10 +232,54 @@ export function SiteHeader() {
                 <li key={`${r.href}-${idx}`} className="px-4 py-3 hover:bg-muted/60 cursor-pointer" onClick={() => {
                   setSearchOpen(false);
                   // navigate
-                  if (r.href.startsWith("http")) {
-                    window.location.href = r.href;
-                  } else {
-                    window.location.assign(r.href);
+                  try {
+                    if (!r || !r.href) {
+                      console.error('Invalid search result:', r);
+                      return;
+                    }
+
+                    if (r.href.startsWith("http")) {
+                      window.location.href = r.href;
+                    } else {
+                      // Handle internal navigation with proper scroll offset
+                      const url = new URL(r.href, window.location.origin);
+                      if (url.hash) {
+                        // If there's an anchor, we need special handling for internal links
+                        const elementId = url.hash.substring(1);
+                        if (!elementId) {
+                          console.error('Invalid hash in URL:', r.href);
+                          return;
+                        }
+
+                        const element = document.getElementById(elementId);
+
+                        if (element) {
+                          // Element exists on current page - just scroll to it
+                          const headerHeight = 56; // h-14 = 3.5rem = 56px
+                          const viewportHeight = window.innerHeight;
+                          const extraOffset = Math.max(16, viewportHeight * 0.08); // 8% of viewport height or minimum 16px
+                          const elementPosition = element.offsetTop - headerHeight - extraOffset;
+                          window.scrollTo({
+                            top: Math.max(0, elementPosition), // Ensure we don't scroll above the page
+                            behavior: 'smooth'
+                          });
+                          // Update URL without triggering scroll
+                          window.history.pushState(null, '', r.href);
+                        } else {
+                          // Element doesn't exist on current page - navigate and then scroll
+                          window.location.assign(r.href);
+                        }
+                      } else {
+                        // No anchor, just navigate normally
+                        window.location.assign(r.href);
+                      }
+                    }
+                  } catch (error) {
+                    console.error('Navigation error:', error, r);
+                    // Fallback to basic navigation
+                    if (r && r.href) {
+                      window.location.href = r.href;
+                    }
                   }
                 }}>
                   <div className="text-sm">
