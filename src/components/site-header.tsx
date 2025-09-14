@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useTheme } from "next-themes";
-import { Sun, Moon, Menu, Utensils, Building2, Bus, ShieldAlert, Wrench, GraduationCap, Search } from "lucide-react";
+import { Sun, Moon, Menu, Utensils, Building2, Bus, ShieldAlert, Wrench, GraduationCap, Search, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink } from "@/components/ui/navigation-menu";
 import { Sheet, SheetTrigger, SheetContent, SheetClose, SheetHeader, SheetTitle } from "@/components/ui/sheet";
@@ -222,7 +222,18 @@ export function SiteHeader() {
                 className="w-full bg-transparent outline-none py-2 text-sm"
                 aria-label="Search"
               />
-              <kbd className="rounded bg-muted px-1.5 py-0.5 text-xs">Esc</kbd>
+              <div className="flex items-center gap-2">
+                <kbd className="hidden sm:inline rounded bg-muted px-1.5 py-0.5 text-xs">Esc</kbd>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => setSearchOpen(false)}
+                  className="h-6 w-6"
+                  aria-label="Close search"
+                >
+                  <X className="size-4" />
+                </Button>
+              </div>
             </div>
             <ul className="max-h-[60vh] overflow-auto divide-y">
               {results.length === 0 && (
