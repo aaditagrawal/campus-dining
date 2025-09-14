@@ -1,0 +1,7 @@
+{
+  "name": "campus-directory",
+  "compatibility_date": "2025-01-14",
+  "assets": {
+    "directory": "./dist"
+  }
+}
