@@ -21,6 +21,8 @@ export function SiteHeader() {
 
   useEffect(() => setMounted(true), []);
 
+  const isMac = useMemo(() => navigator.platform.toUpperCase().includes("MAC"), []);
+
   const items = useMemo(() => getAllSearchItems(), []);
   const fuse = useMemo(() => new Fuse(items, {
     keys: [
@@ -42,7 +44,6 @@ export function SiteHeader() {
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      const isMac = navigator.platform.toUpperCase().includes("MAC");
       if ((isMac && e.metaKey && e.key.toLowerCase() === "k") || (!isMac && e.ctrlKey && e.key.toLowerCase() === "k")) {
         e.preventDefault();
         setSearchOpen((v) => !v);
@@ -53,7 +54,7 @@ export function SiteHeader() {
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, []);
+  }, [isMac]);
 
   useEffect(() => {
     if (searchOpen) {
@@ -135,7 +136,7 @@ export function SiteHeader() {
           <Button variant="outline" size="sm" aria-label="Open search" onClick={() => setSearchOpen(true)} className="gap-2">
             <Search className="size-4" />
             <span className="hidden md:inline">Search…</span>
-            <kbd className="ml-2 hidden lg:inline rounded bg-muted px-1.5 py-0.5 text-xs">⌘K</kbd>
+            <kbd className="ml-2 hidden lg:inline rounded bg-muted px-1.5 py-0.5 text-xs">{isMac ? "⌘K" : "Ctrl+K"}</kbd>
           </Button>
 
           <Button variant="ghost" size="icon" aria-label="Toggle theme" onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>

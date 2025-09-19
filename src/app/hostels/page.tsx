@@ -1,10 +1,12 @@
 "use client";
 
+import { useMemo, useState } from "react";
 import data from "@/data/hostels.json";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { buildVCard, downloadVCardFile } from "@/lib/vcard";
 import { slugify } from "@/lib/utils";
+import { ArrowUpDown, ArrowUp, ArrowDown } from "lucide-react";
 
 
 type Hostel = {
@@ -23,15 +25,61 @@ type Hostel = {
 };
 
 export default function HostelsPage() {
+  const [sortOrder, setSortOrder] = useState<'asc' | 'desc' | null>(null);
+
   const hostels = data as Hostel[];
+
+  const sortedHostels = useMemo(() => {
+    if (!sortOrder) return hostels;
+    return [...hostels].sort((a, b) => {
+      // Extract block numbers from "Block X" format
+      const getBlockNumber = (block: string) => {
+        const match = block.match(/Block (\d+)/);
+        return match ? parseInt(match[1], 10) : 0;
+      };
+
+      const numA = getBlockNumber(a.block);
+      const numB = getBlockNumber(b.block);
+
+      if (numA !== numB) {
+        return sortOrder === 'asc' ? numA - numB : numB - numA;
+      }
+
+      // If numbers are equal, fallback to alphabetical
+      return sortOrder === 'asc' ? a.block.localeCompare(b.block) : b.block.localeCompare(a.block);
+    });
+  }, [hostels, sortOrder]);
+
+  const toggleSort = () => {
+    setSortOrder(current => {
+      if (current === null) return 'asc';
+      if (current === 'asc') return 'desc';
+      return null;
+    });
+  };
   return (
     <main className="max-w-5xl mx-auto px-4 py-8 grid gap-6">
       <div>
-        <h1 className="text-3xl">Hostels</h1>
-        <p className="text-muted-foreground">Wardens and contact details for each block.</p>
+        <div className="flex items-center justify-between">
+          <div>
+            <h1 className="text-3xl">Hostels</h1>
+            <p className="text-muted-foreground">Wardens and contact details for each block.</p>
+          </div>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={toggleSort}
+            className="gap-2"
+          >
+            {sortOrder === 'asc' && <ArrowUp className="size-4" />}
+            {sortOrder === 'desc' && <ArrowDown className="size-4" />}
+            {sortOrder === null && <ArrowUpDown className="size-4" />}
+            Sort {sortOrder === 'asc' ? 'Block ↑' : sortOrder === 'desc' ? 'Block ↓' : 'Block'}
+          </Button>
+        </div>
       </div>
       <div className="grid sm:grid-cols-2 gap-4">
-        {hostels.map((h) => (
+        {sortedHostels.map((h) => (
           <Card key={h.block} id={slugify(h.block)} className="glass">
             <CardHeader>
               <CardTitle>{h.block}</CardTitle>

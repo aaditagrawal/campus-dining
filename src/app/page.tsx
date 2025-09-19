@@ -3,8 +3,10 @@
 import Link from "next/link";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Siren, GraduationCap, Search } from "lucide-react";
+import { useMemo } from "react";
 
 export default function Home() {
+  const isMac = useMemo(() => navigator.platform.toUpperCase().includes("MAC"), []);
   return (
     <main className="max-w-5xl mx-auto px-4 py-10 grid gap-6">
       <section className="text-center space-y-4">
@@ -20,7 +22,7 @@ export default function Home() {
           >
             <Search className="size-4 text-muted-foreground" />
             <span className="flex-1 text-muted-foreground">Search restaurants, hostels, travel, services…</span>
-            <kbd className="rounded bg-muted px-1.5 py-0.5 text-xs">⌘K</kbd>
+            <kbd className="rounded bg-muted px-1.5 py-0.5 text-xs">{isMac ? "⌘K" : "Ctrl+K"}</kbd>
           </button>
         </div>
       </section>

@@ -1,12 +1,13 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { buildVCard, downloadVCardFile } from "@/lib/vcard";
 import restaurantsData from "@/data/restaurants.json";
 import { slugify } from "@/lib/utils";
+import { ArrowUpDown, ArrowUp, ArrowDown, ExternalLink, Clock } from "lucide-react";
 
 
 type Restaurant = {
@@ -16,6 +17,7 @@ type Restaurant = {
   deliveryFee?: string;
   packagingFee?: string;
   menuImages?: string[];
+  menuUrl?: string;
   hours?: Array<{
     day: number; // 0 = Sunday ... 6 = Saturday
     open: string; // "23:00"
@@ -117,6 +119,8 @@ function downloadRestaurantVcf(r: Restaurant) {
 }
 
 export default function RestaurantsPage() {
+  const [sortOrder, setSortOrder] = useState<'alpha-asc' | 'alpha-desc' | 'open-now' | null>(null);
+
   const enhanced = useMemo(
     () =>
       restaurantsData.map((r) => ({
@@ -127,14 +131,62 @@ export default function RestaurantsPage() {
     []
   );
 
+  const sortedRestaurants = useMemo(() => {
+    if (!sortOrder) return enhanced;
+    return [...enhanced].sort((a, b) => {
+      if (sortOrder === 'open-now') {
+        // Open restaurants first, then by name
+        const aOpen = a.open === true;
+        const bOpen = b.open === true;
+
+        if (aOpen && !bOpen) return -1;
+        if (!aOpen && bOpen) return 1;
+
+        // If both open or both closed, sort alphabetically
+        return a.name.localeCompare(b.name);
+      } else if (sortOrder === 'alpha-asc') {
+        return a.name.localeCompare(b.name);
+      } else if (sortOrder === 'alpha-desc') {
+        return b.name.localeCompare(a.name);
+      }
+
+      return 0;
+    });
+  }, [enhanced, sortOrder]);
+
+  const toggleSort = () => {
+    setSortOrder(current => {
+      if (current === null) return 'alpha-asc';
+      if (current === 'alpha-asc') return 'alpha-desc';
+      if (current === 'alpha-desc') return 'open-now';
+      return null;
+    });
+  };
+
   return (
     <main className="max-w-5xl mx-auto px-4 py-8 grid gap-6">
       <div>
-        <h1 className="text-3xl">Restaurants</h1>
-        <p className="text-muted-foreground">Click to copy phone or download contact.</p>
+        <div className="flex items-center justify-between">
+          <div>
+            <h1 className="text-3xl">Restaurants</h1>
+            <p className="text-muted-foreground">Click to copy phone or download contact.</p>
+          </div>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={toggleSort}
+            className="gap-2"
+          >
+            {sortOrder === 'alpha-asc' && <ArrowUp className="size-4" />}
+            {sortOrder === 'alpha-desc' && <ArrowDown className="size-4" />}
+            {sortOrder === 'open-now' && <Clock className="size-4" />}
+            {sortOrder === null && <ArrowUpDown className="size-4" />}
+            Sort {sortOrder === 'alpha-asc' ? 'A-Z' : sortOrder === 'alpha-desc' ? 'Z-A' : sortOrder === 'open-now' ? 'Open Now' : 'Name'}
+          </Button>
+        </div>
       </div>
       <div className="[column-fill:_balance]_columns-1 sm:columns-2 gap-4">
-        {enhanced.map((r) => (
+        {sortedRestaurants.map((r) => (
           <Card key={r.name} id={slugify(r.name)} className="glass mb-4 break-inside-avoid scroll-mt-24">
             <CardHeader className="flex flex-row items-center justify-between">
               <div>
@@ -162,7 +214,7 @@ export default function RestaurantsPage() {
                 </div>
               )}
               {r.address && <div className="text-sm text-muted-foreground">{r.address}</div>}
-              <div className="flex gap-2">
+              <div className="flex gap-2 flex-wrap">
                 <Button
                   variant="secondary"
                   onClick={() => {
@@ -172,6 +224,16 @@ export default function RestaurantsPage() {
                   Copy Phone
                 </Button>
                 <Button onClick={() => downloadRestaurantVcf(r)}>Download contact</Button>
+                {r.menuUrl && (
+                  <Button
+                    variant="outline"
+                    onClick={() => window.open(r.menuUrl, '_blank')}
+                    className="gap-2"
+                  >
+                    <ExternalLink className="size-4" />
+                    Menu
+                  </Button>
+                )}
               </div>
             </CardContent>
           </Card>

@@ -2,6 +2,7 @@
   "autos": [
     { "name": "Gate 2 - Auto Stand", "phones": ["+91 8618202787"], "notes": "Might be down during rush hour. Retry." },
     { "name": "Gate 4 - Auto Stand", "phones": ["+91 8202572290"], "notes": "Might be down during rush hour. Retry." },
+    { "name": "Gate 8 Auto, Eshwar Nagar", "phones": ["+91 94838 97240"], "notes": "" },
     { "name": "Auto Ananda", "phones": ["+91 99862 82145"], "notes": "" },
     { "name": "Auto Anant", "phones": ["+91 97437 66012"], "notes": "" },
     { "name": "Auto Dinesh", "phones": ["+91 98447 55210"], "notes": "" },
