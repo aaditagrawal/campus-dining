@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { buildVCard, downloadVCardFile } from "@/lib/vcard";
 import restaurantsData from "@/data/restaurants.json";
 import { slugify } from "@/lib/utils";
-import { ArrowUpDown, ArrowUp, ArrowDown, ExternalLink, Clock } from "lucide-react";
+import { ArrowUpDown, ArrowUp, ArrowDown, ExternalLink, Clock, Phone } from "lucide-react";
 
 
 type Restaurant = {
@@ -169,7 +169,7 @@ export default function RestaurantsPage() {
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-3xl">Restaurants</h1>
-            <p className="text-muted-foreground">Click to copy phone or download contact.</p>
+            <p className="text-muted-foreground">Call restaurants directly or download contact.</p>
           </div>
           <Button
             variant="outline"
@@ -218,10 +218,12 @@ export default function RestaurantsPage() {
                 <Button
                   variant="secondary"
                   onClick={() => {
-                    navigator.clipboard.writeText(r.phones?.[0] ?? "");
+                    window.location.href = `tel:${r.phones?.[0]?.replace(/\s+/g, "") ?? ""}`;
                   }}
+                  className="gap-2"
                 >
-                  Copy Phone
+                  <Phone className="size-4" />
+                  Call Now
                 </Button>
                 <Button onClick={() => downloadRestaurantVcf(r)}>Download contact</Button>
                 {r.menuUrl && (

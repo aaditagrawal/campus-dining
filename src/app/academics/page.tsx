@@ -56,6 +56,18 @@ export default function AcademicsPage() {
               </CardContent>
             </Card>
           </a>
+          <a href="https://learnermanipal.sharepoint.com/sites/ManipalOSF" target="_blank" rel="noreferrer">
+            <Card className="glass hover:shadow-lg transition-colors mb-4 break-inside-avoid scroll-mt-24" id={slugify("Manipal OSF")}>
+              <CardHeader>
+                <CardTitle>Manipal OSF</CardTitle>
+              </CardHeader>
+              <CardContent className="text-sm text-muted-foreground">
+                Student led initiative to compile and share past question papers
+                <br />
+                <span className="text-xs text-gray-500">https://learnermanipal.sharepoint.com/sites/ManipalOSF</span>
+              </CardContent>
+            </Card>
+          </a>
           <a href="https://research.ebsco.com/c/fqdtcf/search" target="_blank" rel="noreferrer">
             <Card className="glass hover:shadow-lg transition-colors mb-4 break-inside-avoid scroll-mt-24" id={slugify("EBSCO search")}>
               <CardHeader>
