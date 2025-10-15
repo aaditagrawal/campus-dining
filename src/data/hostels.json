@@ -1,5 +1,21 @@
 [
   {
+    "block": "Block 3",
+    "campus": "T & M Campus Hostels",
+    "address": "MAH, Manipal - 576104",
+    "receptionPhone": "08202926300",
+    "email": "hb3.mit@manipal.edu",
+    "wardens": [
+      {
+        "name": "Dr. Bhagya R S",
+        "designation": "Warden, Asst. Prof. - Senior Scale, Dept. of Humanities & Management",
+        "officePhone": null,
+        "mobiles": ["7259003112"],
+        "email": "bhagya.rs@manipal.edu"
+      }
+    ]
+  },
+  {
     "block": "Block 4",
     "campus": "T & M Campus Hostels",
     "address": "MAHE, Manipal - 576104",
