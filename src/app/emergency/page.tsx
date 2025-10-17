@@ -50,10 +50,10 @@ export default function EmergencyPage() {
         <h2 className="text-xl">Emergency Contacts</h2>
         <div className="grid sm:grid-cols-2 gap-4">
           {entries.map((e) => (
-            <Card key={e.name} id={slugify(e.name)} className="glass border-red-500/30 scroll-mt-24">
+            <Card key={e.name} id={slugify(e.name)} className="glass border-rose-500/30 scroll-mt-24">
               <CardHeader className="flex flex-row items-center justify-between">
                 <CardTitle>{e.name}</CardTitle>
-                <Badge className="bg-red-600 text-white">Emergency</Badge>
+                <Badge className="bg-rose-600 text-white">Emergency</Badge>
               </CardHeader>
               <CardContent className="space-y-2 text-sm">
                 <div className="flex flex-wrap gap-2 items-center">
@@ -85,10 +85,10 @@ export default function EmergencyPage() {
         <h2 className="text-xl">In Manipal</h2>
         <div className="grid sm:grid-cols-2 gap-4">
           {manipalHelplines.map((e) => (
-            <Card key={`manipal-${e.name}`} id={slugify(e.name)} className="glass border-red-500/30 scroll-mt-24">
+            <Card key={`manipal-${e.name}`} id={slugify(e.name)} className="glass border-rose-500/30 scroll-mt-24">
               <CardHeader className="flex flex-row items-center justify-between">
                 <CardTitle>{e.name}</CardTitle>
-                <Badge className="bg-red-600 text-white">Emergency</Badge>
+                <Badge className="bg-rose-600 text-white">Emergency</Badge>
               </CardHeader>
               <CardContent className="space-y-2 text-sm">
                 <div className="flex flex-wrap gap-2 items-center">
@@ -121,10 +121,10 @@ export default function EmergencyPage() {
         <h2 className="text-xl">Suicide Prevention Helplines in India</h2>
         <div className="grid sm:grid-cols-2 gap-4">
           {suicidePrevention.map((e) => (
-            <Card key={`sp-${e.name}`} id={slugify(e.name)} className="glass border-red-500/30 scroll-mt-24">
+            <Card key={`sp-${e.name}`} id={slugify(e.name)} className="glass border-rose-500/30 scroll-mt-24">
               <CardHeader className="flex flex-row items-center justify-between">
                 <CardTitle>{e.name}</CardTitle>
-                <Badge className="bg-red-600 text-white">Emergency</Badge>
+                <Badge className="bg-rose-600 text-white">Emergency</Badge>
               </CardHeader>
               <CardContent className="space-y-2 text-sm">
                 <div className="flex flex-wrap gap-2 items-center">
@@ -155,10 +155,10 @@ export default function EmergencyPage() {
         <h2 className="text-xl">Helplines Across India</h2>
         <div className="grid sm:grid-cols-2 gap-4">
           {indiaHelplines.map((e) => (
-            <Card key={`india-${e.name}`} id={slugify(e.name)} className="glass border-red-500/30 scroll-mt-24">
+            <Card key={`india-${e.name}`} id={slugify(e.name)} className="glass border-rose-500/30 scroll-mt-24">
               <CardHeader className="flex flex-row items-center justify-between">
                 <CardTitle>{e.name}</CardTitle>
-                <Badge className="bg-red-600 text-white">Emergency</Badge>
+                <Badge className="bg-rose-600 text-white">Emergency</Badge>
               </CardHeader>
               <CardContent className="space-y-2 text-sm">
                 <div className="flex flex-wrap gap-2 items-center">

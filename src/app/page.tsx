@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { Siren, GraduationCap, Search, Settings } from "lucide-react";
+import { Siren, GraduationCap, Search, Settings, Mail } from "lucide-react";
 import { useMemo } from "react";
 
 export default function Home() {
@@ -26,6 +26,17 @@ export default function Home() {
           </button>
         </div>
       </section>
+      
+      <section className="glass border border-emerald-300/50 bg-emerald-100/20 rounded-lg p-4 text-center">
+        <p className="text-sm flex items-center justify-center gap-2">
+          <Mail className="h-4 w-4 text-emerald-600" />
+          <span className="font-medium text-emerald-600">Try the Mail to Warden for Leave feature now!</span>
+          <Link href="/tools/mail-to-warden" className="ml-2 text-emerald-600 hover:text-emerald-700 underline font-medium">
+            Generate Leave Request →
+          </Link>
+        </p>
+      </section>
+      
       <section className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
         <Link href="/academics">
           <Card className="glass hover:shadow-lg transition-transform duration-200 will-change-transform hover:-translate-y-0.5">
@@ -82,14 +93,14 @@ export default function Home() {
           </Card>
         </Link>
         <Link href="/emergency">
-          <Card className="glass hover:shadow-lg transition-transform duration-200 will-change-transform hover:-translate-y-0.5 border-red-400/80">
+          <Card className="glass hover:shadow-lg transition-transform duration-200 will-change-transform hover:-translate-y-0.5 border-rose-400/80">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-red-500">
-                <Siren className="h-5 w-5 text-red-500" />
+              <CardTitle className="flex items-center gap-2 text-rose-500">
+                <Siren className="h-5 w-5 text-rose-500" />
                 Emergency
               </CardTitle>
             </CardHeader>
-            <CardContent className="text-sm text-red-500">Clinic, ambulance, security</CardContent>
+            <CardContent className="text-sm text-rose-500">Clinic, ambulance, security</CardContent>
           </Card>
         </Link>
       </section>

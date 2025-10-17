@@ -196,7 +196,7 @@ export default function RestaurantsPage() {
                 )}
               </div>
               {r.open !== undefined && (
-                <Badge className={r.open ? "bg-green-600 text-white" : "bg-red-600 text-white"}>{r.open ? "Open" : "Closed"}</Badge>
+                <Badge className={r.open ? "bg-green-600 text-white" : "bg-rose-600 text-white"}>{r.open ? "Open" : "Closed"}</Badge>
               )}
             </CardHeader>
             <CardContent className="space-y-3">

@@ -451,11 +451,11 @@ Purpose: ${purposeText || '[NOT FILLED]'}
                 if (formData.selectedWardens.length === 0) emptyFields.push('Warden Selection');
 
                 return emptyFields.length > 0 && (
-                  <div className="p-4 bg-red-50 border border-red-200 rounded-md">
-                    <p className="text-sm font-medium text-red-800 mb-2">
-                      ⚠️ Please fill in the following required fields:
+                  <div className="glass border border-rose-300/50 bg-rose-100/20 rounded-lg p-4">
+                    <p className="text-sm font-medium text-white mb-2">
+                      Please fill in the following required fields:
                     </p>
-                    <p className="text-sm text-red-600">
+                    <p className="text-sm text-white">
                       {emptyFields.join(', ')}
                     </p>
                   </div>
