@@ -15,5 +15,12 @@
       "url": "https://sindhi.coolstuff.work", 
       "description": "Weekly rotating menu with time-aware highlighting"
     }
+  ],
+  "internal_tools": [
+    {
+      "name": "Generate Mail to Warden",
+      "url": "/tools/mail-to-warden",
+      "description": "Generate leave request emails for hostel wardens"
+    }
   ]
 }
