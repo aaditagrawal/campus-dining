@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { Siren, GraduationCap, Search } from "lucide-react";
+import { Siren, GraduationCap, Search, Settings } from "lucide-react";
 import { useMemo } from "react";
 
 export default function Home() {
@@ -11,7 +11,7 @@ export default function Home() {
     <main className="max-w-5xl mx-auto px-4 py-10 grid gap-6">
       <section className="text-center space-y-4">
         <h1 className="text-4xl md:text-5xl">MIT Manipal Campus Directory</h1>
-        <p className="text-muted-foreground">Quickly find restaurants, hostels, travel options, services and emergency info.</p>
+        <p className="text-muted-foreground">Quickly find restaurants, hostels, travel options, services, tools and emergency info.</p>
         <div className="mx-auto max-w-xl">
           <button
             className="w-full flex items-center gap-2 rounded-md border px-3 py-2 text-left text-sm hover:bg-muted/60"
@@ -21,7 +21,7 @@ export default function Home() {
             aria-label="Open search"
           >
             <Search className="size-4 text-muted-foreground" />
-            <span className="flex-1 text-muted-foreground">Search restaurants, hostels, travel, services…</span>
+            <span className="flex-1 text-muted-foreground">Search restaurants, hostels, travel, services, tools…</span>
             <kbd className="rounded bg-muted px-1.5 py-0.5 text-xs">{isMac ? "⌘K" : "Ctrl+K"}</kbd>
           </button>
         </div>
@@ -68,6 +68,17 @@ export default function Home() {
               <CardTitle>Services</CardTitle>
             </CardHeader>
             <CardContent className="text-sm text-muted-foreground">Laundry, Xerox, and other misc</CardContent>
+          </Card>
+        </Link>
+        <Link href="/tools">
+          <Card className="glass hover:shadow-lg transition-transform duration-200 will-change-transform hover:-translate-y-0.5">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Settings className="h-5 w-5" />
+                Tools
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="text-sm text-muted-foreground">Campus map, mess menus, and resources</CardContent>
           </Card>
         </Link>
         <Link href="/emergency">

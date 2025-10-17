@@ -1,5 +1,6 @@
 import restaurants from "@/data/restaurants.json";
 import services from "@/data/services.json";
+import tools from "@/data/tools.json";
 import travel from "@/data/travel.json";
 import emergencies from "@/data/emergency.json";
 import hostels from "@/data/hostels.json";
@@ -83,9 +84,25 @@ type AcademicItem = {
   };
 };
 
+type Tool = {
+  name: string;
+  url: string;
+  description: string;
+};
+
 type AcademicSection = {
   section: string;
   items: AcademicItem[];
+};
+
+type Tool = {
+  name: string;
+  url: string;
+  description: string;
+};
+
+type ToolsData = {
+  web_resources: Tool[];
 };
 
 export function getAllSearchItems(): SearchItem[] {
