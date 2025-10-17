@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import hostelsData from "@/data/hostels.json";
 
-type Hostel = typeof hostelsData[0];
+
 
 interface FormData {
   studentName: string;
