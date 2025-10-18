@@ -11,6 +11,7 @@ Thank you for your interest in contributing to the MIT Manipal Campus Directory!
 - [Project Architecture](#project-architecture)
 - [Data Structure Reference](#data-structure-reference)
 - [Code Guidelines](#code-guidelines)
+- [Tools Section](#tools-section)
 - [Testing & Quality](#testing--quality)
 - [Pull Request Process](#pull-request-process)
 - [Issue Reporting](#issue-reporting)
@@ -49,7 +50,7 @@ Data contributions are the most common and impactful way to help! Keeping campus
     "name": "Restaurant Name",
     "phones": ["+91 XXXXX XXXXX"],
     "deliveryFee": "₹50",
-    "packagingFee": "₹10", 
+    "packagingFee": "₹10",
     "address": "Location description",
     "hours": [
       {"day": 0, "open": "09:00", "close": "22:00"},
@@ -175,6 +176,34 @@ Data contributions are the most common and impactful way to help! Keeping campus
 }
 ```
 
+### 🛠️ Tools (`src/data/tools.json`)
+
+**What to Update:**
+- **Web resources** - Add useful external links for students
+- **Internal tools** - Add new internal tool pages
+- **Broken links** - Fix non-functional URLs
+- **New tools** - Add both web resources and internal applications
+
+**Data Structure:**
+```json
+{
+  "web_resources": [
+    {
+      "name": "Resource Name",
+      "url": "https://example.com",
+      "description": "Brief description of the resource"
+    }
+  ],
+  "internal_tools": [
+    {
+      "name": "Tool Name",
+      "url": "/tools/tool-path",
+      "description": "Description of the internal tool"
+    }
+  ]
+}
+```
+
 ### 📚 Academics (`src/data/academics.json`)
 
 **What to Update:**
@@ -238,19 +267,41 @@ The project follows Next.js 15 App Router patterns with a clear separation of co
 ```
 src/
 ├── app/                    # Next.js App Router pages
-│   ├── [category]/        # Category-specific pages
-│   ├── globals.css        # Global styles and design system
+│   ├── academics/         # Academic resources page
+│   ├── emergency/         # Emergency services page
+│   ├── hostels/           # Hostel information page
 │   ├── layout.tsx         # Root layout with providers
-│   └── page.tsx           # Home page
+│   ├── page.tsx           # Home page
+│   ├── restaurants/       # Restaurant directory page
+│   ├── services/          # General services page
+│   ├── tools/             # Tools and resources page
+│   │   └── mail-to-warden/ # Leave request generator tool
+│   ├── travel/            # Transportation services page
+│   └── globals.css        # Global styles and design system
 ├── components/            # Reusable UI components
 │   ├── ui/               # Radix UI component library
+│   │   ├── badge.tsx     # Status indicators
+│   │   ├── button.tsx    # Interactive buttons
+│   │   ├── card.tsx      # Content containers
+│   │   ├── input.tsx     # Form inputs
+│   │   ├── label.tsx     # Form labels
+│   │   ├── navigation-menu.tsx # Main navigation
+│   │   ├── sheet.tsx     # Mobile navigation drawer
+│   │   └── switch.tsx    # Toggle controls
 │   ├── site-header.tsx   # Main navigation with search
 │   └── theme-provider.tsx # Dark/light mode provider
 ├── data/                  # JSON data files
+│   ├── academics.json     # Academic portals and resources
+│   ├── emergency.json     # Emergency services contacts
+│   ├── hostels.json       # Hostel information and warden details
+│   ├── restaurants.json   # Restaurant directory with hours and contacts
+│   ├── services.json      # General services (laundry, printing)
+│   ├── tools.json         # Web resources and internal tools
+│   └── travel.json        # Transportation services
 └── lib/                   # Utility functions
-    ├── search.ts          # Search functionality
-    ├── utils.ts           # General utilities
-    └── vcard.ts           # vCard generation
+    ├── search.ts          # Search functionality with Fuse.js
+    ├── utils.ts           # General utilities and helpers
+    └── vcard.ts           # vCard generation for contacts
 ```
 
 ### 🔧 Code Guidelines
@@ -303,7 +354,7 @@ export function RestaurantCard({ restaurant, onContactClick }: RestaurantCardPro
 
 ```tsx
 // Good
-<button 
+<button
   className="px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary"
   aria-label="Download contact"
 >
@@ -359,6 +410,78 @@ The project uses Radix UI primitives for accessibility:
 - **Hostels**: `grid sm:grid-cols-2` for card grid
 - **Services**: `grid sm:grid-cols-2` for uniform cards
 
+## 🛠️ Tools Section
+
+The tools section contains both external web resources and internal applications built into the platform.
+
+### **Adding Web Resources**
+
+To add a new external web resource:
+
+1. **Update `src/data/tools.json`**:
+```json
+{
+  "web_resources": [
+    {
+      "name": "New Resource",
+      "url": "https://example.com",
+      "description": "Useful description for students"
+    }
+  ]
+}
+```
+
+2. **Test the link** - Ensure it opens correctly and is useful for students
+3. **Update search** - New resources will be automatically included in search
+
+### **Adding Internal Tools**
+
+To create a new internal tool:
+
+1. **Create the tool page** in `src/app/tools/your-tool/`:
+```typescript
+// src/app/tools/your-tool/page.tsx
+"use client";
+
+export default function YourToolPage() {
+  return (
+    <main className="max-w-4xl mx-auto px-4 py-8">
+      <div className="mb-8">
+        <h1 className="text-3xl">Your Tool Name</h1>
+        <p className="text-muted-foreground">Tool description</p>
+      </div>
+      {/* Tool content */}
+    </main>
+  );
+}
+```
+
+2. **Update `src/data/tools.json`**:
+```json
+{
+  "internal_tools": [
+    {
+      "name": "Your Tool",
+      "url": "/tools/your-tool",
+      "description": "Brief description of what the tool does"
+    }
+  ]
+}
+```
+
+3. **Follow component patterns** - Use existing UI components and styling patterns
+4. **Test thoroughly** - Ensure the tool works on all devices
+
+### **Example: Mail to Warden Tool**
+
+The existing mail-to-warden tool demonstrates best practices:
+- **Form handling** with React state
+- **Data integration** with hostels.json
+- **Mail generation** and opening mail clients
+- **Responsive design** with Tailwind CSS
+- **TypeScript types** for form data
+- **Validation** and user feedback
+
 ## 🧪 Testing & Quality
 
 ### **Code Quality Checks**
@@ -378,12 +501,16 @@ bun run build
 - [ ] vCard downloads work for all contact types
 - [ ] Phone numbers are clickable and functional
 - [ ] Responsive design works on different screen sizes
+- [ ] Tools pages function correctly (especially forms)
+- [ ] External links open in new tabs
+- [ ] Internal navigation works smoothly
 
 ### **Performance Considerations**
 - **Image optimization** - Use Next.js Image component
 - **Code splitting** - Automatic with Next.js App Router
 - **Bundle size** - Monitor with `bun run build`
 - **Search performance** - Debounce search queries
+- **Tool performance** - Optimize form handling and data processing
 
 ## 🔄 Pull Request Process
 
@@ -491,11 +618,10 @@ Before submitting data updates:
 ## 🎯 Impact of Your Contribution
 
 Your contributions directly help:
-- **Freshmen** find their way around campus
-- **Students** get food delivered quickly
-- **Residents** contact their wardens easily
+- **Freshmen** find their way around campus and access resources
+- **Students** get food delivered quickly and contact services efficiently
+- **Residents** contact their wardens easily with automated mail generation
 - **Everyone** access emergency services when needed
-- **Developers** maintain and improve the platform
 
 **Every update makes the campus directory more useful for the MIT Manipal community!**
 
