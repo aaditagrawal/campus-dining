@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { buildVCard, downloadVCardFile } from "@/lib/vcard";
 import { slugify } from "@/lib/utils";
+import { Phone } from "lucide-react";
 
 
 type Emergency = { name: string; phones: string[]; address?: string; notes?: string; accent?: string };
@@ -41,33 +42,45 @@ export default function EmergencyPage() {
     { name: "All-in-one Emergency Number", phones: ["112"] },
   ];
   return (
-    <main className="max-w-5xl mx-auto px-4 py-8 grid gap-6">
-      <div>
-        <h1 className="text-3xl">Emergency Services</h1>
+    <main className="max-w-5xl mx-auto px-4 py-8">
+      <div className="mb-8">
+        <h1 className="text-3xl font-bold mb-2">Emergency Services</h1>
         <p className="text-muted-foreground">Health and safety contacts. In emergencies, call the ambulance first.</p>
       </div>
-      <section className="space-y-2" id={slugify("Emergency Contacts")}>
-        <h2 className="text-xl">Emergency Contacts</h2>
+      
+      <section className="space-y-4 mb-8" id={slugify("Emergency Contacts")}>
+        <h2 className="text-xl font-semibold">Emergency Contacts</h2>
         <div className="grid sm:grid-cols-2 gap-4">
           {entries.map((e) => (
-            <Card key={e.name} id={slugify(e.name)} className="glass border-rose-400/30 scroll-mt-24">
-              <CardHeader className="flex flex-row items-center justify-between">
-                <CardTitle>{e.name}</CardTitle>
+            <Card key={e.name} id={slugify(e.name)} className="glass border-rose-400/30 hover:shadow-md transition-shadow duration-200 scroll-mt-24">
+              <CardHeader className="flex flex-row items-center justify-between pb-3">
+                <CardTitle className="text-lg">{e.name}</CardTitle>
                 <Badge className="bg-rose-400 text-white">Emergency</Badge>
               </CardHeader>
-              <CardContent className="space-y-2 text-sm">
+              <CardContent className="space-y-4">
                 <div className="flex flex-wrap gap-2 items-center">
                   {e.phones.map((p) => (
-                    <a key={p} href={`tel:${p.replace(/\s+/g, "")}`} className="underline">
+                    <a key={p} href={`tel:${p.replace(/\s+/g, "")}`} className="text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors">
                       {p}
                     </a>
                   ))}
                 </div>
-                {e.address && <div>{e.address}</div>}
-                {e.notes && <div className="text-muted-foreground">{e.notes}</div>}
-                <div>
+                {e.address && <div className="text-sm text-muted-foreground">{e.address}</div>}
+                {e.notes && <div className="text-sm text-muted-foreground leading-relaxed">{e.notes}</div>}
+                <div className="flex gap-2 pt-2">
                   <Button
                     variant="secondary"
+                    size="sm"
+                    onClick={() => {
+                      window.location.href = `tel:${e.phones?.[0]?.replace(/\s+/g, "") ?? ""}`;
+                    }}
+                    className="gap-2"
+                  >
+                    <Phone className="size-4" />
+                    Call Now
+                  </Button>
+                  <Button
+                    size="sm"
                     onClick={() => {
                       const v = buildVCard({ name: e.name, phones: e.phones, address: e.address, org: "Emergency" });
                       downloadVCardFile(e.name, v);
@@ -81,28 +94,40 @@ export default function EmergencyPage() {
           ))}
         </div>
       </section>
-      <section className="space-y-3" id={slugify("In Manipal")}>
-        <h2 className="text-xl">In Manipal</h2>
+      
+      <section className="space-y-4 mb-8" id={slugify("In Manipal")}>
+        <h2 className="text-xl font-semibold">In Manipal</h2>
         <div className="grid sm:grid-cols-2 gap-4">
           {manipalHelplines.map((e) => (
-            <Card key={`manipal-${e.name}`} id={slugify(e.name)} className="glass border-rose-500/30 scroll-mt-24">
-              <CardHeader className="flex flex-row items-center justify-between">
-                <CardTitle>{e.name}</CardTitle>
+            <Card key={`manipal-${e.name}`} id={slugify(e.name)} className="glass border-rose-500/30 hover:shadow-md transition-shadow duration-200 scroll-mt-24">
+              <CardHeader className="flex flex-row items-center justify-between pb-3">
+                <CardTitle className="text-lg">{e.name}</CardTitle>
                 <Badge className="bg-rose-400 text-white">Emergency</Badge>
               </CardHeader>
-              <CardContent className="space-y-2 text-sm">
+              <CardContent className="space-y-4">
                 <div className="flex flex-wrap gap-2 items-center">
                   {e.phones.map((p) => (
-                    <a key={p} href={`tel:${p.replace(/\s+/g, "")}`} className="underline">
+                    <a key={p} href={`tel:${p.replace(/\s+/g, "")}`} className="text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors">
                       {p}
                     </a>
                   ))}
                 </div>
-                {e.address && <div>{e.address}</div>}
-                {e.notes && <div className="text-muted-foreground">{e.notes}</div>}
-                <div>
+                {e.address && <div className="text-sm text-muted-foreground">{e.address}</div>}
+                {e.notes && <div className="text-sm text-muted-foreground leading-relaxed">{e.notes}</div>}
+                <div className="flex gap-2 pt-2">
                   <Button
                     variant="secondary"
+                    size="sm"
+                    onClick={() => {
+                      window.location.href = `tel:${e.phones?.[0]?.replace(/\s+/g, "") ?? ""}`;
+                    }}
+                    className="gap-2"
+                  >
+                    <Phone className="size-4" />
+                    Call Now
+                  </Button>
+                  <Button
+                    size="sm"
                     onClick={() => {
                       const v = buildVCard({ name: e.name, phones: e.phones, address: e.address, org: "Helpline" });
                       downloadVCardFile(e.name, v);
@@ -117,26 +142,37 @@ export default function EmergencyPage() {
         </div>
       </section>
 
-      <section className="space-y-3" id={slugify("Suicide Prevention Helplines in India")}>
-        <h2 className="text-xl">Suicide Prevention Helplines in India</h2>
+      <section className="space-y-4 mb-8" id={slugify("Suicide Prevention Helplines in India")}>
+        <h2 className="text-xl font-semibold">Suicide Prevention Helplines in India</h2>
         <div className="grid sm:grid-cols-2 gap-4">
           {suicidePrevention.map((e) => (
-            <Card key={`sp-${e.name}`} id={slugify(e.name)} className="glass border-rose-500/30 scroll-mt-24">
-              <CardHeader className="flex flex-row items-center justify-between">
-                <CardTitle>{e.name}</CardTitle>
+            <Card key={`sp-${e.name}`} id={slugify(e.name)} className="glass border-rose-500/30 hover:shadow-md transition-shadow duration-200 scroll-mt-24">
+              <CardHeader className="flex flex-row items-center justify-between pb-3">
+                <CardTitle className="text-lg">{e.name}</CardTitle>
                 <Badge className="bg-rose-400 text-white">Emergency</Badge>
               </CardHeader>
-              <CardContent className="space-y-2 text-sm">
+              <CardContent className="space-y-4">
                 <div className="flex flex-wrap gap-2 items-center">
                   {e.phones.map((p) => (
-                    <a key={p} href={`tel:${p.replace(/\s+/g, "")}`} className="underline">
+                    <a key={p} href={`tel:${p.replace(/\s+/g, "")}`} className="text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors">
                       {p}
                     </a>
                   ))}
                 </div>
-                <div>
+                <div className="flex gap-2 pt-2">
                   <Button
                     variant="secondary"
+                    size="sm"
+                    onClick={() => {
+                      window.location.href = `tel:${e.phones?.[0]?.replace(/\s+/g, "") ?? ""}`;
+                    }}
+                    className="gap-2"
+                  >
+                    <Phone className="size-4" />
+                    Call Now
+                  </Button>
+                  <Button
+                    size="sm"
                     onClick={() => {
                       const v = buildVCard({ name: e.name, phones: e.phones, org: "Helpline" });
                       downloadVCardFile(e.name, v);
@@ -151,26 +187,37 @@ export default function EmergencyPage() {
         </div>
       </section>
 
-      <section className="space-y-3" id={slugify("Helplines Across India")}>
-        <h2 className="text-xl">Helplines Across India</h2>
+      <section className="space-y-4" id={slugify("Helplines Across India")}>
+        <h2 className="text-xl font-semibold">Helplines Across India</h2>
         <div className="grid sm:grid-cols-2 gap-4">
           {indiaHelplines.map((e) => (
-            <Card key={`india-${e.name}`} id={slugify(e.name)} className="glass border-rose-500/30 scroll-mt-24">
-              <CardHeader className="flex flex-row items-center justify-between">
-                <CardTitle>{e.name}</CardTitle>
+            <Card key={`india-${e.name}`} id={slugify(e.name)} className="glass border-rose-500/30 hover:shadow-md transition-shadow duration-200 scroll-mt-24">
+              <CardHeader className="flex flex-row items-center justify-between pb-3">
+                <CardTitle className="text-lg">{e.name}</CardTitle>
                 <Badge className="bg-rose-400 text-white">Emergency</Badge>
               </CardHeader>
-              <CardContent className="space-y-2 text-sm">
+              <CardContent className="space-y-4">
                 <div className="flex flex-wrap gap-2 items-center">
                   {e.phones.map((p) => (
-                    <a key={p} href={`tel:${p.replace(/\s+/g, "")}`} className="underline">
+                    <a key={p} href={`tel:${p.replace(/\s+/g, "")}`} className="text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors">
                       {p}
                     </a>
                   ))}
                 </div>
-                <div>
+                <div className="flex gap-2 pt-2">
                   <Button
                     variant="secondary"
+                    size="sm"
+                    onClick={() => {
+                      window.location.href = `tel:${e.phones?.[0]?.replace(/\s+/g, "") ?? ""}`;
+                    }}
+                    className="gap-2"
+                  >
+                    <Phone className="size-4" />
+                    Call Now
+                  </Button>
+                  <Button
+                    size="sm"
                     onClick={() => {
                       const v = buildVCard({ name: e.name, phones: e.phones, org: "Helpline" });
                       downloadVCardFile(e.name, v);
@@ -183,7 +230,7 @@ export default function EmergencyPage() {
             </Card>
           ))}
         </div>
-        <p className="text-xs text-muted-foreground">Source: <a className="underline" href="https://ssc.manipal.edu/resources.aspx" target="_blank" rel="noreferrer">Student Support Centre resources</a></p>
+        <p className="text-xs text-muted-foreground mt-4">Source: <a className="underline hover:text-blue-600 transition-colors" href="https://ssc.manipal.edu/resources.aspx" target="_blank" rel="noreferrer">Student Support Centre resources</a></p>
       </section>
     </main>
   );
