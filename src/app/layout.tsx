@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
+import { Geist, Geist_Mono, Instrument_Serif, Instrument_Sans } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -22,6 +22,12 @@ const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
 });
 
+const instrumentSans = Instrument_Sans({
+  variable: "--font-instrument-sans",
+  weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
+});
+
 export const metadata: Metadata = {
   title: "MIT Manipal Campus Directory",
   description: "A glassy, organized directory for restaurants, hostels, travel, and emergency services at MIT Manipal.",
@@ -38,7 +44,7 @@ export default function RootLayout({
         <Script defer src="https://stat.sys256.com/script.js" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} antialiased min-h-screen bg-background text-foreground`}
+        className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} ${instrumentSans.variable} antialiased min-h-screen bg-background text-foreground`}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <SiteHeader />

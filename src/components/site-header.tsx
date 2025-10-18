@@ -222,7 +222,7 @@ export function SiteHeader() {
       </div>
 
       {searchOpen && (
-        <div className="fixed inset-0 z-[60] flex items-start justify-center p-4 bg-black/50" role="dialog" aria-modal="true" style={{ paddingTop: 'calc(3.5rem + 1rem)' }}>
+        <div className="fixed inset-0 z-[60] flex items-start justify-center p-4 bg-background/80 backdrop-blur-sm" role="dialog" aria-modal="true" style={{ paddingTop: 'calc(3.5rem + 1rem)' }}>
           <div className="w-full max-w-xl rounded-lg border bg-background shadow-lg" style={{ marginTop: 0 }}>
             <div className="flex items-center gap-2 px-3 py-2 border-b">
               <Search className="size-4 text-muted-foreground" />
