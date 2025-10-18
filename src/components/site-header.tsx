@@ -199,7 +199,7 @@ export function SiteHeader() {
                 </SheetClose>
                 <SheetClose asChild>
                   <Link href="/emergency" className="flex items-center gap-3 px-3 py-3 rounded-md hover:bg-muted focus:bg-muted transition-colors">
-                    <ShieldAlert className="size-4 text-rose-500" />
+                    <ShieldAlert className="size-4 text-rose-400" />
                     <span className="text-base">Emergency</span>
                   </Link>
                 </SheetClose>

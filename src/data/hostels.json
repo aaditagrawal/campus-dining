@@ -386,5 +386,20 @@
         "email": "lakshmi.alapati@manipal.edu"
       }
     ]
+  },
+  {
+    "block": "Block 23",
+    "campus": "T & M Campus Hostels",
+    "address": "MAHE, Manipal - 576104",
+    "email": "hb22.mit@manipal.edu",
+    "wardens": [
+      {
+        "name": "Dr. Shailendra Kumar Tiwari",
+        "designation": "Assoc. Professor, Dept of E/C",
+        "officePhone": "0820 2924821",
+        "mobiles": ["7892095510"],
+        "email": "sk.tiwari@manipal.edu"
+      }
+    ]
   }
 ]

@@ -451,7 +451,7 @@ Purpose: ${purposeText || '[NOT FILLED]'}
                 if (formData.selectedWardens.length === 0) emptyFields.push('Warden Selection');
 
                 return emptyFields.length > 0 && (
-                  <div className="glass border border-rose-300/50 bg-rose-100/20 rounded-lg p-4">
+                  <div className="glass border border-rose-200/50 bg-rose-50/20 rounded-lg p-4">
                     <p className="text-sm font-medium text-white mb-2">
                       Please fill in the following required fields:
                     </p>

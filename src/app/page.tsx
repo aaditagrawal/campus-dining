@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { Siren, GraduationCap, Search, Settings, Mail } from "lucide-react";
+import { Siren, GraduationCap, Search, Settings, Mail, Utensils, Building, Car, Wrench } from "lucide-react";
 import { useMemo } from "react";
 
 export default function Home() {
@@ -27,11 +27,11 @@ export default function Home() {
         </div>
       </section>
       
-      <section className="glass border border-emerald-300/50 bg-emerald-100/20 rounded-lg p-4 text-center">
+      <section className="glass border border-emerald-200/50 bg-emerald-50/20 rounded-lg p-4 text-center">
         <p className="text-sm flex items-center justify-center gap-2">
-          <Mail className="h-4 w-4 text-emerald-600" />
-          <span className="font-medium text-emerald-600">Try the Mail to Warden for Leave feature now!</span>
-          <Link href="/tools/mail-to-warden" className="ml-2 text-emerald-600 hover:text-emerald-700 underline font-medium">
+          <Mail className="h-4 w-4 text-emerald-400" />
+          <span className="font-medium text-emerald-400">Try the Mail to Warden for Leave feature now!</span>
+          <Link href="/tools/mail-to-warden" className="ml-2 text-emerald-400 hover:text-emerald-500 underline font-medium">
             Generate Leave Request →
           </Link>
         </p>
@@ -52,7 +52,10 @@ export default function Home() {
         <Link href="/restaurants">
           <Card className="glass hover:shadow-lg transition-transform duration-200 will-change-transform hover:-translate-y-0.5">
             <CardHeader>
-              <CardTitle>Restaurants</CardTitle>
+              <CardTitle className="flex items-center gap-2">
+                <Utensils className="h-5 w-5" />
+                Restaurants
+              </CardTitle>
             </CardHeader>
             <CardContent className="text-sm text-muted-foreground">Menus, timings, delivery and contacts</CardContent>
           </Card>
@@ -60,7 +63,10 @@ export default function Home() {
         <Link href="/hostels">
           <Card className="glass hover:shadow-lg transition-transform duration-200 will-change-transform hover:-translate-y-0.5">
             <CardHeader>
-              <CardTitle>Hostels</CardTitle>
+              <CardTitle className="flex items-center gap-2">
+                <Building className="h-5 w-5" />
+                Hostels
+              </CardTitle>
             </CardHeader>
             <CardContent className="text-sm text-muted-foreground">Wardens and contacts per block</CardContent>
           </Card>
@@ -68,7 +74,10 @@ export default function Home() {
         <Link href="/travel">
           <Card className="glass hover:shadow-lg transition-transform duration-200 will-change-transform hover:-translate-y-0.5">
             <CardHeader>
-              <CardTitle>Travel</CardTitle>
+              <CardTitle className="flex items-center gap-2">
+                <Car className="h-5 w-5" />
+                Travel
+              </CardTitle>
             </CardHeader>
             <CardContent className="text-sm text-muted-foreground">Autos, cabs, taxis, buggies</CardContent>
           </Card>
@@ -76,7 +85,10 @@ export default function Home() {
         <Link href="/services">
           <Card className="glass hover:shadow-lg transition-transform duration-200 will-change-transform hover:-translate-y-0.5">
             <CardHeader>
-              <CardTitle>Services</CardTitle>
+              <CardTitle className="flex items-center gap-2">
+                <Wrench className="h-5 w-5" />
+                Services
+              </CardTitle>
             </CardHeader>
             <CardContent className="text-sm text-muted-foreground">Laundry, Xerox, and other misc</CardContent>
           </Card>
@@ -93,14 +105,14 @@ export default function Home() {
           </Card>
         </Link>
         <Link href="/emergency">
-          <Card className="glass hover:shadow-lg transition-transform duration-200 will-change-transform hover:-translate-y-0.5 border-rose-400/80">
+          <Card className="glass hover:shadow-lg transition-transform duration-200 will-change-transform hover:-translate-y-0.5 border-rose-300/80">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-rose-500">
-                <Siren className="h-5 w-5 text-rose-500" />
+              <CardTitle className="flex items-center gap-2 text-rose-400">
+                <Siren className="h-5 w-5 text-rose-400" />
                 Emergency
               </CardTitle>
             </CardHeader>
-            <CardContent className="text-sm text-rose-500">Clinic, ambulance, security</CardContent>
+            <CardContent className="text-sm text-rose-400">Clinic, ambulance, security</CardContent>
           </Card>
         </Link>
       </section>
