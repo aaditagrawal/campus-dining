@@ -52,15 +52,14 @@ export default function EmergencyPage() {
         <h2 className="text-xl font-semibold">Emergency Contacts</h2>
         <div className="grid sm:grid-cols-2 gap-4">
           {entries.map((e) => (
-            <Card key={e.name} id={slugify(e.name)} className="glass border-rose-400/30 hover:shadow-md transition-shadow duration-200 scroll-mt-24">
+            <Card key={e.name} id={slugify(e.name)} className="glass hover:shadow-md transition-shadow duration-200 scroll-mt-24">
               <CardHeader className="flex flex-row items-center justify-between pb-3">
                 <CardTitle className="text-lg">{e.name}</CardTitle>
-                <Badge className="bg-rose-400 text-white">Emergency</Badge>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex flex-wrap gap-2 items-center">
                   {e.phones.map((p) => (
-                    <a key={p} href={`tel:${p.replace(/\s+/g, "")}`} className="text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors">
+                    <a key={p} href={`tel:${p.replace(/\s+/g, "")}`} className="underline">
                       {p}
                     </a>
                   ))}
@@ -99,15 +98,14 @@ export default function EmergencyPage() {
         <h2 className="text-xl font-semibold">In Manipal</h2>
         <div className="grid sm:grid-cols-2 gap-4">
           {manipalHelplines.map((e) => (
-            <Card key={`manipal-${e.name}`} id={slugify(e.name)} className="glass border-rose-500/30 hover:shadow-md transition-shadow duration-200 scroll-mt-24">
+            <Card key={`manipal-${e.name}`} id={slugify(e.name)} className="glass hover:shadow-md transition-shadow duration-200 scroll-mt-24">
               <CardHeader className="flex flex-row items-center justify-between pb-3">
                 <CardTitle className="text-lg">{e.name}</CardTitle>
-                <Badge className="bg-rose-400 text-white">Emergency</Badge>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex flex-wrap gap-2 items-center">
                   {e.phones.map((p) => (
-                    <a key={p} href={`tel:${p.replace(/\s+/g, "")}`} className="text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors">
+                    <a key={p} href={`tel:${p.replace(/\s+/g, "")}`} className="underline">
                       {p}
                     </a>
                   ))}
@@ -146,15 +144,14 @@ export default function EmergencyPage() {
         <h2 className="text-xl font-semibold">Suicide Prevention Helplines in India</h2>
         <div className="grid sm:grid-cols-2 gap-4">
           {suicidePrevention.map((e) => (
-            <Card key={`sp-${e.name}`} id={slugify(e.name)} className="glass border-rose-500/30 hover:shadow-md transition-shadow duration-200 scroll-mt-24">
+            <Card key={`sp-${e.name}`} id={slugify(e.name)} className="glass hover:shadow-md transition-shadow duration-200 scroll-mt-24">
               <CardHeader className="flex flex-row items-center justify-between pb-3">
                 <CardTitle className="text-lg">{e.name}</CardTitle>
-                <Badge className="bg-rose-400 text-white">Emergency</Badge>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex flex-wrap gap-2 items-center">
                   {e.phones.map((p) => (
-                    <a key={p} href={`tel:${p.replace(/\s+/g, "")}`} className="text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors">
+                    <a key={p} href={`tel:${p.replace(/\s+/g, "")}`} className="underline">
                       {p}
                     </a>
                   ))}
@@ -191,15 +188,14 @@ export default function EmergencyPage() {
         <h2 className="text-xl font-semibold">Helplines Across India</h2>
         <div className="grid sm:grid-cols-2 gap-4">
           {indiaHelplines.map((e) => (
-            <Card key={`india-${e.name}`} id={slugify(e.name)} className="glass border-rose-500/30 hover:shadow-md transition-shadow duration-200 scroll-mt-24">
+            <Card key={`india-${e.name}`} id={slugify(e.name)} className="glass hover:shadow-md transition-shadow duration-200 scroll-mt-24">
               <CardHeader className="flex flex-row items-center justify-between pb-3">
                 <CardTitle className="text-lg">{e.name}</CardTitle>
-                <Badge className="bg-rose-400 text-white">Emergency</Badge>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex flex-wrap gap-2 items-center">
                   {e.phones.map((p) => (
-                    <a key={p} href={`tel:${p.replace(/\s+/g, "")}`} className="text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors">
+                    <a key={p} href={`tel:${p.replace(/\s+/g, "")}`} className="underline">
                       {p}
                     </a>
                   ))}

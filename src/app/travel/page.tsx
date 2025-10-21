@@ -25,7 +25,7 @@ export default function TravelPage() {
             <CardContent className="space-y-4">
               <div className="flex flex-wrap gap-2 items-center">
                 {i.phones.map((p) => (
-                  <a key={p} href={`tel:${p}`} className="text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors">
+                  <a key={p} href={`tel:${p.replace(/\s+/g, "")}`} className="underline">
                     {p}
                   </a>
                 ))}
