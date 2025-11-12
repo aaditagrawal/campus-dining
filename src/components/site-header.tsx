@@ -17,7 +17,9 @@ export function SiteHeader() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<SearchItem[]>([]);
+  const [selectedIndex, setSelectedIndex] = useState(0);
   const inputRef = useRef<HTMLInputElement | null>(null);
+  const selectedItemRef = useRef<HTMLLIElement | null>(null);
 
   useEffect(() => setMounted(true), []);
 
@@ -48,13 +50,15 @@ export function SiteHeader() {
         e.preventDefault();
         setSearchOpen((v) => !v);
       }
-      if (e.key === "Escape") {
+      if (e.key === "Escape" && searchOpen) {
+        e.preventDefault();
+        e.stopPropagation();
         setSearchOpen(false);
       }
     };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [isMac]);
+    window.addEventListener("keydown", onKey, true);
+    return () => window.removeEventListener("keydown", onKey, true);
+  }, [isMac, searchOpen]);
 
   useEffect(() => {
     if (searchOpen) {
@@ -64,6 +68,65 @@ export function SiteHeader() {
       setResults([]);
     }
   }, [searchOpen]);
+
+  const navigateToResult = (r: SearchItem) => {
+    setSearchOpen(false);
+    try {
+      if (!r || !r.href) {
+        console.error('Invalid search result:', r);
+        return;
+      }
+
+      if (r.href.startsWith("http")) {
+        window.location.href = r.href;
+      } else {
+        const url = new URL(r.href, window.location.origin);
+        if (url.hash) {
+          const elementId = url.hash.substring(1);
+          if (!elementId) {
+            console.error('Invalid hash in URL:', r.href);
+            return;
+          }
+
+          const element = document.getElementById(elementId);
+
+          if (element) {
+            const headerHeight = 56;
+            const viewportHeight = window.innerHeight;
+            const extraOffset = Math.max(16, viewportHeight * 0.08);
+            const elementPosition = element.offsetTop - headerHeight - extraOffset;
+            window.scrollTo({
+              top: Math.max(0, elementPosition),
+              behavior: 'smooth'
+            });
+            window.history.pushState(null, '', r.href);
+          } else {
+            window.location.assign(r.href);
+          }
+        } else {
+          window.location.assign(r.href);
+        }
+      }
+    } catch (error) {
+      console.error('Navigation error:', error, r);
+      if (r && r.href) {
+        window.location.href = r.href;
+      }
+    }
+  };
+
+  const handleInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter" && results.length > 0) {
+      e.preventDefault();
+      navigateToResult(results[selectedIndex]);
+    } else if (e.key === "ArrowDown") {
+      e.preventDefault();
+      setSelectedIndex((prev) => (prev + 1) % results.length);
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      setSelectedIndex((prev) => (prev - 1 + results.length) % results.length);
+    }
+  };
 
   const defaultSuggestions = useMemo(() => {
     const pool = items.filter((i) => i.section !== "Pages");
@@ -80,7 +143,6 @@ export function SiteHeader() {
     try {
       const searchResults = fuse.search(query);
       const r = searchResults.slice(0, 10).map((result) => {
-        // Fuse.js returns results with different structure depending on version
         return result.item || result;
       });
       setResults(r);
@@ -89,6 +151,19 @@ export function SiteHeader() {
       setResults([]);
     }
   }, [query, fuse, defaultSuggestions]);
+
+  useEffect(() => {
+    setSelectedIndex(0);
+  }, [results]);
+
+  useEffect(() => {
+    if (selectedItemRef.current) {
+      selectedItemRef.current.scrollIntoView({
+        block: "nearest",
+        behavior: "smooth"
+      });
+    }
+  }, [selectedIndex]);
 
   return (
     <header className="sticky top-0 z-50 w-full backdrop-blur supports-[backdrop-filter]:bg-background/60 bg-background/80 border-b border-border">
@@ -230,6 +305,7 @@ export function SiteHeader() {
                 ref={inputRef}
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
+                onKeyDown={handleInputKeyDown}
                 placeholder="Search restaurants, hostels, emergency, travel, services…"
                 className="w-full bg-transparent outline-none py-2 text-sm"
                 aria-label="Search"
@@ -247,64 +323,22 @@ export function SiteHeader() {
                 </Button>
               </div>
             </div>
-            <ul className="max-h-[60vh] overflow-auto divide-y">
+            <ul className="max-h-[60vh] overflow-auto">
               {results.length === 0 && (
                 <li className="px-4 py-3 text-sm text-muted-foreground">No results</li>
               )}
               {results.map((r, idx) => (
-                <li key={`${r.href}-${idx}`} className="px-4 py-3 hover:bg-muted/60 cursor-pointer" onClick={() => {
-                  setSearchOpen(false);
-                  // navigate
-                  try {
-                    if (!r || !r.href) {
-                      console.error('Invalid search result:', r);
-                      return;
-                    }
-
-                    if (r.href.startsWith("http")) {
-                      window.location.href = r.href;
-                    } else {
-                      // Handle internal navigation with proper scroll offset
-                      const url = new URL(r.href, window.location.origin);
-                      if (url.hash) {
-                        // If there's an anchor, we need special handling for internal links
-                        const elementId = url.hash.substring(1);
-                        if (!elementId) {
-                          console.error('Invalid hash in URL:', r.href);
-                          return;
-                        }
-
-                        const element = document.getElementById(elementId);
-
-                        if (element) {
-                          // Element exists on current page - just scroll to it
-                          const headerHeight = 56; // h-14 = 3.5rem = 56px
-                          const viewportHeight = window.innerHeight;
-                          const extraOffset = Math.max(16, viewportHeight * 0.08); // 8% of viewport height or minimum 16px
-                          const elementPosition = element.offsetTop - headerHeight - extraOffset;
-                          window.scrollTo({
-                            top: Math.max(0, elementPosition), // Ensure we don't scroll above the page
-                            behavior: 'smooth'
-                          });
-                          // Update URL without triggering scroll
-                          window.history.pushState(null, '', r.href);
-                        } else {
-                          // Element doesn't exist on current page - navigate and then scroll
-                          window.location.assign(r.href);
-                        }
-                      } else {
-                        // No anchor, just navigate normally
-                        window.location.assign(r.href);
-                      }
-                    }
-                  } catch (error) {
-                    console.error('Navigation error:', error, r);
-                    // Fallback to basic navigation
-                    if (r && r.href) {
-                      window.location.href = r.href;
-                    }
-                  }
-                }}>
+                <li
+                  key={`${r.href}-${idx}`}
+                  ref={idx === selectedIndex ? selectedItemRef : null}
+                  className={`px-4 py-3 cursor-pointer transition-colors ${
+                    idx === selectedIndex
+                      ? "bg-primary/10 border-l-2 border-primary"
+                      : "hover:bg-muted/60 border-l-2 border-transparent"
+                  }`}
+                  onClick={() => navigateToResult(r)}
+                  onMouseEnter={() => setSelectedIndex(idx)}
+                >
                   <div className="text-sm">
                     <span className="font-medium">{r.title}</span>
                     {r.subtitle && <span className="text-muted-foreground"> • {r.subtitle}</span>}
