@@ -48,7 +48,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="glass border border-emerald-200/50 bg-emerald-50/20 rounded-xl p-6 text-center">
+      <section className="glass border border-emerald-400 bg-emerald-50/20 rounded-xl p-6 text-center">
         <p className="text-lg flex items-center justify-center gap-3">
           <Mail className="h-5 w-5 text-emerald-400" />
           <span className="font-medium text-emerald-400">
@@ -119,7 +119,7 @@ export default function Home() {
           </div>
         </Link>
         <Link href="/emergency">
-          <div className="group p-8 rounded-2xl border border-rose-300/80 bg-card hover:bg-accent/50 transition-all duration-300 hover:scale-[1.02] cursor-pointer">
+          <div className="group p-8 rounded-2xl border border-rose-400 bg-card hover:bg-accent/50 transition-all duration-300 hover:scale-[1.02] cursor-pointer">
             <Siren className="h-8 w-8 mb-4 text-rose-400" />
             <h3 className="text-xl font-medium mb-3 text-rose-400 font-serif">
               Emergency
