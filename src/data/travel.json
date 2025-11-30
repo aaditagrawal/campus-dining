@@ -52,6 +52,16 @@
       "name": "Risha Travels",
       "phones": ["+91 7795525952"],
       "notes": "Manipal"
+    },
+    {
+      "name": "Udupi Manipal Taxi Service",
+      "phones": ["8970124780"],
+      "notes": ""
+    },
+    {
+      "name": "Mohammed Shihan Taxi Service",
+      "phones": ["+91 9900911568", "+91 9035811568"],
+      "notes": "Endpoint Road, Manipal - 576 104"
     }
   ]
 }
