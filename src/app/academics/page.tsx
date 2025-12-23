@@ -21,7 +21,7 @@ export default function AcademicsPage() {
               <CardContent className="text-sm text-muted-foreground">
                 New SLCM portal
                 <br />
-              <a href="https://maheslcmtech.manipal.edu" target="_blank" rel="noreferrer"><span className="text-xs text-gray-500">https://maheslcmtech.manipal.edu</span></a>
+              <a href="https://maheslcmtech.manipal.edu" target="_blank" rel="noreferrer"><span className="text-xs text-gray-500 hover:underline">https://maheslcmtech.manipal.edu</span></a>
               </CardContent>
             </Card>
 
@@ -33,7 +33,7 @@ export default function AcademicsPage() {
                 Legacy SLCM portal
                 <br />
                 <a href="https://slcm.manipal.edu" target="_blank" rel="noreferrer">
-                  <span className="text-xs text-gray-500">https://slcm.manipal.edu</span>
+                  <span className="text-xs text-gray-500 hover:underline">https://slcm.manipal.edu</span>
                 </a>
               </CardContent>
             </Card>
@@ -51,8 +51,8 @@ export default function AcademicsPage() {
               <CardContent className="text-sm text-muted-foreground">
                 Browse past question papers
                 <br />
-                <a href="https://library-orpin-two.vercel.app" target="_blank" rel="noreferrer">
-                  <span className="text-xs text-gray-500">https://library-orpin-two.vercel.app</span>
+                <a href="https://mit-library-revamped.vercel.app" target="_blank" rel="noreferrer">
+                  <span className="text-xs text-gray-500 hover:underline">https://mit-library-revamped.vercel.app</span>
                 </a>
               </CardContent>
             </Card>
@@ -65,7 +65,7 @@ export default function AcademicsPage() {
                 Student led initiative to compile and share past question papers
                 <br />
                 <a href="https://learnermanipal.sharepoint.com/sites/ManipalOSF" target="_blank" rel="noreferrer">
-                  <span className="text-xs text-gray-500">https://learnermanipal.sharepoint.com/sites/ManipalOSF</span>
+                  <span className="text-xs text-gray-500 hover:underline">https://learnermanipal.sharepoint.com/sites/ManipalOSF</span>
                 </a>
               </CardContent>
             </Card>
@@ -82,7 +82,7 @@ export default function AcademicsPage() {
                 <span className="text-xs">Password: <span className="font-mono">UIPreview2021!</span></span>
                 <br />
                 <a href="https://research.ebsco.com/c/fqdtcf/search" target="_blank" rel="noreferrer">
-                  <span className="text-xs text-gray-500">https://research.ebsco.com/c/fqdtcf/search</span>
+                  <span className="text-xs text-gray-500 hover:underline">https://research.ebsco.com/c/fqdtcf/search</span>
                 </a>
               </CardContent>
             </Card>
@@ -95,7 +95,7 @@ export default function AcademicsPage() {
                 MIT Library portal
                 <br />
                 <a href="https://libportal.manipal.edu/MIT/MIT.aspx" target="_blank" rel="noreferrer">
-                  <span className="text-xs text-gray-500">https://libportal.manipal.edu/MIT/MIT.aspx</span>
+                  <span className="text-xs text-gray-500 hover:underline">https://libportal.manipal.edu/MIT/MIT.aspx</span>
                 </a>
               </CardContent>
             </Card>
@@ -115,7 +115,7 @@ export default function AcademicsPage() {
                 Semester-wise resources and quiz platform
                 <br />
                 <a href="https://lighthouse.manipal.edu" target="_blank" rel="noreferrer">
-                  <span className="text-xs text-gray-500">https://lighthouse.manipal.edu</span>
+                  <span className="text-xs text-gray-500 hover:underline hover:underline">https://lighthouse.manipal.edu</span>
                 </a>
               </CardContent>
             </Card>
@@ -128,7 +128,7 @@ export default function AcademicsPage() {
                 Brightspace Pulse app for Lighthouse
                 <br />
                 <a href="https://play.google.com/store/apps/details?id=com.d2l.brightspace.student.android" target="_blank" rel="noreferrer">
-                  <span className="text-xs text-gray-500">https://play.google.com/store/apps/details?id=com.d2l.brightspace.student.android</span>
+                  <span className="text-xs text-gray-500 hover:underline">https://play.google.com/store/apps/details?id=com.d2l.brightspace.student.android</span>
                 </a>
               </CardContent>
             </Card>
@@ -141,7 +141,7 @@ export default function AcademicsPage() {
                 Brightspace Pulse app for Lighthouse
                 <br />
                 <a href="https://apps.apple.com/us/app/brightspace-pulse/id1001688546" target="_blank" rel="noreferrer">
-                  <span className="text-xs text-gray-500">https://apps.apple.com/us/app/brightspace-pulse/id1001688546</span>
+                  <span className="text-xs text-gray-500 hover:underline">https://apps.apple.com/us/app/brightspace-pulse/id1001688546</span>
                 </a>
               </CardContent>
             </Card>
@@ -154,7 +154,7 @@ export default function AcademicsPage() {
                 Class recordings platform
                 <br />
                 <a href="https://impartus.manipal.edu" target="_blank" rel="noreferrer">
-                  <span className="text-xs text-gray-500">https://impartus.manipal.edu</span>
+                  <span className="text-xs text-gray-500 hover:underline">https://impartus.manipal.edu</span>
                 </a>
               </CardContent>
             </Card>
@@ -174,7 +174,7 @@ export default function AcademicsPage() {
                 Researchers directory
                 <br />
                 <a href="https://researcher.manipal.edu" target="_blank" rel="noreferrer">
-                  <span className="text-xs text-gray-500">https://researcher.manipal.edu</span>
+                  <span className="text-xs text-gray-500 hover:underline">https://researcher.manipal.edu</span>
                 </a>
               </CardContent>
             </Card>
@@ -194,7 +194,7 @@ export default function AcademicsPage() {
                 Web mail
                 <br />
                 <a href="https://outlook.office365.com/mail/" target="_blank" rel="noreferrer">
-                  <span className="text-xs text-gray-500">https://outlook.office365.com/mail/</span>
+                  <span className="text-xs text-gray-500 hover:underline">https://outlook.office365.com/mail/</span>
                 </a>
               </CardContent>
             </Card>
@@ -207,7 +207,7 @@ export default function AcademicsPage() {
                 Microsoft 365 apps
                 <br />
                 <a href="https://m365.cloud.microsoft/apps/" target="_blank" rel="noreferrer">
-                  <span className="text-xs text-gray-500">https://m365.cloud.microsoft/apps/</span>
+                  <span className="text-xs text-gray-500 hover:underline">https://m365.cloud.microsoft/apps/</span>
                 </a>
               </CardContent>
             </Card>

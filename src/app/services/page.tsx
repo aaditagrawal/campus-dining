@@ -65,7 +65,7 @@ export default function ServicesPage() {
                 Interactive campus map
                 <br />
           <a href="https://mit.nakshatramaps.com/" target="_blank" rel="noreferrer">
-                <span className="text-xs text-gray-500">https://mit.nakshatramaps.com/</span>
+                <span className="text-xs text-gray-500 hover:underline">https://mit.nakshatramaps.com/</span>
           </a>
               </CardContent>
             </Card>
@@ -77,7 +77,7 @@ export default function ServicesPage() {
                 Current week&apos;s mess menu
                 <br />
           <a href="https://fc2.coolstuff.work" target="_blank" rel="noreferrer">
-                <span className="text-xs text-gray-500">https://fc2.coolstuff.work</span>
+                <span className="text-xs text-gray-500 hover:underline">https://fc2.coolstuff.work</span>
           </a>
               </CardContent>
             </Card>
