@@ -11,6 +11,20 @@ import { Phone } from "lucide-react";
 type Listing = { name: string; phones: string[]; notes?: string };
 type TravelData = { autos: Listing[]; cabs: Listing[] };
 
+function renderNotesWithLinks(notes: string) {
+  const urlRegex = /(https?:\/\/[^\s]+)/g;
+  const parts = notes.split(urlRegex);
+  return parts.map((part, i) =>
+    urlRegex.test(part) ? (
+      <a key={i} href={part} target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">
+        {part}
+      </a>
+    ) : (
+      part
+    )
+  );
+}
+
 export default function TravelPage() {
   const travel = data as TravelData;
   const Section = ({ title, items }: { title: string; items: Listing[] }) => (
@@ -30,7 +44,7 @@ export default function TravelPage() {
                   </a>
                 ))}
               </div>
-              {i.notes && <div className="text-sm text-muted-foreground leading-relaxed">{i.notes}</div>}
+              {i.notes && <div className="text-sm text-muted-foreground leading-relaxed">{renderNotesWithLinks(i.notes)}</div>}
               <div className="flex gap-2 pt-2">
                 <Button
                   variant="secondary"
@@ -120,7 +134,7 @@ export default function TravelPage() {
                       </a>
                     ))}
                   </div>
-                  {i.notes && <div className="text-sm text-muted-foreground leading-relaxed">{i.notes}</div>}
+                  {i.notes && <div className="text-sm text-muted-foreground leading-relaxed">{renderNotesWithLinks(i.notes)}</div>}
                   <div className="flex gap-2 pt-2">
                     <Button
                       variant="secondary"
