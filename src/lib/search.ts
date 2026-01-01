@@ -88,7 +88,13 @@ type AcademicSection = {
   items: AcademicItem[];
 };
 
+let cachedItems: SearchItem[] | null = null;
+
 export function getAllSearchItems(): SearchItem[] {
+  if (cachedItems !== null) {
+    return cachedItems;
+  }
+
   const items: SearchItem[] = [];
 
   // Section entries for quick navigation
@@ -239,5 +245,6 @@ export function getAllSearchItems(): SearchItem[] {
     }
   }
 
+  cachedItems = items;
   return items;
 }
