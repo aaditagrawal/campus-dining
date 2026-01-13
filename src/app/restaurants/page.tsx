@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useTransition, memo } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -118,8 +118,66 @@ function downloadRestaurantVcf(r: Restaurant) {
   downloadVCardFile(r.name, v);
 }
 
+const RestaurantCard = memo(function RestaurantCard({ r }: { r: Restaurant & { open?: boolean; range?: string } }) {
+  return (
+    <Card id={slugify(r.name)} className="glass mb-4 break-inside-avoid scroll-mt-24">
+      <CardHeader className="flex flex-row items-center justify-between">
+        <div>
+          <CardTitle>{r.name}</CardTitle>
+          {r.range && (
+            <div className="text-xs text-muted-foreground mt-1">Hours • {r.range}</div>
+          )}
+        </div>
+        {r.open !== undefined && (
+          <Badge className={r.open ? "bg-green-600 text-white" : "bg-rose-400 text-white"}>{r.open ? "Open" : "Closed"}</Badge>
+        )}
+      </CardHeader>
+      <CardContent className="space-y-3">
+        <div className="flex flex-wrap gap-2 items-center">
+          {r.phones?.map((p) => (
+            <a key={p} href={`tel:${p.replace(/\s+/g, "")}`} className="underline">
+              {p}
+            </a>
+          ))}
+        </div>
+        {(r.deliveryFee || r.packagingFee) && (
+          <div className="text-sm text-muted-foreground">
+            {r.deliveryFee && <span>Delivery: {r.deliveryFee}</span>} {" "}
+            {r.packagingFee && <span>• Packaging: {r.packagingFee}</span>}
+          </div>
+        )}
+        {r.address && <div className="text-sm text-muted-foreground">{r.address}</div>}
+        <div className="flex gap-2 flex-wrap">
+          <Button
+            variant="secondary"
+            onClick={() => {
+              window.location.href = `tel:${r.phones?.[0]?.replace(/\s+/g, "") ?? ""}`;
+            }}
+            className="gap-2"
+          >
+            <Phone className="size-4" />
+            Call Now
+          </Button>
+          <Button onClick={() => downloadRestaurantVcf(r)}>Download contact</Button>
+          {r.menuUrl && (
+            <Button
+              variant="outline"
+              onClick={() => window.open(r.menuUrl, '_blank')}
+              className="gap-2"
+            >
+              <ExternalLink className="size-4" />
+              Menu
+            </Button>
+          )}
+        </div>
+      </CardContent>
+    </Card>
+  );
+});
+
 export default function RestaurantsPage() {
   const [sortOrder, setSortOrder] = useState<'alpha-asc' | 'alpha-desc' | 'open-now' | null>(null);
+  const [, startTransition] = useTransition();
 
   const enhanced = useMemo(
     () =>
@@ -135,14 +193,12 @@ export default function RestaurantsPage() {
     if (!sortOrder) return enhanced;
     return [...enhanced].sort((a, b) => {
       if (sortOrder === 'open-now') {
-        // Open restaurants first, then by name
         const aOpen = a.open === true;
         const bOpen = b.open === true;
 
         if (aOpen && !bOpen) return -1;
         if (!aOpen && bOpen) return 1;
 
-        // If both open or both closed, sort alphabetically
         return a.name.localeCompare(b.name);
       } else if (sortOrder === 'alpha-asc') {
         return a.name.localeCompare(b.name);
@@ -155,11 +211,13 @@ export default function RestaurantsPage() {
   }, [enhanced, sortOrder]);
 
   const toggleSort = () => {
-    setSortOrder(current => {
-      if (current === null) return 'alpha-asc';
-      if (current === 'alpha-asc') return 'alpha-desc';
-      if (current === 'alpha-desc') return 'open-now';
-      return null;
+    startTransition(() => {
+      setSortOrder(current => {
+        if (current === null) return 'alpha-asc';
+        if (current === 'alpha-asc') return 'alpha-desc';
+        if (current === 'alpha-desc') return 'open-now';
+        return null;
+      });
     });
   };
 
@@ -187,58 +245,7 @@ export default function RestaurantsPage() {
       </div>
       <div className="[column-fill:_balance]_columns-1 sm:columns-2 gap-4">
         {sortedRestaurants.map((r) => (
-          <Card key={r.name} id={slugify(r.name)} className="glass mb-4 break-inside-avoid scroll-mt-24">
-            <CardHeader className="flex flex-row items-center justify-between">
-              <div>
-                <CardTitle>{r.name}</CardTitle>
-                {r.range && (
-                  <div className="text-xs text-muted-foreground mt-1">Hours • {r.range}</div>
-                )}
-              </div>
-              {r.open !== undefined && (
-                <Badge className={r.open ? "bg-green-600 text-white" : "bg-rose-400 text-white"}>{r.open ? "Open" : "Closed"}</Badge>
-              )}
-            </CardHeader>
-            <CardContent className="space-y-3">
-              <div className="flex flex-wrap gap-2 items-center">
-                {r.phones?.map((p) => (
-                  <a key={p} href={`tel:${p.replace(/\s+/g, "")}`} className="underline">
-                    {p}
-                  </a>
-                ))}
-              </div>
-              {(r.deliveryFee || r.packagingFee) && (
-                <div className="text-sm text-muted-foreground">
-                  {r.deliveryFee && <span>Delivery: {r.deliveryFee}</span>} {" "}
-                  {r.packagingFee && <span>• Packaging: {r.packagingFee}</span>}
-                </div>
-              )}
-              {r.address && <div className="text-sm text-muted-foreground">{r.address}</div>}
-              <div className="flex gap-2 flex-wrap">
-                <Button
-                  variant="secondary"
-                  onClick={() => {
-                    window.location.href = `tel:${r.phones?.[0]?.replace(/\s+/g, "") ?? ""}`;
-                  }}
-                  className="gap-2"
-                >
-                  <Phone className="size-4" />
-                  Call Now
-                </Button>
-                <Button onClick={() => downloadRestaurantVcf(r)}>Download contact</Button>
-                {r.menuUrl && (
-                  <Button
-                    variant="outline"
-                    onClick={() => window.open(r.menuUrl, '_blank')}
-                    className="gap-2"
-                  >
-                    <ExternalLink className="size-4" />
-                    Menu
-                  </Button>
-                )}
-              </div>
-            </CardContent>
-          </Card>
+          <RestaurantCard key={r.name} r={r} />
         ))}
       </div>
     </main>

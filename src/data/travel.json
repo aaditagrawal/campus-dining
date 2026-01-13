@@ -51,11 +51,22 @@
     {
       "name": "Risha Travels",
       "phones": ["+91 7795525952"],
-      "notes": "Manipal"
+      "notes": "https://rishatravels.com\nhttps://manipalcabs.com"
     },
     {
       "name": "Udupi Manipal Taxi Service",
-      "phones": ["8970124780"],
+      "phones": ["8970124780", "+91 9880780403"],
+      "notes": ""
+    },
+    { "name": "Ambika Travels", "phones": ["+91 7899457629", "+91 7483343031"], "notes": "" },
+    {
+      "name": "Coolcab Holidays",
+      "phones": ["+91 8970124780", "+91 8951124780"],
+      "notes": ""
+    },
+    {
+      "name": "RK Tours and Travels (Mr. Raju)",
+      "phones": ["+91 6363722353", "+91 9113281131"],
       "notes": ""
     },
     {

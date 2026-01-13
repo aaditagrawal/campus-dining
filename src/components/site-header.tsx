@@ -6,9 +6,20 @@ import { Sun, Moon, Menu, Utensils, Building2, Bus, ShieldAlert, Wrench, Graduat
 import { Button } from "@/components/ui/button";
 import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink } from "@/components/ui/navigation-menu";
 import { Sheet, SheetTrigger, SheetContent, SheetClose, SheetHeader, SheetTitle } from "@/components/ui/sheet";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, useCallback } from "react";
 import Fuse from "fuse.js";
 import { getAllSearchItems, type SearchItem } from "@/lib/search";
+
+const fuseOptions = {
+  keys: [
+    { name: "title", weight: 0.6 },
+    { name: "subtitle", weight: 0.2 },
+    { name: "section", weight: 0.2 },
+  ],
+  includeScore: true,
+  threshold: 0.35,
+  ignoreLocation: true,
+};
 
 export function SiteHeader() {
   const { theme, setTheme } = useTheme();
@@ -20,24 +31,49 @@ export function SiteHeader() {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const inputRef = useRef<HTMLInputElement | null>(null);
   const selectedItemRef = useRef<HTMLLIElement | null>(null);
+  const searchTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => setMounted(true), []);
 
   const isMac = useMemo(() => navigator.platform.toUpperCase().includes("MAC"), []);
 
   const items = useMemo(() => getAllSearchItems(), []);
-  const fuse = useMemo(() => new Fuse(items, {
-    keys: [
-      { name: "title", weight: 0.6 },
-      { name: "subtitle", weight: 0.2 },
-      { name: "section", weight: 0.2 },
-    ],
-    includeScore: true,
-    threshold: 0.35,
-    ignoreLocation: true,
-  }), [items]);
+  const fuse = useMemo(() => new Fuse(items, fuseOptions), [items]);
 
-  // Allow other components (e.g., home page) to open the global search
+  const defaultSuggestions = useMemo(() => {
+    const pool = items.filter((i) => i.section !== "Pages");
+    const shuffled = pool.length > 8 ? pool.slice().sort(() => Math.random() - 0.5).slice(0, 8) : pool;
+    return shuffled;
+  }, [items]);
+
+  const performSearch = useCallback((searchQuery: string) => {
+    if (!searchQuery) {
+      setResults(defaultSuggestions);
+      return;
+    }
+    try {
+      const searchResults = fuse.search(searchQuery);
+      const r = searchResults.slice(0, 10).map((result) => result.item || result);
+      setResults(r);
+    } catch {
+      setResults([]);
+    }
+  }, [fuse, defaultSuggestions]);
+
+  useEffect(() => {
+    if (searchTimeoutRef.current) {
+      clearTimeout(searchTimeoutRef.current);
+    }
+    searchTimeoutRef.current = setTimeout(() => {
+      performSearch(query);
+    }, 75);
+    return () => {
+      if (searchTimeoutRef.current) {
+        clearTimeout(searchTimeoutRef.current);
+      }
+    };
+  }, [query, performSearch]);
+
   useEffect(() => {
     const handler = () => setSearchOpen(true);
     window.addEventListener("open-global-search", handler as EventListener);
@@ -68,6 +104,19 @@ export function SiteHeader() {
       setResults([]);
     }
   }, [searchOpen]);
+
+  useEffect(() => {
+    setSelectedIndex(0);
+  }, [results]);
+
+  useEffect(() => {
+    if (selectedItemRef.current) {
+      selectedItemRef.current.scrollIntoView({
+        block: "nearest",
+        behavior: "smooth"
+      });
+    }
+  }, [selectedIndex]);
 
   const navigateToResult = (r: SearchItem) => {
     setSearchOpen(false);
@@ -127,43 +176,6 @@ export function SiteHeader() {
       setSelectedIndex((prev) => (prev - 1 + results.length) % results.length);
     }
   };
-
-  const defaultSuggestions = useMemo(() => {
-    const pool = items.filter((i) => i.section !== "Pages");
-    // shuffle lightweight
-    const shuffled = [...pool].sort(() => Math.random() - 0.5);
-    return shuffled.slice(0, 8);
-  }, [items]);
-
-  useEffect(() => {
-    if (!query) {
-      setResults(defaultSuggestions);
-      return;
-    }
-    try {
-      const searchResults = fuse.search(query);
-      const r = searchResults.slice(0, 10).map((result) => {
-        return result.item || result;
-      });
-      setResults(r);
-    } catch (error) {
-      console.error('Search error:', error);
-      setResults([]);
-    }
-  }, [query, fuse, defaultSuggestions]);
-
-  useEffect(() => {
-    setSelectedIndex(0);
-  }, [results]);
-
-  useEffect(() => {
-    if (selectedItemRef.current) {
-      selectedItemRef.current.scrollIntoView({
-        block: "nearest",
-        behavior: "smooth"
-      });
-    }
-  }, [selectedIndex]);
 
   return (
     <header className="sticky top-0 z-50 w-full backdrop-blur supports-[backdrop-filter]:bg-background/60 bg-background/80 border-b border-border">
@@ -353,5 +365,3 @@ export function SiteHeader() {
     </header>
   );
 }
-
-

@@ -2,7 +2,6 @@
 
 import data from "@/data/emergency.json";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { buildVCard, downloadVCardFile } from "@/lib/vcard";
 import { slugify } from "@/lib/utils";
