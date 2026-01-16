@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import hostelsData from "@/data/hostels.json";
+import { useSearchParams } from "next/navigation";
 
 
 
@@ -57,7 +58,10 @@ const PURPOSE_TEMPLATES = [
 
 const SEMESTERS = ["1", "2", "3", "4", "5", "6", "7", "8"];
 
-export default function MailToWardenPage() {
+function MailToWardenContent() {
+  const searchParams = useSearchParams();
+  const [isSharedLink, setIsSharedLink] = useState(false);
+
   const [formData, setFormData] = useState<FormData>({
     studentName: "",
     registrationNumber: "",
@@ -78,6 +82,27 @@ export default function MailToWardenPage() {
   });
 
   const [mailPreview, setMailPreview] = useState<{ subject: string; body: string } | null>(null);
+  const [shareableLink, setShareableLink] = useState<string>("");
+  const [linkCopied, setLinkCopied] = useState(false);
+
+  // Load form data from URL parameters if present
+  useEffect(() => {
+    const dataParam = searchParams.get('data');
+    if (dataParam) {
+      try {
+        const decodedData = JSON.parse(decodeURIComponent(dataParam));
+        setFormData(decodedData);
+        setIsSharedLink(true);
+        // Auto-generate preview for shared links
+        setTimeout(() => {
+          generateMailFromData(decodedData);
+        }, 100);
+      } catch (e) {
+        console.error('Failed to parse shared link data:', e);
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams]);
 
   const selectedHostel = hostelsData.find(hostel => hostel.block === formData.block);
 
@@ -102,27 +127,48 @@ export default function MailToWardenPage() {
     return `${diffDays} day(s) from ${formatDate(start)} to ${formatDate(end)}`;
   };
 
-  const generateMail = () => {
-    const subject = `${formData.studentName}, ${formData.registrationNumber} and ${formData.block} ${formData.roomNumber}`;
-    
-    const purposeText = formData.purpose === "custom" 
-      ? formData.customPurpose 
-      : PURPOSE_TEMPLATES.find(p => p.label === formData.purpose)?.text || formData.purpose;
-    const durationText = generateDurationText();
-    
-    const body = `1. Student name: ${formData.studentName || '[NOT FILLED]'}
-2. Registration Number: ${formData.registrationNumber || '[NOT FILLED]'}
-3. Semester & Branch: ${formData.semester ? formData.semester + ' Semester, ' : '[NOT FILLED] '}${formData.branch || '[NOT FILLED]'}
-4. Block and Room Number: ${formData.block || '[NOT FILLED]'}${formData.roomNumber ? ' - Room ' + formData.roomNumber : ' [NOT FILLED]'}
-5. Contact number of Student: ${formData.contactNumber || '[NOT FILLED]'}
+  const generateMailFromData = (data: FormData) => {
+    const subject = `${data.studentName}, ${data.registrationNumber} and ${data.block} ${data.roomNumber}`;
+
+    const purposeText = data.purpose === "custom"
+      ? data.customPurpose
+      : PURPOSE_TEMPLATES.find(p => p.label === data.purpose)?.text || data.purpose;
+
+    const start = new Date(data.startDate);
+    const end = new Date(data.endDate);
+    const diffTime = Math.abs(end.getTime() - start.getTime());
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
+    const formatDate = (date: Date) => date.toLocaleDateString('en-US', {
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric'
+    });
+    const durationText = data.startDate && data.endDate ? `${diffDays} day(s) from ${formatDate(start)} to ${formatDate(end)}` : '';
+
+    const body = `1. Student name: ${data.studentName || '[NOT FILLED]'}
+2. Registration Number: ${data.registrationNumber || '[NOT FILLED]'}
+3. Semester & Branch: ${data.semester ? data.semester + ' Semester, ' : '[NOT FILLED] '}${data.branch || '[NOT FILLED]'}
+4. Block and Room Number: ${data.block || '[NOT FILLED]'}${data.roomNumber ? ' - Room ' + data.roomNumber : ' [NOT FILLED]'}
+5. Contact number of Student: ${data.contactNumber || '[NOT FILLED]'}
 6. Duration of leave and dates: ${durationText || '[NOT FILLED]'}
-7. Place of visit, address in detail and purpose: ${formData.placeOfVisit || '[NOT FILLED]'}
-${formData.address || '[NOT FILLED]'}
+7. Place of visit, address in detail and purpose: ${data.placeOfVisit || '[NOT FILLED]'}
+${data.address || '[NOT FILLED]'}
 Purpose: ${purposeText || '[NOT FILLED]'}
-8. Parents name & contact details: ${formData.parentName || '[NOT FILLED]'} - ${formData.parentContact || '[NOT FILLED]'}
-9. Parent's undertaking for the student's leave: ${formData.parentName ? `I, ${formData.parentName}, hereby undertake full responsibility for my ward ${formData.studentName || '[STUDENT NAME NOT FILLED]'}'s leave during the period mentioned above and ensure that they will maintain discipline and adhere to all rules and regulations.` : '[NOT FILLED - Parent name required]'}`;
+8. Parents name & contact details: ${data.parentName || '[NOT FILLED]'} - ${data.parentContact || '[NOT FILLED]'}
+9. Parent's undertaking for the student's leave: ${data.parentName ? `I, ${data.parentName}, hereby undertake full responsibility for my ward ${data.studentName || '[STUDENT NAME NOT FILLED]'}'s leave during the period mentioned above and ensure that they will maintain discipline and adhere to all rules and regulations.` : '[NOT FILLED - Parent name required]'}`;
 
     setMailPreview({ subject, body });
+
+    // Generate shareable web URL (not mailto)
+    const hostel = hostelsData.find(h => h.block === data.block);
+    if (hostel && data.selectedWardens.length > 0) {
+      const shareUrl = `${window.location.origin}${window.location.pathname}?data=${encodeURIComponent(JSON.stringify(data))}`;
+      setShareableLink(shareUrl);
+    }
+  };
+
+  const generateMail = () => {
+    generateMailFromData(formData);
   };
 
   const sendMail = () => {
@@ -136,10 +182,22 @@ Purpose: ${purposeText || '[NOT FILLED]'}
 
     const to = selectedWardenEmails.join(",");
     const cc = selectedHostel.email;
-    
+
     const mailtoUrl = `mailto:${to}?cc=${cc}&subject=${encodeURIComponent(mailPreview.subject)}&body=${encodeURIComponent(mailPreview.body)}`;
-    
+
     window.open(mailtoUrl);
+  };
+
+  const copyShareableLink = async () => {
+    if (!shareableLink) return;
+
+    try {
+      await navigator.clipboard.writeText(shareableLink);
+      setLinkCopied(true);
+      setTimeout(() => setLinkCopied(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy link:', err);
+    }
   };
 
   const getMailRecipients = () => {
@@ -158,6 +216,18 @@ Purpose: ${purposeText || '[NOT FILLED]'}
 
   return (
     <main className="max-w-4xl mx-auto px-4 py-8">
+      {isSharedLink && (
+        <Card className="mb-6 border-blue-200 bg-blue-50/50 dark:bg-blue-950/20">
+          <CardContent className="p-6">
+            <h2 className="text-lg font-semibold mb-2">Parent/Guardian: Leave Request Ready to Send</h2>
+            <p className="text-sm text-muted-foreground mb-0">
+              Your ward has prepared a leave request for hostel warden approval.
+              Please review all the details below, make any necessary corrections, scroll down to preview the email, and click &quot;Send Email to Warden&quot; to send it from your email account.
+            </p>
+          </CardContent>
+        </Card>
+      )}
+
       <div className="mb-8">
         <h1 className="text-3xl">Generate Mail to Warden</h1>
         <p className="text-muted-foreground">Generate a formal leave request email for your hostel warden.</p>
@@ -416,14 +486,21 @@ Purpose: ${purposeText || '[NOT FILLED]'}
           </CardContent>
         </Card>
 
-        <div className="flex gap-4 justify-center">
+        <div className="flex gap-4 justify-center flex-wrap">
           <Button onClick={generateMail} variant="outline" size="lg">
             Preview Mail
           </Button>
           {mailPreview && (
-            <Button onClick={sendMail} size="lg">
-              Send Mail
-            </Button>
+            <>
+              <Button onClick={sendMail} size="lg">
+                {isSharedLink ? "Send Email to Warden" : "Send Mail"}
+              </Button>
+              {shareableLink && !isSharedLink && (
+                <Button onClick={copyShareableLink} variant="secondary" size="lg">
+                  {linkCopied ? "Link Copied!" : "Share with Parent"}
+                </Button>
+              )}
+            </>
           )}
         </div>
 
@@ -504,10 +581,51 @@ Purpose: ${purposeText || '[NOT FILLED]'}
                   {mailPreview.body}
                 </pre>
               </div>
+
+              {shareableLink && !isSharedLink && (
+                <div>
+                  <Label className="mb-3 block">Shareable Link for Parents</Label>
+                  <div className="p-4 bg-blue-50/50 dark:bg-blue-950/20 rounded-md border border-blue-200">
+                    <p className="text-sm font-medium mb-2">
+                      Share this link with your parents via WhatsApp, SMS, or email
+                    </p>
+                    <p className="text-xs text-muted-foreground mb-3">
+                      When they click this link, they&apos;ll see this page with all the information pre-filled.
+                      They can review everything and click &quot;Send Mail&quot; to send the leave request from their email.
+                    </p>
+                    <div className="flex gap-2 items-center">
+                      <Input
+                        value={shareableLink}
+                        readOnly
+                        className="font-mono text-xs bg-white dark:bg-gray-800"
+                        onClick={(e) => (e.target as HTMLInputElement).select()}
+                      />
+                      <Button onClick={copyShareableLink} size="sm" variant="default">
+                        {linkCopied ? "Copied!" : "Copy"}
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              )}
             </CardContent>
           </Card>
         )}
       </div>
     </main>
+  );
+}
+
+export default function MailToWardenPage() {
+  return (
+    <Suspense fallback={
+      <main className="max-w-4xl mx-auto px-4 py-8">
+        <div className="mb-8">
+          <h1 className="text-3xl">Generate Mail to Warden</h1>
+          <p className="text-muted-foreground">Loading...</p>
+        </div>
+      </main>
+    }>
+      <MailToWardenContent />
+    </Suspense>
   );
 }
