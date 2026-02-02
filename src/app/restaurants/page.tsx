@@ -120,52 +120,61 @@ function downloadRestaurantVcf(r: Restaurant) {
 
 const RestaurantCard = memo(function RestaurantCard({ r }: { r: Restaurant & { open?: boolean; range?: string } }) {
   return (
-    <Card id={slugify(r.name)} className="glass mb-4 break-inside-avoid scroll-mt-24">
-      <CardHeader className="flex flex-row items-center justify-between">
-        <div>
-          <CardTitle>{r.name}</CardTitle>
-          {r.range && (
-            <div className="text-xs text-muted-foreground mt-1">Hours • {r.range}</div>
+    <Card id={slugify(r.name)} className="glass mb-3 break-inside-avoid scroll-mt-24">
+      <CardHeader className="pb-2">
+        <div className="flex items-start justify-between gap-2">
+          <CardTitle className="text-lg">{r.name}</CardTitle>
+          {r.open !== undefined && (
+            <Badge variant="outline" className={r.open ? "border-green-500/50 text-green-600 dark:text-green-400" : "border-rose-400/50 text-rose-500"}>
+              {r.open ? "Open" : "Closed"}
+            </Badge>
           )}
         </div>
-        {r.open !== undefined && (
-          <Badge className={r.open ? "bg-green-600 text-white" : "bg-rose-400 text-white"}>{r.open ? "Open" : "Closed"}</Badge>
+        {r.range && (
+          <div className="text-xs text-muted-foreground flex items-center gap-1">
+            <Clock className="size-3" />
+            {r.range}
+          </div>
         )}
       </CardHeader>
-      <CardContent className="space-y-3">
-        <div className="flex flex-wrap gap-2 items-center">
+      <CardContent className="space-y-2 pt-0">
+        <div className="flex flex-wrap gap-x-3 gap-y-1 text-sm">
           {r.phones?.map((p) => (
-            <a key={p} href={`tel:${p.replace(/\s+/g, "")}`} className="underline">
+            <a key={p} href={`tel:${p.replace(/\s+/g, "")}`} className="text-muted-foreground hover:text-foreground underline-offset-2 hover:underline">
               {p}
             </a>
           ))}
         </div>
         {(r.deliveryFee || r.packagingFee) && (
-          <div className="text-sm text-muted-foreground">
-            {r.deliveryFee && <span>Delivery: {r.deliveryFee}</span>} {" "}
-            {r.packagingFee && <span>• Packaging: {r.packagingFee}</span>}
+          <div className="text-xs text-muted-foreground">
+            {r.deliveryFee && <span>Delivery: {r.deliveryFee}</span>}
+            {r.deliveryFee && r.packagingFee && <span> · </span>}
+            {r.packagingFee && <span>Packaging: {r.packagingFee}</span>}
           </div>
         )}
-        {r.address && <div className="text-sm text-muted-foreground">{r.address}</div>}
-        <div className="flex gap-2 flex-wrap">
+        <div className="flex gap-2 flex-wrap pt-1">
           <Button
             variant="secondary"
+            size="sm"
             onClick={() => {
               window.location.href = `tel:${r.phones?.[0]?.replace(/\s+/g, "") ?? ""}`;
             }}
-            className="gap-2"
+            className="gap-1.5 h-8"
           >
-            <Phone className="size-4" />
-            Call Now
+            <Phone className="size-3.5" />
+            Call
           </Button>
-          <Button onClick={() => downloadRestaurantVcf(r)}>Download contact</Button>
+          <Button size="sm" variant="outline" onClick={() => downloadRestaurantVcf(r)} className="h-8">
+            Save Contact
+          </Button>
           {r.menuUrl && (
             <Button
-              variant="outline"
+              variant="ghost"
+              size="sm"
               onClick={() => window.open(r.menuUrl, '_blank')}
-              className="gap-2"
+              className="gap-1.5 h-8"
             >
-              <ExternalLink className="size-4" />
+              <ExternalLink className="size-3.5" />
               Menu
             </Button>
           )}
@@ -222,28 +231,26 @@ export default function RestaurantsPage() {
   };
 
   return (
-    <main className="max-w-5xl mx-auto px-4 py-8 grid gap-6">
-      <div>
-        <div className="flex items-center justify-between">
-          <div>
-            <h1 className="text-3xl">Restaurants</h1>
-            <p className="text-muted-foreground">Call restaurants directly or download contact.</p>
-          </div>
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={toggleSort}
-            className="gap-2"
-          >
-            {sortOrder === 'alpha-asc' && <ArrowUp className="size-4" />}
-            {sortOrder === 'alpha-desc' && <ArrowDown className="size-4" />}
-            {sortOrder === 'open-now' && <Clock className="size-4" />}
-            {sortOrder === null && <ArrowUpDown className="size-4" />}
-            Sort {sortOrder === 'alpha-asc' ? 'A-Z' : sortOrder === 'alpha-desc' ? 'Z-A' : sortOrder === 'open-now' ? 'Open Now' : 'Name'}
-          </Button>
+    <main className="max-w-5xl mx-auto px-4 py-8 md:py-12">
+      <div className="flex items-center justify-between mb-6">
+        <div>
+          <h1 className="text-2xl md:text-3xl font-serif">Restaurants</h1>
+          <p className="text-sm text-muted-foreground mt-1">Call or save contacts</p>
         </div>
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={toggleSort}
+          className="gap-1.5 h-8 text-xs"
+        >
+          {sortOrder === 'alpha-asc' && <ArrowUp className="size-3.5" />}
+          {sortOrder === 'alpha-desc' && <ArrowDown className="size-3.5" />}
+          {sortOrder === 'open-now' && <Clock className="size-3.5" />}
+          {sortOrder === null && <ArrowUpDown className="size-3.5" />}
+          {sortOrder === 'alpha-asc' ? 'A-Z' : sortOrder === 'alpha-desc' ? 'Z-A' : sortOrder === 'open-now' ? 'Open' : 'Sort'}
+        </Button>
       </div>
-      <div className="[column-fill:_balance]_columns-1 sm:columns-2 gap-4">
+      <div className="columns-1 sm:columns-2 gap-3">
         {sortedRestaurants.map((r) => (
           <RestaurantCard key={r.name} r={r} />
         ))}

@@ -64,7 +64,8 @@
       {
         "name": "Impartus",
         "description": "Class recordings platform",
-        "url": "https://impartus.manipal.edu"
+        "url": "https://impartus.manipal.edu",
+        "altUrl": "https://a.impartus.com"
       }
     ]
   },

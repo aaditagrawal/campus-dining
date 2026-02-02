@@ -162,11 +162,12 @@
   100% { background-position: 10% 10%, 90% 90%, 60% 40%, 60% 50%; }
 }
 
-/* glass helper */
+/* glass helper - more subtle */
 .glass {
-  background: color-mix(in oklab, var(--card) 60%, transparent);
-  backdrop-filter: saturate(160%) blur(14px);
-  -webkit-backdrop-filter: saturate(160%) blur(14px);
+  background: color-mix(in oklab, var(--card) 70%, transparent);
+  backdrop-filter: saturate(120%) blur(12px);
+  -webkit-backdrop-filter: saturate(120%) blur(12px);
+  border-color: color-mix(in oklab, var(--border) 60%, transparent);
 }
 
 /* category accent helpers */

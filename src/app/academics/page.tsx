@@ -77,6 +77,8 @@ export default function AcademicsPage() {
           </AcademicCard>
           <AcademicCard title="Impartus" url="https://impartus.manipal.edu">
             Class recordings platform
+            <br />
+            <span className="text-xs">Alt: <a href="https://a.impartus.com" target="_blank" rel="noreferrer" className="underline hover:text-foreground" onClick={(e) => e.stopPropagation()}>a.impartus.com</a></span>
           </AcademicCard>
         </div>
       </div>
