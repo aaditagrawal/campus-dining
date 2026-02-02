@@ -17,7 +17,7 @@
 /.next/
 /.crush/
 /out/
-
+/.superset/
 # production
 /build
 
