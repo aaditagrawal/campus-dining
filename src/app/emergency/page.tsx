@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { buildVCard, downloadVCardFile } from "@/lib/vcard";
 import { slugify } from "@/lib/utils";
 import { Phone } from "lucide-react";
+import { FavoriteButton } from "@/components/favorite-button";
 
 
 type Emergency = { name: string; phones: string[]; address?: string; notes?: string; accent?: string };
@@ -54,6 +55,17 @@ export default function EmergencyPage() {
             <Card key={e.name} id={slugify(e.name)} className="glass hover:shadow-md transition-shadow duration-200 scroll-mt-24">
               <CardHeader className="flex flex-row items-center justify-between pb-3">
                 <CardTitle className="text-lg">{e.name}</CardTitle>
+                <FavoriteButton
+                  item={{
+                    id: `emergency-${slugify(e.name)}`,
+                    type: "emergency",
+                    name: e.name,
+                    href: `/emergency#${slugify(e.name)}`,
+                    phones: e.phones,
+                    subtitle: e.address,
+                  }}
+                  size="sm"
+                />
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex flex-wrap gap-2 items-center">
@@ -100,6 +112,17 @@ export default function EmergencyPage() {
             <Card key={`manipal-${e.name}`} id={slugify(e.name)} className="glass hover:shadow-md transition-shadow duration-200 scroll-mt-24">
               <CardHeader className="flex flex-row items-center justify-between pb-3">
                 <CardTitle className="text-lg">{e.name}</CardTitle>
+                <FavoriteButton
+                  item={{
+                    id: `emergency-manipal-${slugify(e.name)}`,
+                    type: "emergency",
+                    name: e.name,
+                    href: `/emergency#${slugify(e.name)}`,
+                    phones: e.phones,
+                    subtitle: "Manipal Helpline",
+                  }}
+                  size="sm"
+                />
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex flex-wrap gap-2 items-center">
@@ -146,6 +169,17 @@ export default function EmergencyPage() {
             <Card key={`sp-${e.name}`} id={slugify(e.name)} className="glass hover:shadow-md transition-shadow duration-200 scroll-mt-24">
               <CardHeader className="flex flex-row items-center justify-between pb-3">
                 <CardTitle className="text-lg">{e.name}</CardTitle>
+                <FavoriteButton
+                  item={{
+                    id: `emergency-suicide-${slugify(e.name)}`,
+                    type: "emergency",
+                    name: e.name,
+                    href: `/emergency#${slugify(e.name)}`,
+                    phones: e.phones,
+                    subtitle: "Suicide Prevention",
+                  }}
+                  size="sm"
+                />
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex flex-wrap gap-2 items-center">
@@ -190,6 +224,17 @@ export default function EmergencyPage() {
             <Card key={`india-${e.name}`} id={slugify(e.name)} className="glass hover:shadow-md transition-shadow duration-200 scroll-mt-24">
               <CardHeader className="flex flex-row items-center justify-between pb-3">
                 <CardTitle className="text-lg">{e.name}</CardTitle>
+                <FavoriteButton
+                  item={{
+                    id: `emergency-india-${slugify(e.name)}`,
+                    type: "emergency",
+                    name: e.name,
+                    href: `/emergency#${slugify(e.name)}`,
+                    phones: e.phones,
+                    subtitle: "India Helpline",
+                  }}
+                  size="sm"
+                />
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex flex-wrap gap-2 items-center">

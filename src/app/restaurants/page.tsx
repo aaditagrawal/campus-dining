@@ -8,6 +8,7 @@ import { buildVCard, downloadVCardFile } from "@/lib/vcard";
 import restaurantsData from "@/data/restaurants.json";
 import { slugify } from "@/lib/utils";
 import { ArrowUpDown, ArrowUp, ArrowDown, ExternalLink, Clock, Phone } from "lucide-react";
+import { FavoriteButton } from "@/components/favorite-button";
 
 
 type Restaurant = {
@@ -123,12 +124,27 @@ const RestaurantCard = memo(function RestaurantCard({ r }: { r: Restaurant & { o
     <Card id={slugify(r.name)} className="glass mb-3 break-inside-avoid scroll-mt-24">
       <CardHeader className="pb-2">
         <div className="flex items-start justify-between gap-2">
-          <CardTitle className="text-lg">{r.name}</CardTitle>
-          {r.open !== undefined && (
-            <Badge variant="outline" className={r.open ? "border-green-500/50 text-green-600 dark:text-green-400" : "border-rose-400/50 text-rose-500"}>
-              {r.open ? "Open" : "Closed"}
-            </Badge>
-          )}
+          <div className="flex-1 min-w-0">
+            <CardTitle className="text-lg">{r.name}</CardTitle>
+          </div>
+          <div className="flex items-center gap-1">
+            {r.open !== undefined && (
+              <Badge variant="outline" className={r.open ? "border-green-500/50 text-green-600 dark:text-green-400" : "border-rose-400/50 text-rose-500"}>
+                {r.open ? "Open" : "Closed"}
+              </Badge>
+            )}
+            <FavoriteButton
+              item={{
+                id: `restaurant-${slugify(r.name)}`,
+                type: "restaurant",
+                name: r.name,
+                href: `/restaurants#${slugify(r.name)}`,
+                phones: r.phones,
+                subtitle: r.address,
+              }}
+              size="sm"
+            />
+          </div>
         </div>
         {r.range && (
           <div className="text-xs text-muted-foreground flex items-center gap-1">

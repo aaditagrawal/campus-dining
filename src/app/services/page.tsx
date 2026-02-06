@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { buildVCard, downloadVCardFile } from "@/lib/vcard";
 import { slugify } from "@/lib/utils";
+import { FavoriteButton } from "@/components/favorite-button";
 
 
 type Listing = { name: string; phones: string[]; notes?: string };
@@ -19,7 +20,20 @@ export default function ServicesPage() {
         {items.map((i) => (
           <Card key={i.name} id={slugify(i.name)} className="glass scroll-mt-24">
             <CardHeader>
-              <CardTitle>{i.name}</CardTitle>
+              <div className="flex items-start justify-between gap-2">
+                <CardTitle>{i.name}</CardTitle>
+                <FavoriteButton
+                  item={{
+                    id: `service-${slugify(title)}-${slugify(i.name)}`,
+                    type: "service",
+                    name: i.name,
+                    href: `/services#${slugify(i.name)}`,
+                    phones: i.phones,
+                    subtitle: title,
+                  }}
+                  size="sm"
+                />
+              </div>
             </CardHeader>
             <CardContent className="space-y-2 text-sm">
               <div className="flex flex-wrap gap-2 items-center">

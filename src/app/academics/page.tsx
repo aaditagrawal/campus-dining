@@ -3,21 +3,33 @@
 import { memo, ReactNode } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { slugify } from "@/lib/utils";
+import { FavoriteButton } from "@/components/favorite-button";
 
 const AcademicCard = memo(function AcademicCard({ title, url, children }: { title: string; url: string; children: ReactNode }) {
   return (
-    <a href={url} target="_blank" rel="noreferrer">
-      <Card className="glass hover:shadow-lg transition-colors mb-4 break-inside-avoid scroll-mt-24" id={slugify(title)}>
-        <CardHeader>
+    <Card className="glass hover:shadow-lg transition-colors mb-4 break-inside-avoid scroll-mt-24 relative group" id={slugify(title)}>
+      <CardHeader>
+        <div className="flex items-start justify-between gap-2">
           <CardTitle>{title}</CardTitle>
-        </CardHeader>
-        <CardContent className="text-sm text-muted-foreground">
-          {children}
-          <br />
-          <span className="text-xs text-gray-500">{url}</span>
-        </CardContent>
-      </Card>
-    </a>
+          <FavoriteButton
+            item={{
+              id: `academic-${slugify(title)}`,
+              type: "academic",
+              name: title,
+              href: url,
+              subtitle: "Academic Resource",
+            }}
+            size="sm"
+          />
+        </div>
+      </CardHeader>
+      <a href={url} target="_blank" rel="noreferrer" className="absolute inset-0 z-0" aria-label={`Open ${title}`} />
+      <CardContent className="text-sm text-muted-foreground relative z-10">
+        {children}
+        <br />
+        <span className="text-xs text-gray-500 break-all">{url}</span>
+      </CardContent>
+    </Card>
   );
 });
 
@@ -78,7 +90,7 @@ export default function AcademicsPage() {
           <AcademicCard title="Impartus" url="https://impartus.manipal.edu">
             Class recordings platform
             <br />
-            <span className="text-xs">Alt: <a href="https://a.impartus.com" target="_blank" rel="noreferrer" className="underline hover:text-foreground" onClick={(e) => e.stopPropagation()}>a.impartus.com</a></span>
+            <span className="text-xs relative z-20">Alt: <a href="https://a.impartus.com" target="_blank" rel="noreferrer" className="underline hover:text-foreground" onClick={(e) => e.stopPropagation()}>a.impartus.com</a></span>
           </AcademicCard>
         </div>
       </div>

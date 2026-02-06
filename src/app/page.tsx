@@ -11,14 +11,17 @@ import {
   Building,
   Car,
   Wrench,
+  Star,
 } from "lucide-react";
 import { useMemo } from "react";
+import { useFavorites } from "@/hooks/useFavorites";
 
 export default function Home() {
   const isMac = useMemo(
     () => navigator.platform.toUpperCase().includes("MAC"),
     [],
   );
+  const { count: favoritesCount } = useFavorites();
   return (
     <main className="max-w-5xl mx-auto px-6 py-12 md:py-20 grid gap-10">
       <section className="text-center space-y-5">
@@ -114,6 +117,15 @@ export default function Home() {
             <h3 className="text-base font-medium mb-1 font-serif">Tools</h3>
             <p className="text-sm text-muted-foreground leading-snug">
               Maps & resources
+            </p>
+          </div>
+        </Link>
+        <Link href="/favorites" className="group">
+          <div className="h-full p-5 md:p-6 rounded-xl border border-border/50 bg-card/60 hover:bg-card hover:border-border/80 transition-all duration-200">
+            <Star className="h-6 w-6 mb-3 text-muted-foreground group-hover:text-foreground transition-colors" />
+            <h3 className="text-base font-medium mb-1 font-serif">Favorites</h3>
+            <p className="text-sm text-muted-foreground leading-snug">
+              {favoritesCount === 0 ? "Save your contacts" : "Your saved items"}
             </p>
           </div>
         </Link>

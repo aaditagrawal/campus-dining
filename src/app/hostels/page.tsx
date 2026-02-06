@@ -6,7 +6,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { buildVCard, downloadVCardFile } from "@/lib/vcard";
 import { slugify } from "@/lib/utils";
-import { ArrowUpDown, ArrowUp, ArrowDown } from "lucide-react";
+import { ArrowUpDown, ArrowUp, ArrowDown, Download } from "lucide-react";
+import { FavoriteButton } from "@/components/favorite-button";
 
 
 type Hostel = {
@@ -102,7 +103,19 @@ export default function HostelsPage() {
                         <div className="text-xs text-muted-foreground">{w.designation}</div>
                       )}
                     </div>
-                    <Button
+                    <div className="flex items-center gap-1">
+                      <FavoriteButton
+                        item={{
+                          id: `hostel-warden-${slugify(h.block)}-${slugify(w.name)}`,
+                          type: "hostel",
+                          name: `${w.name} (${h.block})`,
+                          href: `/hostels#${slugify(h.block)}`,
+                          phones: [...(w.mobiles ?? []), ...(w.officePhone ? [w.officePhone] : [])],
+                          subtitle: w.designation || h.block,
+                        }}
+                        size="sm"
+                      />
+                      <Button
                       variant="ghost"
                       size="sm"
                       onClick={() => {
@@ -117,9 +130,11 @@ export default function HostelsPage() {
                         downloadVCardFile(`${h.block}-${w.name}`, v)
                       }}
                       className="h-7 text-xs px-2 shrink-0"
-                    >
-                      Save
+                        aria-label="Save contact"
+                      >
+                        <Download className="h-3.5 w-3.5" />
                     </Button>
+                    </div>
                   </div>
                   <div className="flex flex-wrap gap-x-3 gap-y-0.5 mt-1 text-xs text-muted-foreground">
                     {w.mobiles && w.mobiles.length > 0 && w.mobiles.map((m) => (
