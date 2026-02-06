@@ -21,7 +21,7 @@ export default function Home() {
     () => navigator.platform.toUpperCase().includes("MAC"),
     [],
   );
-  const { count: favoritesCount } = useFavorites();
+  const { count: favoritesCount, isLoaded } = useFavorites();
   return (
     <main className="max-w-5xl mx-auto px-6 py-12 md:py-20 grid gap-10">
       <section className="text-center space-y-5">
@@ -125,7 +125,7 @@ export default function Home() {
             <Star className="h-6 w-6 mb-3 text-muted-foreground group-hover:text-foreground transition-colors" />
             <h3 className="text-base font-medium mb-1 font-serif">Favorites</h3>
             <p className="text-sm text-muted-foreground leading-snug">
-              {favoritesCount === 0 ? "Save your contacts" : "Your saved items"}
+              {!isLoaded ? "Loading..." : favoritesCount === 0 ? "Save your contacts" : "Your saved items"}
             </p>
           </div>
         </Link>
