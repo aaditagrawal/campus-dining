@@ -23,8 +23,8 @@ export default function Home() {
   );
   const { count: favoritesCount, isLoaded } = useFavorites();
   return (
-    <main className="max-w-5xl mx-auto px-6 py-12 md:py-20 grid gap-10">
-      <section className="text-center space-y-5">
+    <main className="max-w-5xl mx-auto px-6 py-14 md:py-24 grid gap-12">
+      <section className="text-center space-y-6">
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif tracking-tight">
           MIT Manipal Directory
         </h1>
@@ -33,7 +33,7 @@ export default function Home() {
         </p>
         <div className="mx-auto max-w-sm pt-2">
           <button
-            className="w-full flex items-center gap-3 rounded-full border border-border/60 bg-card/50 px-5 py-3 text-left text-sm hover:bg-muted/40 hover:border-border transition-all duration-200"
+            className="w-full flex items-center gap-3 rounded-full border border-border/60 bg-card/50 px-5 py-3 text-left text-sm shadow-sm hover:bg-muted/40 hover:border-border hover:shadow transition-all duration-200"
             onClick={() => {
               window.dispatchEvent(new Event("open-global-search"));
             }}
@@ -50,7 +50,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="rounded-lg border border-emerald-500/30 bg-emerald-500/5 px-4 py-3 text-center">
+      <section className="rounded-lg border border-emerald-500/30 bg-emerald-500/5 px-4 py-2.5 text-center">
         <p className="text-sm flex items-center justify-center gap-2 flex-wrap">
           <Mail className="h-4 w-4 text-emerald-500" />
           <span className="text-muted-foreground">
@@ -65,10 +65,10 @@ export default function Home() {
         </p>
       </section>
 
-      <section className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         <Link href="/academics" className="group">
-          <div className="h-full p-5 md:p-6 rounded-xl border border-border/50 bg-card/60 hover:bg-card hover:border-border/80 transition-all duration-200">
-            <GraduationCap className="h-6 w-6 mb-3 text-muted-foreground group-hover:text-foreground transition-colors" />
+          <div className="h-full p-5 sm:p-6 rounded-xl border border-border/50 bg-card/60 hover:bg-card hover:border-border/80 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
+            <GraduationCap className="h-6 w-6 mb-3 text-muted-foreground group-hover:text-foreground transition-colors duration-200" />
             <h3 className="text-base font-medium mb-1 font-serif">Academics</h3>
             <p className="text-sm text-muted-foreground leading-snug">
               Systems & portals
@@ -76,8 +76,8 @@ export default function Home() {
           </div>
         </Link>
         <Link href="/restaurants" className="group">
-          <div className="h-full p-5 md:p-6 rounded-xl border border-border/50 bg-card/60 hover:bg-card hover:border-border/80 transition-all duration-200">
-            <Utensils className="h-6 w-6 mb-3 text-muted-foreground group-hover:text-foreground transition-colors" />
+          <div className="h-full p-5 sm:p-6 rounded-xl border border-border/50 bg-card/60 hover:bg-card hover:border-border/80 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
+            <Utensils className="h-6 w-6 mb-3 text-muted-foreground group-hover:text-foreground transition-colors duration-200" />
             <h3 className="text-base font-medium mb-1 font-serif">Restaurants</h3>
             <p className="text-sm text-muted-foreground leading-snug">
               Menus & delivery
@@ -85,8 +85,8 @@ export default function Home() {
           </div>
         </Link>
         <Link href="/hostels" className="group">
-          <div className="h-full p-5 md:p-6 rounded-xl border border-border/50 bg-card/60 hover:bg-card hover:border-border/80 transition-all duration-200">
-            <Building className="h-6 w-6 mb-3 text-muted-foreground group-hover:text-foreground transition-colors" />
+          <div className="h-full p-5 sm:p-6 rounded-xl border border-border/50 bg-card/60 hover:bg-card hover:border-border/80 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
+            <Building className="h-6 w-6 mb-3 text-muted-foreground group-hover:text-foreground transition-colors duration-200" />
             <h3 className="text-base font-medium mb-1 font-serif">Hostels</h3>
             <p className="text-sm text-muted-foreground leading-snug">
               Wardens & contacts
@@ -94,8 +94,8 @@ export default function Home() {
           </div>
         </Link>
         <Link href="/travel" className="group">
-          <div className="h-full p-5 md:p-6 rounded-xl border border-border/50 bg-card/60 hover:bg-card hover:border-border/80 transition-all duration-200">
-            <Car className="h-6 w-6 mb-3 text-muted-foreground group-hover:text-foreground transition-colors" />
+          <div className="h-full p-5 sm:p-6 rounded-xl border border-border/50 bg-card/60 hover:bg-card hover:border-border/80 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
+            <Car className="h-6 w-6 mb-3 text-muted-foreground group-hover:text-foreground transition-colors duration-200" />
             <h3 className="text-base font-medium mb-1 font-serif">Travel</h3>
             <p className="text-sm text-muted-foreground leading-snug">
               Autos, cabs & taxis
@@ -103,8 +103,8 @@ export default function Home() {
           </div>
         </Link>
         <Link href="/services" className="group">
-          <div className="h-full p-5 md:p-6 rounded-xl border border-border/50 bg-card/60 hover:bg-card hover:border-border/80 transition-all duration-200">
-            <Wrench className="h-6 w-6 mb-3 text-muted-foreground group-hover:text-foreground transition-colors" />
+          <div className="h-full p-5 sm:p-6 rounded-xl border border-border/50 bg-card/60 hover:bg-card hover:border-border/80 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
+            <Wrench className="h-6 w-6 mb-3 text-muted-foreground group-hover:text-foreground transition-colors duration-200" />
             <h3 className="text-base font-medium mb-1 font-serif">Services</h3>
             <p className="text-sm text-muted-foreground leading-snug">
               Laundry & xerox
@@ -112,8 +112,8 @@ export default function Home() {
           </div>
         </Link>
         <Link href="/tools" className="group">
-          <div className="h-full p-5 md:p-6 rounded-xl border border-border/50 bg-card/60 hover:bg-card hover:border-border/80 transition-all duration-200">
-            <Settings className="h-6 w-6 mb-3 text-muted-foreground group-hover:text-foreground transition-colors" />
+          <div className="h-full p-5 sm:p-6 rounded-xl border border-border/50 bg-card/60 hover:bg-card hover:border-border/80 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
+            <Settings className="h-6 w-6 mb-3 text-muted-foreground group-hover:text-foreground transition-colors duration-200" />
             <h3 className="text-base font-medium mb-1 font-serif">Tools</h3>
             <p className="text-sm text-muted-foreground leading-snug">
               Maps & resources
@@ -121,18 +121,18 @@ export default function Home() {
           </div>
         </Link>
         <Link href="/favorites" className="group">
-          <div className="h-full p-5 md:p-6 rounded-xl border border-border/50 bg-card/60 hover:bg-card hover:border-border/80 transition-all duration-200">
-            <Star className="h-6 w-6 mb-3 text-muted-foreground group-hover:text-foreground transition-colors" />
+          <div className="h-full p-5 sm:p-6 rounded-xl border border-border/50 bg-card/60 hover:bg-card hover:border-border/80 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
+            <Star className="h-6 w-6 mb-3 text-muted-foreground group-hover:text-foreground transition-colors duration-200" />
             <h3 className="text-base font-medium mb-1 font-serif">Favorites</h3>
             <p className="text-sm text-muted-foreground leading-snug">
               {!isLoaded ? "Loading..." : favoritesCount === 0 ? "Save your contacts" : "Your saved items"}
             </p>
           </div>
         </Link>
-        <Link href="/emergency" className="group col-span-2">
-          <div className="h-full p-5 md:p-6 rounded-xl border border-rose-400/40 bg-rose-500/5 hover:bg-rose-500/10 hover:border-rose-400/60 transition-all duration-200">
+        <Link href="/emergency" className="group sm:col-span-2 md:col-span-3 lg:col-span-2">
+          <div className="h-full p-5 sm:p-6 rounded-xl border border-rose-400/40 bg-rose-500/5 hover:bg-rose-500/10 hover:border-rose-400/60 hover:shadow-md hover:shadow-rose-500/10 hover:-translate-y-0.5 transition-all duration-200">
             <div className="flex items-center gap-3">
-              <Siren className="h-6 w-6 text-rose-500" />
+              <Siren className="h-6 w-6 text-rose-500 shrink-0" />
               <div>
                 <h3 className="text-base font-medium text-rose-600 dark:text-rose-400 font-serif">
                   Emergency

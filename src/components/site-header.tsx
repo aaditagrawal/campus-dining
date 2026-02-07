@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useTheme } from "next-themes";
 import { Sun, Moon, Menu, Utensils, Building2, Bus, ShieldAlert, Wrench, GraduationCap, Search, X, Settings, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink } from "@/components/ui/navigation-menu";
+import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink, NavigationMenuTrigger, NavigationMenuContent } from "@/components/ui/navigation-menu";
 import { Sheet, SheetTrigger, SheetContent, SheetClose, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { useEffect, useMemo, useRef, useState, useCallback } from "react";
 import Fuse from "fuse.js";
@@ -185,49 +185,65 @@ export function SiteHeader() {
         </Link>
 
         <div className="hidden md:flex items-center gap-2">
-          <NavigationMenu>
+          <NavigationMenu viewport={false}>
             <NavigationMenuList>
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
-                  <Link href="/academics" className="px-3 py-2 rounded-md hover:bg-muted">Academics</Link>
+                  <Link href="/academics" className="px-3 py-2 rounded-md hover:bg-muted transition-colors duration-150">Academics</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
-                  <Link href="/restaurants" className="px-3 py-2 rounded-md hover:bg-muted">Restaurants</Link>
+                  <Link href="/restaurants" className="px-3 py-2 rounded-md hover:bg-muted transition-colors duration-150">Restaurants</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
-                  <Link href="/hostels" className="px-3 py-2 rounded-md hover:bg-muted">Hostels</Link>
+                  <Link href="/hostels" className="px-3 py-2 rounded-md hover:bg-muted transition-colors duration-150">Hostels</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
-                  <Link href="/travel" className="px-3 py-2 rounded-md hover:bg-muted">Travel</Link>
+                  <Link href="/travel" className="px-3 py-2 rounded-md hover:bg-muted transition-colors duration-150">Travel</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
-                  <Link href="/emergency" className="px-3 py-2 rounded-md hover:bg-muted">Emergency</Link>
+                  <Link href="/emergency" className="px-3 py-2 rounded-md hover:bg-muted transition-colors duration-150">Emergency</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuLink asChild>
-                  <Link href="/services" className="px-3 py-2 rounded-md hover:bg-muted">Services</Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuLink asChild>
-                  <Link href="/tools" className="px-3 py-2 rounded-md hover:bg-muted">Tools</Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuLink asChild>
-                  <Link href="/favorites" className="px-3 py-2 rounded-md hover:bg-muted flex items-center gap-1.5">
-                    Favorites
-                  </Link>
-                </NavigationMenuLink>
+                <NavigationMenuTrigger className="px-3 py-2 rounded-md hover:bg-muted text-sm font-medium">
+                  More
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-44 gap-0.5 p-1.5">
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link href="/services" className="flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-muted text-sm transition-colors duration-150">
+                          <Wrench className="size-4 text-muted-foreground" />
+                          Services
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link href="/tools" className="flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-muted text-sm transition-colors duration-150">
+                          <Settings className="size-4 text-muted-foreground" />
+                          Tools
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link href="/favorites" className="flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-muted text-sm transition-colors duration-150">
+                          <Star className="size-4 text-muted-foreground" />
+                          Favorites
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                  </ul>
+                </NavigationMenuContent>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
@@ -243,12 +259,9 @@ export function SiteHeader() {
           </Button>
         </div>
 
-        <div className="md:hidden flex items-center gap-2">
+        <div className="md:hidden flex items-center gap-1">
           <Button variant="ghost" size="icon" aria-label="Open search" onClick={() => setSearchOpen(true)}>
             <Search className="size-5" />
-          </Button>
-          <Button variant="ghost" size="icon" aria-label="Toggle theme" onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
-            {mounted && theme === "dark" ? <Sun className="size-5" /> : <Moon className="size-5" />}
           </Button>
           <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
             <SheetTrigger asChild>
@@ -268,49 +281,50 @@ export function SiteHeader() {
               </SheetHeader>
               <nav className="px-2 py-2">
                 <SheetClose asChild>
-                  <Link href="/academics" className="flex items-center gap-3 px-3 py-3 rounded-md hover:bg-muted focus:bg-muted transition-colors">
+                  <Link href="/academics" className="flex items-center gap-3 px-3 py-3.5 rounded-md hover:bg-muted focus:bg-muted transition-colors">
                     <GraduationCap className="size-4 text-muted-foreground" />
                     <span className="text-base">Academics</span>
                   </Link>
                 </SheetClose>
                 <SheetClose asChild>
-                  <Link href="/restaurants" className="flex items-center gap-3 px-3 py-3 rounded-md hover:bg-muted focus:bg-muted transition-colors">
+                  <Link href="/restaurants" className="flex items-center gap-3 px-3 py-3.5 rounded-md hover:bg-muted focus:bg-muted transition-colors">
                     <Utensils className="size-4 text-muted-foreground" />
                     <span className="text-base">Restaurants</span>
                   </Link>
                 </SheetClose>
                 <SheetClose asChild>
-                  <Link href="/hostels" className="flex items-center gap-3 px-3 py-3 rounded-md hover:bg-muted focus:bg-muted transition-colors">
+                  <Link href="/hostels" className="flex items-center gap-3 px-3 py-3.5 rounded-md hover:bg-muted focus:bg-muted transition-colors">
                     <Building2 className="size-4 text-muted-foreground" />
                     <span className="text-base">Hostels</span>
                   </Link>
                 </SheetClose>
                 <SheetClose asChild>
-                  <Link href="/travel" className="flex items-center gap-3 px-3 py-3 rounded-md hover:bg-muted focus:bg-muted transition-colors">
+                  <Link href="/travel" className="flex items-center gap-3 px-3 py-3.5 rounded-md hover:bg-muted focus:bg-muted transition-colors">
                     <Bus className="size-4 text-muted-foreground" />
                     <span className="text-base">Travel</span>
                   </Link>
                 </SheetClose>
+                <div className="my-1 mx-3 border-t border-border/50" />
                 <SheetClose asChild>
-                  <Link href="/emergency" className="flex items-center gap-3 px-3 py-3 rounded-md hover:bg-muted focus:bg-muted transition-colors">
+                  <Link href="/emergency" className="flex items-center gap-3 px-3 py-3.5 rounded-md hover:bg-muted focus:bg-muted transition-colors">
                     <ShieldAlert className="size-4 text-rose-400" />
                     <span className="text-base">Emergency</span>
                   </Link>
                 </SheetClose>
                 <SheetClose asChild>
-                  <Link href="/services" className="flex items-center gap-3 px-3 py-3 rounded-md hover:bg-muted focus:bg-muted transition-colors">
+                  <Link href="/services" className="flex items-center gap-3 px-3 py-3.5 rounded-md hover:bg-muted focus:bg-muted transition-colors">
                     <Wrench className="size-4 text-muted-foreground" />
                     <span className="text-base">Services</span>
                   </Link>
                 </SheetClose>
                 <SheetClose asChild>
-                  <Link href="/tools" className="flex items-center gap-3 px-3 py-3 rounded-md hover:bg-muted focus:bg-muted transition-colors">
+                  <Link href="/tools" className="flex items-center gap-3 px-3 py-3.5 rounded-md hover:bg-muted focus:bg-muted transition-colors">
                     <Settings className="size-4 text-muted-foreground" />
                     <span className="text-base">Tools</span>
                   </Link>
                 </SheetClose>
                 <SheetClose asChild>
-                  <Link href="/favorites" className="flex items-center gap-3 px-3 py-3 rounded-md hover:bg-muted focus:bg-muted transition-colors">
+                  <Link href="/favorites" className="flex items-center gap-3 px-3 py-3.5 rounded-md hover:bg-muted focus:bg-muted transition-colors">
                     <Star className="size-4 text-muted-foreground" />
                     <span className="text-base">Favorites</span>
                   </Link>
@@ -331,7 +345,7 @@ export function SiteHeader() {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 onKeyDown={handleInputKeyDown}
-                placeholder="Search restaurants, hostels, emergency, travel, services…"
+                placeholder="Search anything…"
                 className="w-full bg-transparent outline-none py-2 text-sm"
                 aria-label="Search"
               />
