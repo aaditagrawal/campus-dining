@@ -20,6 +20,7 @@ export default function FavoritesPage() {
       service: [],
       travel: [],
       academic: [],
+      tool: [],
     };
 
     favorites.forEach((fav) => {
@@ -36,6 +37,7 @@ export default function FavoritesPage() {
     service: "Services",
     travel: "Travel",
     academic: "Academic Resources",
+    tool: "Tools",
   };
 
   const copyPhone = (phone: string) => {
@@ -51,10 +53,10 @@ export default function FavoritesPage() {
     if (!item.phones || item.phones.length === 0) return;
     
     const vcard = buildVCard({
-      fullName: item.name,
+      name: item.name,
       phones: item.phones,
     });
-    downloadVCardFile(vcard, item.name);
+    downloadVCardFile(item.name, vcard);
   };
 
   if (!isLoaded) {

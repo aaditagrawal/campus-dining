@@ -32,7 +32,7 @@ export default function ToolsPage() {
                   <FavoriteButton
                     item={{
                       id: `tool-web-${slugify(tool.name)}`,
-                      type: "service",
+                      type: "tool",
                       name: tool.name,
                       href: tool.url,
                       subtitle: tool.description,
@@ -73,7 +73,7 @@ export default function ToolsPage() {
                     <FavoriteButton
                       item={{
                         id: `tool-internal-${slugify(tool.name)}`,
-                        type: "service",
+                        type: "tool",
                         name: tool.name,
                         href: tool.url,
                         subtitle: tool.description,

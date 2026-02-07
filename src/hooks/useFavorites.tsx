@@ -1,20 +1,31 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from "react";
 
 export type FavoriteItem = {
   id: string;
-  type: "restaurant" | "hostel" | "emergency" | "service" | "travel" | "academic";
+  type: "restaurant" | "hostel" | "emergency" | "service" | "travel" | "academic" | "tool";
   name: string;
   href: string;
   phones?: string[];
   subtitle?: string;
-  metadata?: Record<string, any>;
 };
 
 const STORAGE_KEY = "mit-directory-favorites";
 
-export function useFavorites() {
+type FavoritesContextValue = {
+  favorites: FavoriteItem[];
+  removeFavorite: (id: string) => void;
+  toggleFavorite: (item: FavoriteItem) => void;
+  isFavorite: (id: string) => boolean;
+  clearAll: () => void;
+  isLoaded: boolean;
+  count: number;
+};
+
+const FavoritesContext = createContext<FavoritesContextValue | null>(null);
+
+export function FavoritesProvider({ children }: { children: ReactNode }) {
   const [favorites, setFavorites] = useState<FavoriteItem[]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -42,15 +53,6 @@ export function useFavorites() {
     }
   }, [favorites, isLoaded]);
 
-  const addFavorite = useCallback((item: FavoriteItem) => {
-    setFavorites((prev) => {
-      if (prev.some((fav) => fav.id === item.id)) {
-        return prev;
-      }
-      return [...prev, item];
-    });
-  }, []);
-
   const removeFavorite = useCallback((id: string) => {
     setFavorites((prev) => prev.filter((fav) => fav.id !== id));
   }, []);
@@ -72,26 +74,31 @@ export function useFavorites() {
     [favorites]
   );
 
-  const getFavoritesByType = useCallback(
-    (type: FavoriteItem["type"]) => {
-      return favorites.filter((fav) => fav.type === type);
-    },
-    [favorites]
-  );
-
   const clearAll = useCallback(() => {
     setFavorites([]);
   }, []);
 
-  return {
-    favorites,
-    addFavorite,
-    removeFavorite,
-    toggleFavorite,
-    isFavorite,
-    getFavoritesByType,
-    clearAll,
-    isLoaded,
-    count: favorites.length,
-  };
+  return (
+    <FavoritesContext.Provider
+      value={{
+        favorites,
+        removeFavorite,
+        toggleFavorite,
+        isFavorite,
+        clearAll,
+        isLoaded,
+        count: favorites.length,
+      }}
+    >
+      {children}
+    </FavoritesContext.Provider>
+  );
+}
+
+export function useFavorites() {
+  const ctx = useContext(FavoritesContext);
+  if (!ctx) {
+    throw new Error("useFavorites must be used within a FavoritesProvider");
+  }
+  return ctx;
 }

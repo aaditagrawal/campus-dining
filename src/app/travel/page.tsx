@@ -138,7 +138,20 @@ export default function TravelPage() {
             {travel.cabs.map((i) => (
               <Card key={i.name} id={slugify(i.name)} className="glass hover:shadow-md transition-shadow duration-200 scroll-mt-24">
                 <CardHeader className="pb-3">
-                  <CardTitle className="text-lg">{i.name}</CardTitle>
+                  <div className="flex items-start justify-between gap-2">
+                    <CardTitle className="text-lg">{i.name}</CardTitle>
+                    <FavoriteButton
+                      item={{
+                        id: `travel-cabs-taxis-${slugify(i.name)}`,
+                        type: "travel",
+                        name: i.name,
+                        href: `/travel#${slugify(i.name)}`,
+                        phones: i.phones,
+                        subtitle: "Cabs & Taxis",
+                      }}
+                      size="sm"
+                    />
+                  </div>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="flex flex-wrap gap-2 items-center">

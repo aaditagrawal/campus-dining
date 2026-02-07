@@ -8,15 +8,13 @@ import { cn } from "@/lib/utils";
 type FavoriteButtonProps = {
   item: FavoriteItem;
   className?: string;
-  showLabel?: boolean;
   size?: "sm" | "md" | "lg";
 };
 
-export function FavoriteButton({ 
-  item, 
-  className, 
-  showLabel = false,
-  size = "md" 
+export function FavoriteButton({
+  item,
+  className,
+  size = "md"
 }: FavoriteButtonProps) {
   const { isFavorite, toggleFavorite, isLoaded } = useFavorites();
   const favorited = isLoaded && isFavorite(item.id);
@@ -55,28 +53,23 @@ export function FavoriteButton({
   return (
     <Button
       variant="ghost"
-      size={showLabel ? "sm" : "icon"}
+      size="icon"
       onClick={handleClick}
       className={cn(
-        !showLabel && sizeClasses[size],
+        sizeClasses[size],
         "transition-all duration-200 relative z-20 cursor-pointer",
         className
       )}
       title={favorited ? "Remove from favorites" : "Add to favorites"}
       aria-label={favorited ? "Remove from favorites" : "Add to favorites"}
     >
-      <Star 
+      <Star
         className={cn(
           iconSizes[size],
           favorited && "fill-current",
           "transition-all duration-200"
-        )} 
+        )}
       />
-      {showLabel && (
-        <span className="ml-1.5">
-          {favorited ? "Favorited" : "Favorite"}
-        </span>
-      )}
     </Button>
   );
 }
