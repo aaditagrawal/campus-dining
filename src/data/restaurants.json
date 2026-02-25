@@ -46,7 +46,7 @@
     { "day": 6, "open": "16:00", "close": "02:30" }
   ] },
   { "name": "Kamath Cafe", "phones": ["+91 8217044886"], "deliveryFee": "—", "packagingFee": "—", "address": "Near SP" },
-  { "name": "Aditya Mess", "phones": ["+91 7483644586"], "deliveryFee": "—", "packagingFee": "—", "address": "Near Block 5" },
+  { "name": "Aditya Mess", "phones": ["+91 7483644586"], "deliveryFee": "—", "packagingFee": "—", "address": "Near Block 5", "menuUrl": "https://theindiankitchenmanipal.com/adithya-mess/" },
   { "name": "Apoorva Mess", "phones": ["+91 9108888320"], "deliveryFee": "—", "packagingFee": "—", "address": "Near Block 8", "menuUrl": "https://theindiankitchenmanipal.com/apoorva-menu/" },
   { "name": "Food Court 2 (The Indian Kitchen)", "phones": ["+91 8861953102"], "deliveryFee": "₹10", "packagingFee": "₹5", "address": "Near B16-20.", "menuUrl": "https://theindiankitchenmanipal.com/mit-food-court-2/" },
   { "name": "Poornima Canteen", "phones": ["+91 70906 41985"], "deliveryFee": "₹0", "packagingFee": "₹0", "address": "Near Block 9" },
