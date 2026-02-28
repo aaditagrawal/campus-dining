@@ -79,7 +79,7 @@ export default function HostelsPage() {
       </div>
       <div className="grid md:grid-cols-2 gap-4">
         {sortedHostels.map((h) => (
-          <Card key={h.block} id={slugify(h.block)} className="glass">
+          <Card key={h.block} id={slugify(h.block)} className="glass scroll-mt-24">
             <CardHeader className="pb-3">
               <div className="flex items-start justify-between">
                 <CardTitle className="text-xl font-serif">{h.block}</CardTitle>
