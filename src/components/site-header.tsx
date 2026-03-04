@@ -142,10 +142,11 @@ export function SiteHeader() {
           if (element) {
             const headerHeight = 56;
             const viewportHeight = window.innerHeight;
-            const extraOffset = Math.max(16, viewportHeight * 0.08);
-            const elementPosition = element.offsetTop - headerHeight - extraOffset;
+            const extraOffset = viewportHeight * 0.1;
+            const rect = element.getBoundingClientRect();
+            const absoluteTop = rect.top + window.scrollY;
             window.scrollTo({
-              top: Math.max(0, elementPosition),
+              top: Math.max(0, absoluteTop - headerHeight - extraOffset),
               behavior: 'smooth'
             });
             window.history.pushState(null, '', r.href);
@@ -180,7 +181,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 w-full backdrop-blur supports-[backdrop-filter]:bg-background/60 bg-background/80 border-b border-border">
       <div className="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
-        <Link href="/" className="font-bold text-lg tracking-tight">
+        <Link href="/" className="font-bold text-lg tracking-tight whitespace-nowrap">
           MIT Manipal Directory
         </Link>
 
@@ -248,10 +249,8 @@ export function SiteHeader() {
             </NavigationMenuList>
           </NavigationMenu>
 
-          <Button variant="outline" size="sm" aria-label="Open search" onClick={() => setSearchOpen(true)} className="gap-2">
-            <Search className="size-4" />
-            <span className="hidden md:inline">Search…</span>
-            <kbd className="ml-2 hidden lg:inline rounded bg-muted px-1.5 py-0.5 text-xs">{isMac ? "⌘K" : "Ctrl+K"}</kbd>
+          <Button variant="ghost" size="icon" aria-label="Open search" onClick={() => setSearchOpen(true)}>
+            <Search className="size-5" />
           </Button>
 
           <Button variant="ghost" size="icon" aria-label="Toggle theme" onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
