@@ -244,8 +244,8 @@ Data contributions are the most common and impactful way to help! Keeping campus
 **Installation:**
 ```bash
 # Clone your fork
-git clone https://github.com/aaditagrawal/campus-dining.git
-cd campus-dining
+git clone https://github.com/aaditagrawal/campus-dir.git
+cd campus-dir
 
 # Install dependencies
 bun install  # or npm install
