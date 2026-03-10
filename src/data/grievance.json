@@ -3,44 +3,46 @@
     {
       "title": "Food & Hostel Issues",
       "description": "Mess food quality, hostel maintenance, room issues, hygiene complaints",
-      "contact": "Chief Warden's Office (CWO)",
-      "email": "",
-      "phones": []
-    },
-    {
-      "title": "Internet & Network Issues",
-      "description": "Wi-Fi connectivity, LAN issues, network outages, speed complaints",
-      "contact": "IBUS",
-      "email": "",
-      "phones": []
+      "contacts": [
+        { "name": "Chief Warden Office MIT", "email": "chiefwarden.mit@manipal.edu" },
+        { "name": "Chief Warden Office MAHE", "email": "chiefwarden.mahe@manipal.edu" }
+      ]
     },
     {
       "title": "Buggy / Transport Issues",
       "description": "Campus buggy service, routes, timing issues",
-      "contact": "Murty Sir",
-      "email": "",
-      "phones": []
+      "contacts": [
+        {
+          "name": "Dr. V Ramachandra Murty",
+          "role": "Associate Director (Development)",
+          "email": "murty.vytla@manipal.edu"
+        }
+      ]
     },
     {
       "title": "Student Welfare",
       "description": "General student welfare, administrative concerns, campus facilities",
-      "contact": "Student Welfare Officer (SWO)",
-      "email": "",
-      "phones": []
+      "contacts": [
+        { "name": "Student Affairs (MAHE-MIT)", "email": "sa.mit@manipal.edu" },
+        { "name": "Student Welfare MIT Manipal", "email": "StudentWelfareMITManipal@manipal.edu" }
+      ]
     },
     {
-      "title": "Counselling Services",
-      "description": "Mental health support, stress, anxiety, personal issues. Available anytime — don't hesitate to call.",
-      "contact": "Student Counselling Centre",
-      "email": "",
-      "phones": []
+      "title": "Academics",
+      "description": "Academic concerns, course issues, examination queries",
+      "contacts": [
+        { "name": "Academic Section (MAHE-MIT)", "email": "academic.section@manipal.edu" },
+        { "name": "Associate Director — Academics (MAHE-MIT)", "email": "adacademics.mit@manipal.edu" }
+      ]
     }
   ],
   "studentCouncil": {
     "name": "MIT Student Council",
-    "description": "CC us in all your grievance emails. You can also mail us directly or fill out the form.",
-    "email": "",
-    "formUrl": "",
-    "phones": []
+    "description": "CC us in all your grievance emails. You can also mail us directly.",
+    "contacts": [
+      { "role": "Student Council President (MAHE-MIT)", "email": "president.scmit@manipal.edu" },
+      { "role": "Student Council Technical Secretary (MAHE-MIT)", "email": "techsec.scmit@manipal.edu" },
+      { "role": "Student Council General Secretary (MAHE-MIT)", "email": "gensec.scmit@manipal.edu" }
+    ]
   }
 }

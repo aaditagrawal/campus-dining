@@ -5,15 +5,19 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { buildVCard, downloadVCardFile } from "@/lib/vcard";
 import { slugify } from "@/lib/utils";
-import { Phone, Mail, ExternalLink, AlertCircle } from "lucide-react";
+import { Mail, AlertCircle } from "lucide-react";
 import { FavoriteButton } from "@/components/favorite-button";
+
+type Contact = {
+  name?: string;
+  role?: string;
+  email: string;
+};
 
 type GrievanceCategory = {
   title: string;
   description: string;
-  contact: string;
-  email: string;
-  phones: string[];
+  contacts: Contact[];
 };
 
 type GrievanceData = {
@@ -21,9 +25,7 @@ type GrievanceData = {
   studentCouncil: {
     name: string;
     description: string;
-    email: string;
-    formUrl: string;
-    phones: string[];
+    contacts: Contact[];
   };
 };
 
@@ -36,6 +38,8 @@ export default function GrievancePage() {
         <h1 className="text-3xl font-bold mb-2">Grievance Redressal</h1>
         <p className="text-muted-foreground">
           Got a complaint? Reach out to the right authority. CC the Student Council in all your emails.
+          <br />
+          <span className="text-xs">This information is for MIT Manipal only.</span>
         </p>
       </div>
 
@@ -50,86 +54,65 @@ export default function GrievancePage() {
                   item={{
                     id: `grievance-${slugify(cat.title)}`,
                     type: "grievance",
-                    name: cat.contact,
+                    name: cat.title,
                     href: `/grievance#${slugify(cat.title)}`,
-                    phones: cat.phones.length > 0 ? cat.phones : undefined,
-                    subtitle: cat.title,
+                    subtitle: cat.contacts.map((c) => c.name || c.role).join(", "),
                   }}
                   size="sm"
                 />
               </CardHeader>
               <CardContent className="space-y-3">
                 <p className="text-sm text-muted-foreground">{cat.description}</p>
-                <div className="flex items-center gap-2">
-                  <span className="text-sm font-medium">Contact:</span>
-                  <span className="text-sm">{cat.contact}</span>
-                </div>
-                {cat.email && (
-                  <a href={`mailto:${cat.email}`} className="flex items-center gap-2 text-sm underline">
-                    <Mail className="size-3.5" />
-                    {cat.email}
-                  </a>
-                )}
-                {cat.phones.length > 0 && (
-                  <div className="flex flex-wrap gap-2 items-center">
-                    {cat.phones.map((p) => (
-                      <a key={p} href={`tel:${p.replace(/\s+/g, "")}`} className="underline text-sm">
-                        {p}
+                <div className="space-y-2.5">
+                  {cat.contacts.map((c) => (
+                    <div key={c.email} className="space-y-0.5">
+                      {c.name && <div className="text-sm font-medium">{c.name}</div>}
+                      {c.role && <div className="text-xs text-muted-foreground">{c.role}</div>}
+                      <a href={`mailto:${c.email}`} className="flex items-center gap-1.5 text-sm underline">
+                        <Mail className="size-3.5 shrink-0" />
+                        {c.email}
                       </a>
-                    ))}
-                  </div>
-                )}
-                {(cat.phones.length > 0 || cat.email) && (
-                  <div className="flex gap-2 pt-2">
-                    {cat.phones.length > 0 && (
-                      <Button
-                        variant="secondary"
-                        size="sm"
-                        onClick={() => {
-                          window.location.href = `tel:${cat.phones[0]?.replace(/\s+/g, "") ?? ""}`;
-                        }}
-                        className="gap-2"
-                      >
-                        <Phone className="size-4" />
-                        Call Now
-                      </Button>
-                    )}
-                    {cat.email && (
-                      <Button
-                        variant="secondary"
-                        size="sm"
-                        onClick={() => {
-                          window.location.href = `mailto:${cat.email}`;
-                        }}
-                        className="gap-2"
-                      >
-                        <Mail className="size-4" />
-                        Email
-                      </Button>
-                    )}
+                    </div>
+                  ))}
+                </div>
+                <div className="flex flex-wrap gap-2 pt-2">
+                  {cat.contacts.map((c) => (
                     <Button
+                      key={c.email}
+                      variant="secondary"
                       size="sm"
                       onClick={() => {
-                        const v = buildVCard({
-                          name: cat.contact,
-                          phones: cat.phones,
-                          email: cat.email || undefined,
-                          org: "MIT Manipal",
-                        });
-                        downloadVCardFile(cat.contact, v);
+                        window.location.href = `mailto:${c.email}`;
                       }}
+                      className="gap-2"
                     >
-                      Download contact
+                      <Mail className="size-4" />
+                      {c.name || c.role || "Email"}
                     </Button>
-                  </div>
-                )}
+                  ))}
+                  <Button
+                    size="sm"
+                    onClick={() => {
+                      const primary = cat.contacts[0];
+                      const v = buildVCard({
+                        name: primary.name || primary.role || cat.title,
+                        email: primary.email,
+                        org: "MIT Manipal",
+                        title: primary.role,
+                      });
+                      downloadVCardFile(primary.name || cat.title, v);
+                    }}
+                  >
+                    Download contact
+                  </Button>
+                </div>
               </CardContent>
             </Card>
           ))}
         </div>
       </section>
 
-      <section className="space-y-4 mb-8" id={slugify("Student Council")}>
+      <section className="space-y-4" id={slugify("Student Council")}>
         <h2 className="text-xl font-semibold">Student Council</h2>
         <Card className="glass hover:shadow-md transition-shadow duration-200 scroll-mt-24">
           <CardHeader className="flex flex-row items-center justify-between pb-3">
@@ -140,7 +123,6 @@ export default function GrievancePage() {
                 type: "grievance",
                 name: studentCouncil.name,
                 href: `/grievance#${slugify("Student Council")}`,
-                phones: studentCouncil.phones.length > 0 ? studentCouncil.phones : undefined,
               }}
               size="sm"
             />
@@ -150,59 +132,32 @@ export default function GrievancePage() {
               <AlertCircle className="size-4 text-amber-500 mt-0.5 shrink-0" />
               <p className="text-sm text-muted-foreground">{studentCouncil.description}</p>
             </div>
-            {studentCouncil.email && (
-              <a href={`mailto:${studentCouncil.email}`} className="flex items-center gap-2 text-sm underline">
-                <Mail className="size-3.5" />
-                {studentCouncil.email}
-              </a>
-            )}
-            {studentCouncil.phones.length > 0 && (
-              <div className="flex flex-wrap gap-2 items-center">
-                {studentCouncil.phones.map((p) => (
-                  <a key={p} href={`tel:${p.replace(/\s+/g, "")}`} className="underline text-sm">
-                    {p}
+            <div className="space-y-2.5">
+              {studentCouncil.contacts.map((c) => (
+                <div key={c.email} className="space-y-0.5">
+                  {c.role && <div className="text-sm font-medium">{c.role}</div>}
+                  <a href={`mailto:${c.email}`} className="flex items-center gap-1.5 text-sm underline">
+                    <Mail className="size-3.5 shrink-0" />
+                    {c.email}
                   </a>
-                ))}
-              </div>
-            )}
-            {studentCouncil.formUrl && (
-              <a
-                href={studentCouncil.formUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 text-sm underline"
-              >
-                <ExternalLink className="size-3.5" />
-                Submit Grievance Form
-              </a>
-            )}
-            <div className="flex gap-2 pt-2">
-              {studentCouncil.email && (
+                </div>
+              ))}
+            </div>
+            <div className="flex flex-wrap gap-2 pt-2">
+              {studentCouncil.contacts.map((c) => (
                 <Button
+                  key={c.email}
                   variant="secondary"
                   size="sm"
                   onClick={() => {
-                    window.location.href = `mailto:${studentCouncil.email}`;
+                    window.location.href = `mailto:${c.email}`;
                   }}
                   className="gap-2"
                 >
                   <Mail className="size-4" />
-                  Email Us
+                  {c.role || "Email"}
                 </Button>
-              )}
-              {studentCouncil.phones.length > 0 && (
-                <Button
-                  variant="secondary"
-                  size="sm"
-                  onClick={() => {
-                    window.location.href = `tel:${studentCouncil.phones[0]?.replace(/\s+/g, "") ?? ""}`;
-                  }}
-                  className="gap-2"
-                >
-                  <Phone className="size-4" />
-                  Call Now
-                </Button>
-              )}
+              ))}
             </div>
           </CardContent>
         </Card>

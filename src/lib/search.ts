@@ -248,26 +248,36 @@ export function getAllSearchItems(): SearchItem[] {
   }
 
   // Grievance Redressal
-  for (const cat of grievance.categories) {
+  for (const cat of (grievance as { categories: Array<{ title: string; description: string; contacts: Array<{ name?: string; role?: string; email: string }> }> }).categories) {
     if (cat && cat.title) {
-      items.push({
-        title: cat.contact,
-        section: "Grievance Redressal",
-        subtitle: cat.title,
-        href: `/grievance#${slugify(cat.title)}`,
-        phones: cat.phones.length > 0 ? cat.phones : undefined,
-        notes: cat.description,
-      });
+      for (const c of cat.contacts) {
+        items.push({
+          title: c.name || c.role || cat.title,
+          section: "Grievance Redressal",
+          subtitle: cat.title,
+          href: `/grievance#${slugify(cat.title)}`,
+          notes: c.email,
+        });
+      }
     }
   }
-  if (grievance.studentCouncil) {
+  const sc = (grievance as { studentCouncil: { name: string; contacts: Array<{ role?: string; email: string }> } }).studentCouncil;
+  if (sc) {
     items.push({
-      title: grievance.studentCouncil.name,
+      title: sc.name,
       section: "Grievance Redressal",
       subtitle: "Student Council",
       href: `/grievance#${slugify("Student Council")}`,
-      phones: grievance.studentCouncil.phones.length > 0 ? grievance.studentCouncil.phones : undefined,
     });
+    for (const c of sc.contacts) {
+      items.push({
+        title: c.role || "Student Council",
+        section: "Grievance Redressal",
+        subtitle: sc.name,
+        href: `/grievance#${slugify("Student Council")}`,
+        notes: c.email,
+      });
+    }
   }
 
   cachedItems = items;
