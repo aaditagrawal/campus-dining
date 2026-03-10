@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { buildVCard, downloadVCardFile } from "@/lib/vcard";
 import { slugify } from "@/lib/utils";
-import { Mail, AlertCircle } from "lucide-react";
+import { Mail } from "lucide-react";
 import { FavoriteButton } from "@/components/favorite-button";
 
 type Contact = {
@@ -47,63 +47,56 @@ export default function GrievancePage() {
         <h2 className="text-xl font-semibold">Who to Contact</h2>
         <div className="grid sm:grid-cols-2 gap-4">
           {categories.map((cat) => (
-            <Card key={cat.title} id={slugify(cat.title)} className="glass hover:shadow-md transition-shadow duration-200 scroll-mt-24">
-              <CardHeader className="flex flex-row items-center justify-between pb-3">
-                <CardTitle className="text-lg">{cat.title}</CardTitle>
-                <FavoriteButton
-                  item={{
-                    id: `grievance-${slugify(cat.title)}`,
-                    type: "grievance",
-                    name: cat.title,
-                    href: `/grievance#${slugify(cat.title)}`,
-                    subtitle: cat.contacts.map((c) => c.name || c.role).join(", "),
-                  }}
-                  size="sm"
-                />
-              </CardHeader>
-              <CardContent className="space-y-3">
+            <Card key={cat.title} id={slugify(cat.title)} className="glass hover:shadow-md transition-shadow duration-200 scroll-mt-24 flex flex-col">
+              <CardHeader className="pb-2">
+                <div className="flex items-center justify-between gap-2">
+                  <CardTitle className="text-lg">{cat.title}</CardTitle>
+                  <FavoriteButton
+                    item={{
+                      id: `grievance-${slugify(cat.title)}`,
+                      type: "grievance",
+                      name: cat.title,
+                      href: `/grievance#${slugify(cat.title)}`,
+                      subtitle: cat.contacts.map((c) => c.name || c.role).join(", "),
+                    }}
+                    size="sm"
+                  />
+                </div>
                 <p className="text-sm text-muted-foreground">{cat.description}</p>
-                <div className="space-y-2.5">
+              </CardHeader>
+              <CardContent className="flex flex-col gap-3 flex-1">
+                <div className="rounded-md border border-border/60 divide-y divide-border/60 overflow-hidden">
                   {cat.contacts.map((c) => (
-                    <div key={c.email} className="space-y-0.5">
-                      {c.name && <div className="text-sm font-medium">{c.name}</div>}
-                      {c.role && <div className="text-xs text-muted-foreground">{c.role}</div>}
-                      <a href={`mailto:${c.email}`} className="flex items-center gap-1.5 text-sm underline">
-                        <Mail className="size-3.5 shrink-0" />
-                        {c.email}
-                      </a>
-                    </div>
+                    <a
+                      key={c.email}
+                      href={`mailto:${c.email}`}
+                      className="flex items-center justify-between gap-3 px-3 py-2.5 hover:bg-muted/50 transition-colors"
+                    >
+                      <div className="min-w-0">
+                        <div className="text-sm font-medium truncate">{c.name || c.role}</div>
+                        {c.name && c.role && <div className="text-xs text-muted-foreground truncate">{c.role}</div>}
+                        <div className="text-xs text-muted-foreground truncate">{c.email}</div>
+                      </div>
+                      <Mail className="size-4 text-muted-foreground shrink-0" />
+                    </a>
                   ))}
                 </div>
-                <div className="flex flex-wrap gap-2 pt-2">
-                  {cat.contacts.map((c) => (
-                    <Button
-                      key={c.email}
-                      variant="secondary"
-                      size="sm"
-                      onClick={() => {
-                        window.location.href = `mailto:${c.email}`;
-                      }}
-                      className="gap-2"
-                    >
-                      <Mail className="size-4" />
-                      {c.name || c.role || "Email"}
-                    </Button>
-                  ))}
+                <div className="flex gap-2 mt-auto">
                   <Button
                     size="sm"
                     onClick={() => {
-                      const primary = cat.contacts[0];
-                      const v = buildVCard({
-                        name: primary.name || primary.role || cat.title,
-                        email: primary.email,
-                        org: "MIT Manipal",
-                        title: primary.role,
-                      });
-                      downloadVCardFile(primary.name || cat.title, v);
+                      for (const c of cat.contacts) {
+                        const v = buildVCard({
+                          name: c.name || c.role || cat.title,
+                          email: c.email,
+                          org: "MIT Manipal",
+                          title: c.role,
+                        });
+                        downloadVCardFile(c.name || c.role || cat.title, v);
+                      }
                     }}
                   >
-                    Download contact
+                    Download contact{cat.contacts.length > 1 ? "s" : ""}
                   </Button>
                 </div>
               </CardContent>
@@ -114,53 +107,46 @@ export default function GrievancePage() {
 
       <section className="space-y-4" id={slugify("Student Council")}>
         <h2 className="text-xl font-semibold">Student Council</h2>
-        <Card className="glass hover:shadow-md transition-shadow duration-200 scroll-mt-24">
-          <CardHeader className="flex flex-row items-center justify-between pb-3">
-            <CardTitle className="text-lg">{studentCouncil.name}</CardTitle>
-            <FavoriteButton
-              item={{
-                id: "grievance-student-council",
-                type: "grievance",
-                name: studentCouncil.name,
-                href: `/grievance#${slugify("Student Council")}`,
-              }}
-              size="sm"
-            />
-          </CardHeader>
-          <CardContent className="space-y-3">
-            <div className="flex items-start gap-2 rounded-md border border-amber-500/30 bg-amber-500/5 px-3 py-2.5">
-              <AlertCircle className="size-4 text-amber-500 mt-0.5 shrink-0" />
-              <p className="text-sm text-muted-foreground">{studentCouncil.description}</p>
-            </div>
-            <div className="space-y-2.5">
-              {studentCouncil.contacts.map((c) => (
-                <div key={c.email} className="space-y-0.5">
-                  {c.role && <div className="text-sm font-medium">{c.role}</div>}
-                  <a href={`mailto:${c.email}`} className="flex items-center gap-1.5 text-sm underline">
-                    <Mail className="size-3.5 shrink-0" />
-                    {c.email}
-                  </a>
+        <div className="grid sm:grid-cols-2 gap-4">
+          {studentCouncil.contacts.map((c) => (
+            <Card key={c.email} id={slugify(c.role || c.email)} className="glass hover:shadow-md transition-shadow duration-200 scroll-mt-24">
+              <CardHeader className="pb-2">
+                <div className="flex items-center justify-between gap-2">
+                  <CardTitle className="text-lg">{c.role || c.name}</CardTitle>
+                  <FavoriteButton
+                    item={{
+                      id: `grievance-sc-${slugify(c.email)}`,
+                      type: "grievance",
+                      name: c.role || c.name || "Student Council",
+                      href: `/grievance#${slugify(c.role || c.email)}`,
+                    }}
+                    size="sm"
+                  />
                 </div>
-              ))}
-            </div>
-            <div className="flex flex-wrap gap-2 pt-2">
-              {studentCouncil.contacts.map((c) => (
+              </CardHeader>
+              <CardContent className="flex items-center justify-between gap-3">
+                <a href={`mailto:${c.email}`} className="inline-flex items-center gap-1.5 text-sm underline min-w-0 truncate">
+                  <Mail className="size-3.5 shrink-0" />
+                  {c.email}
+                </a>
                 <Button
-                  key={c.email}
-                  variant="secondary"
                   size="sm"
+                  className="shrink-0"
                   onClick={() => {
-                    window.location.href = `mailto:${c.email}`;
+                    const v = buildVCard({
+                      name: c.role || c.name || "Student Council",
+                      email: c.email,
+                      org: "MIT Student Council",
+                    });
+                    downloadVCardFile(c.role || c.name || "Student Council", v);
                   }}
-                  className="gap-2"
                 >
-                  <Mail className="size-4" />
-                  {c.role || "Email"}
+                  Download contact
                 </Button>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       </section>
     </main>
   );
