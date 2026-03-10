@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useTheme } from "next-themes";
-import { Sun, Moon, Menu, Utensils, Building2, Bus, ShieldAlert, Wrench, GraduationCap, Search, X, Settings, Star } from "lucide-react";
+import { Sun, Moon, Menu, Utensils, Building2, Bus, ShieldAlert, Wrench, GraduationCap, Search, X, Settings, Star, MessageSquareWarning } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink, NavigationMenuTrigger, NavigationMenuContent } from "@/components/ui/navigation-menu";
 import { Sheet, SheetTrigger, SheetContent, SheetClose, SheetHeader, SheetTitle } from "@/components/ui/sheet";
@@ -237,6 +237,14 @@ export function SiteHeader() {
                     </li>
                     <li>
                       <NavigationMenuLink asChild>
+                        <Link href="/grievance" className="flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-muted text-sm transition-colors duration-150">
+                          <MessageSquareWarning className="size-4 text-muted-foreground" />
+                          Grievance Redressal
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
                         <Link href="/favorites" className="flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-muted text-sm transition-colors duration-150">
                           <Star className="size-4 text-muted-foreground" />
                           Favorites
@@ -320,6 +328,12 @@ export function SiteHeader() {
                   <Link href="/tools" className="flex items-center gap-3 px-3 py-3.5 rounded-md hover:bg-muted focus:bg-muted transition-colors">
                     <Settings className="size-4 text-muted-foreground" />
                     <span className="text-base">Tools</span>
+                  </Link>
+                </SheetClose>
+                <SheetClose asChild>
+                  <Link href="/grievance" className="flex items-center gap-3 px-3 py-3.5 rounded-md hover:bg-muted focus:bg-muted transition-colors">
+                    <MessageSquareWarning className="size-4 text-muted-foreground" />
+                    <span className="text-base">Grievance Redressal</span>
                   </Link>
                 </SheetClose>
                 <SheetClose asChild>

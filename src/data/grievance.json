@@ -1,0 +1,46 @@
+{
+  "categories": [
+    {
+      "title": "Food & Hostel Issues",
+      "description": "Mess food quality, hostel maintenance, room issues, hygiene complaints",
+      "contact": "Chief Warden's Office (CWO)",
+      "email": "",
+      "phones": []
+    },
+    {
+      "title": "Internet & Network Issues",
+      "description": "Wi-Fi connectivity, LAN issues, network outages, speed complaints",
+      "contact": "IBUS",
+      "email": "",
+      "phones": []
+    },
+    {
+      "title": "Buggy / Transport Issues",
+      "description": "Campus buggy service, routes, timing issues",
+      "contact": "Murty Sir",
+      "email": "",
+      "phones": []
+    },
+    {
+      "title": "Student Welfare",
+      "description": "General student welfare, administrative concerns, campus facilities",
+      "contact": "Student Welfare Officer (SWO)",
+      "email": "",
+      "phones": []
+    },
+    {
+      "title": "Counselling Services",
+      "description": "Mental health support, stress, anxiety, personal issues. Available anytime — don't hesitate to call.",
+      "contact": "Student Counselling Centre",
+      "email": "",
+      "phones": []
+    }
+  ],
+  "studentCouncil": {
+    "name": "MIT Student Council",
+    "description": "CC us in all your grievance emails. You can also mail us directly or fill out the form.",
+    "email": "",
+    "formUrl": "",
+    "phones": []
+  }
+}

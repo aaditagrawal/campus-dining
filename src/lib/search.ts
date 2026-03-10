@@ -4,6 +4,7 @@ import travel from "@/data/travel.json";
 import emergencies from "@/data/emergency.json";
 import hostels from "@/data/hostels.json";
 import academics from "@/data/academics.json";
+import grievance from "@/data/grievance.json";
 import { slugify } from "@/lib/utils";
 
 export type SearchItem = {
@@ -106,6 +107,7 @@ export function getAllSearchItems(): SearchItem[] {
     ["Travel", "/travel"],
     ["Emergency", "/emergency"],
     ["Services", "/services"],
+    ["Grievance Redressal", "/grievance"],
   ];
   for (const [title, href] of sections) {
     if (title && href) {
@@ -243,6 +245,29 @@ export function getAllSearchItems(): SearchItem[] {
         }
       }
     }
+  }
+
+  // Grievance Redressal
+  for (const cat of grievance.categories) {
+    if (cat && cat.title) {
+      items.push({
+        title: cat.contact,
+        section: "Grievance Redressal",
+        subtitle: cat.title,
+        href: `/grievance#${slugify(cat.title)}`,
+        phones: cat.phones.length > 0 ? cat.phones : undefined,
+        notes: cat.description,
+      });
+    }
+  }
+  if (grievance.studentCouncil) {
+    items.push({
+      title: grievance.studentCouncil.name,
+      section: "Grievance Redressal",
+      subtitle: "Student Council",
+      href: `/grievance#${slugify("Student Council")}`,
+      phones: grievance.studentCouncil.phones.length > 0 ? grievance.studentCouncil.phones : undefined,
+    });
   }
 
   cachedItems = items;
