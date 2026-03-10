@@ -12,6 +12,7 @@ import {
   Car,
   Wrench,
   Star,
+  MessageSquareWarning,
 } from "lucide-react";
 import { useMemo } from "react";
 import { useFavorites } from "@/hooks/useFavorites";
@@ -126,6 +127,15 @@ export default function Home() {
             <h3 className="text-base font-medium mb-1 font-serif">Favorites</h3>
             <p className="text-sm text-muted-foreground leading-snug">
               {!isLoaded ? "Loading..." : favoritesCount === 0 ? "Save your contacts" : "Your saved items"}
+            </p>
+          </div>
+        </Link>
+        <Link href="/grievance" className="group">
+          <div className="h-full p-5 sm:p-6 rounded-xl border border-border/50 bg-card/60 hover:bg-card hover:border-border/80 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
+            <MessageSquareWarning className="h-6 w-6 mb-3 text-muted-foreground group-hover:text-foreground transition-colors duration-200" />
+            <h3 className="text-base font-medium mb-1 font-serif">Grievance Redressal</h3>
+            <p className="text-sm text-muted-foreground leading-snug">
+              Complaints & contacts
             </p>
           </div>
         </Link>

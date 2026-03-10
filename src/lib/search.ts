@@ -4,6 +4,7 @@ import travel from "@/data/travel.json";
 import emergencies from "@/data/emergency.json";
 import hostels from "@/data/hostels.json";
 import academics from "@/data/academics.json";
+import grievance from "@/data/grievance.json";
 import { slugify } from "@/lib/utils";
 
 export type SearchItem = {
@@ -106,6 +107,7 @@ export function getAllSearchItems(): SearchItem[] {
     ["Travel", "/travel"],
     ["Emergency", "/emergency"],
     ["Services", "/services"],
+    ["Grievance Redressal", "/grievance"],
   ];
   for (const [title, href] of sections) {
     if (title && href) {
@@ -242,6 +244,39 @@ export function getAllSearchItems(): SearchItem[] {
           });
         }
       }
+    }
+  }
+
+  // Grievance Redressal
+  for (const cat of (grievance as { categories: Array<{ title: string; description: string; contacts: Array<{ name?: string; role?: string; email: string }> }> }).categories) {
+    if (cat && cat.title) {
+      for (const c of cat.contacts) {
+        items.push({
+          title: c.name || c.role || cat.title,
+          section: "Grievance Redressal",
+          subtitle: cat.title,
+          href: `/grievance#${slugify(cat.title)}`,
+          notes: c.email,
+        });
+      }
+    }
+  }
+  const sc = (grievance as { studentCouncil: { name: string; contacts: Array<{ role?: string; email: string }> } }).studentCouncil;
+  if (sc) {
+    items.push({
+      title: sc.name,
+      section: "Grievance Redressal",
+      subtitle: "Student Council",
+      href: `/grievance#${slugify("Student Council")}`,
+    });
+    for (const c of sc.contacts) {
+      items.push({
+        title: c.role || "Student Council",
+        section: "Grievance Redressal",
+        subtitle: sc.name,
+        href: `/grievance#${slugify("Student Council")}`,
+        notes: c.email,
+      });
     }
   }
 

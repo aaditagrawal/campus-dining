@@ -4,7 +4,7 @@ import { createContext, useContext, useState, useEffect, useCallback, type React
 
 export type FavoriteItem = {
   id: string;
-  type: "restaurant" | "hostel" | "emergency" | "service" | "travel" | "academic" | "tool";
+  type: "restaurant" | "hostel" | "emergency" | "service" | "travel" | "academic" | "tool" | "grievance";
   name: string;
   href: string;
   phones?: string[];
